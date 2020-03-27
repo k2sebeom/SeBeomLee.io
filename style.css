@@ -1,0 +1,19 @@
+.buffer {
+	height: 3rem;
+}
+
+body{
+	background-color: #e7e7e7;
+}
+
+.mainbody{
+	background-color: white;
+	border: 2px solid black;
+}
+
+#Headshot{
+	float: right;
+	margin-top: 2rem;
+	width: 200px;
+	height: 250px;
+}
