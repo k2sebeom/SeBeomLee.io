@@ -7,13 +7,33 @@ body{
 }
 
 .mainbody{
+	max-width: 800px;
 	background-color: white;
 	border: 2px solid black;
+	padding: 2rem;
+}
+
+.profile {
+	margin-bottom: 2rem;
+	font-size: 1.2rem;
 }
 
 #Headshot{
 	float: right;
-	margin-top: 2rem;
 	width: 200px;
 	height: 250px;
+}
+
+#links {
+	 list-style: none; 
+	 padding-left: 1rem; 
+	 margin-bottom: 0; 
+	 margin-top: 0;
+}
+
+hr {
+	border-width: 0.5rem;
+	border-color: #8fa8f0;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
