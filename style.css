@@ -67,6 +67,10 @@ hr {
 		font-size: 0.8rem;
 	}
 
+	.subtext {
+		font-size: 0.7rem;
+	}
+
 	#Headshot {
 		width: 100px;
 		height: 125px;
