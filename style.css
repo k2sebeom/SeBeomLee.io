@@ -17,6 +17,10 @@ body{
 	font-size: 1.2rem;
 }
 
+.subtext {
+	font-size: 1.1rem;
+}
+
 #Headshot{
 	float: right;
 	width: 200px;
@@ -53,8 +57,10 @@ hr {
 	background-image: linear-gradient(to bottom right, #5252ff, #8fa8f0);
 }
 
-
-
+.btn-primary:active {
+	background-color: #8fa8f0;
+	background-image: linear-gradient(to bottom right, #5252ff, #8fa8f0);
+}
 
 @media screen and (max-width: 650px) {
 	.profile{
