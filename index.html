@@ -1,103 +1,476 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>SeBeom Lee</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Amiri&display=swap" rel="stylesheet">	
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <title>SeBeom Lee | Developer</title>
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="lib/hover/hover.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Responsive css -->
+  <link href="css/responsive.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <!-- =======================================================
+    Theme Name: Folio
+    Theme URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
 </head>
+
 <body>
-	<div class="container mainbody"> 
-		<h2 class="text-left">
-			SeBeom Lee
-		</h2>
-		<div>
-		<img src="img/Headshot.JPG" id="Headshot">
-		</div>
-		<div class="text-left profile">
-			B.A. in Computer & Information Science<br>
-			B.A. in Physics<br>
-			<span style="color: #bc0505">Oberlin College</span>
-		</div>
-		<div class="profile">
-			Links:
-			<ul class="text-left" id="links">
-				<li><a href="https://github.com/k2sebeom">Github</a></li>
-				<li><a href="https://www.youtube.com/channel/UCQQ4la41iee5cvfehWi5CWQ">Youtube</a></li>
-				<li><a href="https://www.linkedin.com/in/sebeom-lee/">LinkedIn</a></li>
-				<li><a href="https://k2sebeom.itch.io/">Itch.io</a></li>
-			</ul>
-			Email: <a href="mailto:slee5@oberlin.edu" style="color: #bc0505">slee5@oberlin.edu</a>
-		</div>
 
-		<div class="text-container profile">
-			<strong>SeBeom Lee</strong> is a student majoring in Computer Science and Physics at Oberlin College. His major interest is in machine learning technology and its applications to robotics and game development. His passion extends to the field of computational physics, especially in numerical simulations of complicated mechanical systems. He is from South Korea, where he graduated from his high school, Korean Minjok Leadership Academy. He is currently working on the design of an Auto-Sorting Bin as a member of the WECO. You can contact him at <a href="mailto:slee5@oberlin.edu">slee5@oberlin.edu</a>.
-		</div>
+  <!-- start section navbar -->
+  <nav id="main-nav">
+    <div class="row">
+      <div class="container">
+        <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
 
-		<hr>
+        <ul class="nav-menu list-unstyled">
+          <li><a href="#header" class="smoothScroll">Home</a></li>
+          <li><a href="#about" class="smoothScroll">About</a></li>
+          <li><a href="#portfolio" class="smoothScroll">Portfolio</a></li>
+          <li><a href="#journal" class="smoothScroll">Blog</a></li>
+          <li><a href="#contact" class="smoothScroll">Contact</a></li>
+        </ul>
 
-		<h4>
-			Projects
-		</h4>
-		<ul class="profile">
-			<li>
-				Auto Sorting Smart Bin
-				<div class="subtext">
-					What if an artificial intelligence can sort out trash by themselves? Using a neural network technique, I created a trash-classifier which can sort out trash to 4 different categories: metal, glass, plastic, and landfill. To materialize the product, I also created a working prototype that can sort out trash to two different directions: reusable and landfill. 
-				</div>
-				<a href="https://www.youtube.com/watch?v=9VwjptOWMng&t=10s" type="button" class="btn btn-primary">Explore More</a>
-			</li>
-			<li>Artificial Intelligence - "Swipe Brick Breaker"
-				<div class="subtext">
-					 "Swipe Brick Breaker" is a game developed by Nine Games. It is very similar to Atari Breakout, but the difference is that the player shoots out multiple balls to get rid of bricks that are removed when hit multiples times. Using Unity ML agent and reinforcement learning, I created an AI that plays the game. You can battle with the AI at the link below!
-				</div>
-				<a href="https://k2sebeom.itch.io/swipebrick-ai" type="button" class="btn btn-primary">Play Now!</a>
-			</li>
-			<li>Numerical Method of solving calculus of variation using gradient descent
-				<div class="subtext">
-					 Calculus of variation is a technique used in various fields of mathematics and mechanics. One known method of solving an optimization problem of such is through an Euler-Lagrange equation. However, in complex systems, solving Euler-Lagrange equation can be very difficult. Therefore, I introduce you a numerical method of solving such optimization problem using gradient descent and fourier expansion. You can download the package from a <a href="https://github.com/k2sebeom/Calculus-of-variation-with-boundary-condition">github repository.</a>
-				</div>
-				<a href="./pdf/CVar.pdf" type="button" class="btn btn-primary">Explore More</a>
-			</li>
-			<li>Adaptive Optics Simulator
-				<div class="subtext">
-					We say that the stars are "twinkling" because their images are distorted by the atmosphere. It is romantic in some sense, but when it comes to an observation, abberation of image is a big trouble. Adaptive optics is a technology of reconstructing images that are distorted by a turbulence in Earth’s atmosphere. I created a simulation that duplicates the process of adaptive optics and simulated a distortion of image by an atmosphere and the reconstruction of it by an adaptive process.</a>
-				</div>
-				<a href="./pdf/AO.pdf" type="button" class="btn btn-primary">Explore More</a></li>
-			
-			<li>An analysis of a chain falling faster by collision
-				<div class="subtext">
-					Galileo Galilei broke an old misconception that the heavy objects fall faster. However, if a ladder-like chain is falling on the floor, surprisingly, it turns out that the chain falls faster than the identical chain falling in the air. The collision of chain and the floor keeps accelerating the chain, and therefore, it falls faster. I created a simulation of the phenomenon and showed how fast the chain falls when colliding with the floor.
-				</div>
-				<a href="./pdf/Chain.pdf" type="button" class="btn btn-primary">Explore More</a></li></li>
-		</ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End section navbar -->
 
-		<hr>
 
-		<h4>
-			Professional Activities
-		</h4>
-		<ul class="profile">
-			<li>Oberlin College, Computer Science Tutor: <span class="push">Feb 2020 - Present</span></li>
-			<li>Oberlin College, Quantitative Skills Drop-In Center Tutor: <span class="push">Feb 2020 - Present</span></li>
-			<li>Oberlin College MakerSpace, Co-Treasure: <span class="push">Aug 2019 - Feb 2020</span></li>
-			<li>WECO, Design & Technical Manager: <span class="push">Dec 2019 - Feb 2020</span></li>
-			<li><a href="https://k2sebeom.github.io/1006Games.io/">1006Games</a>, Lead Game Developer: <span class="push">Dec 2019 - Present</span></li>
-		</ul>
+  <!-- start section header -->
+  <div id="header" class="home">
 
-		<hr>
+    <div class="container">
+      <div class="header-content">
+        <h1 id="passion">My passion is <span class="typed"></span></h1>
+        <p>Game Development, Physical Simulation, Artificial Intelligence, Robotics</p>
 
-		<h4>
-			Education
-		</h4>
-		<ul class="profile">
-			<li>B.A. in Computer & Information Science, <a href="https://www.oberlin.edu/">Oberlin College, Ohio</a>, 2022</li>
-			<li>B.A. in Physics,  <a href="https://www.oberlin.edu/">Oberlin College, Ohio</a>, 2022</li>
-			<li>Graduated, <a href="http://www.minjok.hs.kr/">Korean Minjok Leadership Academy, Republic of Korea</a>, 2016</li>
-		</ul>
-	</div>
+        <ul class="list-unstyled list-social">
+          <li><a href="https://www.facebook.com/profile.php?id=100004667293003"><i class="ion-social-facebook"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/sebeom-lee/"><i class="ion-social-linkedin"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCQQ4la41iee5cvfehWi5CWQ"><i class="ion-social-youtube"></i></a></li>
+          <li><a href="https://github.com/k2sebeom"><i class="ion-social-github"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End section header -->
+
+
+  <!-- start section about us -->
+  <div id="about" class="paddsection">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <div class="col-lg-4 ">
+          <div class="div-img-bg">
+            <div class="about-img">
+              <img src="images/me.jpg" class="img-responsive" alt="me">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="about-descr">
+
+            <p class="p-heading">SeBeom Lee is a computer developer who has great passion in game development and artificial intelligence, with its application to robotics.</p>
+            <p class="separator">He is currently studying Computer and Information Science & Physics in Oberlin College, Ohio. His passion extends to the field of computational physics, especially in numerical simulations of complicated mechanical systems. He is from South Korea, where he graduated from his high school, Korean Minjok Leadership Academy. He is currently working on the design of an Auto-Sorting Bin as a member of the WECO. You can contact him at slee5@oberlin.edu.</p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end section about us -->
+
+
+  <!-- start section services -->
+  <!-- <div id="services">
+    <div class="container">
+
+        <div class="services-carousel owl-theme">
+
+          <div class="services-block">
+
+            <i class="ion-ios-browsers-outline"></i>
+            <span>UI/UX DESIGN</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <i class="ion-ios-lightbulb-outline"></i>
+            <span>BRAND IDENTITY</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <i class="ion-ios-color-wand-outline"></i>
+            <span>WEB DESIGN</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <i class="ion-social-android-outline"></i>
+            <span>MOBILE APPS</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <i class="ion-ios-analytics-outline"></i>
+            <span>Analytics</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+          <div class="services-block">
+
+            <i class="ion-ios-camera-outline"></i>
+            <span>PHOTOGRAPHY</span>
+            <p class="separator">To an English person, it will seem like simplified English,told me what </p>
+
+          </div>
+
+        </div>
+
+    </div>
+
+  </div> -->
+  <!-- end section services -->
+
+
+  <!-- start section portfolio -->
+  <div id="portfolio" class="text-center paddsection">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>My Portfolio</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="portfolio-list">
+
+            <ul class="nav list-unstyled" id="portfolio-flters">
+              <li class="filter filter-active" data-filter=".all">all</li>
+              <li class="filter" data-filter=".Game">Game</li>
+              <li class="filter" data-filter=".AI">AI</li>
+              <li class="filter" data-filter=".Simulation">Simulation</li>
+              <li class="filter" data-filter=".Robotics">Robotics</li>
+            </ul>
+
+          </div>
+
+          <div class="portfolio-container">
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all AI Robotics">
+              <a href="https://www.youtube.com/watch?v=9VwjptOWMng&t">
+                <img class="portfolio-img" src="images/portfolio/AutoBin.jpg" alt="img">
+              </a>
+              <div class="portfolio-title">Auto-Sorting Smart Bin</div>
+              <div class="text-justify portfolio-content">
+                An artificial intelligence sorts out trash based on the image. A neural network of VGG16 is used.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Game AI">
+              <a href="https://k2sebeom.github.io/1006Games.io/HTML5/index.html">
+              <img class="portfolio-img" src="images/portfolio/Splux.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">Splux - Multiplayer Game</div>
+              <div class="text-justify portfolio-content">
+                Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Game AI">
+              <a href="https://k2sebeom.itch.io/swipebrick-ai">
+                <img class="portfolio-img" src="images/portfolio/Swipe.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">AI -"Swipe Brick Breaker"</div>
+              <div class="text-justify portfolio-content">
+                This aritificial intelligence supported by Unity ML Agent plays "Swipe Brick Breaker," a game developed by Nine Games.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Simulation">
+              <a href="pdf/CVar.pdf">
+                <img class="portfolio-img" src="images/portfolio/CalVar.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">Numerical Method for Calculus of Variation</div>
+              <div class="text-justify portfolio-content">
+                A numerical method of optimization using Fourier series and gradient descent
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Simulation">
+              <a href="pdf/AO.pdf">
+              <img class="portfolio-img" src="images/portfolio/AO.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">Adaptive Optics Simulator</div>
+              <div class="text-justify portfolio-content">
+                A numerical simulation of Adaptive Optics using Kolmogorov turbulence model and Shack-Hartmann method.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Simulation">
+              <a href="pdf/Chain.pdf">
+              <img class="portfolio-img" src="images/portfolio/Chain.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">Analysis of Chain Falling Faster</div>
+              <div class="text-justify portfolio-content">
+                If a chain of sticks collide with the floor, it falls faster than the that of free fall. This is a simulation of such phenomenon.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Game">
+              <a href="https://k2sebeom.itch.io/spell">
+              <img class="portfolio-img" src="images/portfolio/Wiz.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">VR Wizardry - Mobile Game</div>
+              <div class="text-justify portfolio-content">
+                A player moves the mobile phone to change the view and casts spells by drawing a pattern on the screen.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Simulation AI">
+              <a href="https://www.youtube.com/watch?v=LDCNoa7i5RM">
+              <img class="portfolio-img" src="images/portfolio/Drone.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">Reinforcement Learning - Drone</div>
+              <div class="text-justify portfolio-content">
+                Using Unity ML Agent, an artificial intelligence learns how to fly a drone.
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-thumbnail all Game">
+              <a  href="https://k2sebeom.itch.io/combat-field">
+              <img class="portfolio-img" src="images/portfolio/Field.JPG" alt="img">
+              </a>
+              <div class="portfolio-title">Top-View Multiplayer Game</div>
+              <div class="text-justify portfolio-content">
+                In a battle-royal styled multiplayer game, different players shoot each other to survive.
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End section portfolio -->
+
+
+  <!-- start section journal -->
+  <div id="journal" class="text-left paddsection">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Education</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="journal-block">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="journal-info">
+
+              <a href="https://www.oberlin.edu/"><img src="images/Oberlin.png" class="img-edu" alt="img"></a>
+
+              <div class="journal-txt">
+                <h4><a href="https://www.oberlin.edu/">Oberlin College, Ohio</a></h4>
+                <p class="separator">B.A. in Computer & Information Science
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="journal-info">
+
+              <a href="https://www.oberlin.edu/"><img src="images/Oberlin.png" class="img-edu" alt="img"></a>
+
+              <div class="journal-txt">
+                <h4><a href="https://www.oberlin.edu/">Oberlin College, Ohio</a></h4>
+                <p class="separator">B.A. in Physics
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="journal-info">
+
+              <a href="http://www.minjok.hs.kr/"><img src="images/KMLA.png" class="img-edu" alt="img"></a>
+
+              <div class="journal-txt">
+                <h4><a href="http://www.minjok.hs.kr/">Korean Minjok Leadership Academy</a></h4>
+                <p class="separator">Graduated
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End section journal -->
+
+
+  <!-- start sectoion contact -->
+  <div id="contact" class="paddsection">
+    <div class="container">
+      <div class="contact-block1">
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="contact-contact">
+
+              <h2 class="mb-30">GET IN TOUCH</h2>
+
+              <ul class="contact-details">
+                <li><span>slee5@oberlin.edu</span></li>
+              </ul>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <form action="" method="post" role="form" class="contactForm">
+              <div class="row">
+
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+
+                <div class="col-lg-6">
+                  <div class="form-group contact-block1">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                    <div class="validation"></div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- start sectoion contact -->
+
+
+  <!-- start section footer -->
+  <div id="footer" class="text-center">
+    <div class="container">
+      <div class="socials-media text-center">
+
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/profile.php?id=100004667293003"><i class="ion-social-facebook"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/sebeom-lee/"><i class="ion-social-linkedin"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCQQ4la41iee5cvfehWi5CWQ"><i class="ion-social-youtube"></i></a></li>
+          <li><a href="https://github.com/k2sebeom"><i class="ion-social-github"></i></a></li>
+        </ul>
+
+      </div>
+
+      <p>&copy; Copyrights Folio. All rights reserved.</p>
+
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
+        -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+
+    </div>
+  </div>
+  <!-- End section footer -->
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/typed/typed.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
 </body>
+
 </html>
