@@ -79,7 +79,7 @@ $(document).ready(function() {
 
   $(function() {
     typed.typed({
-      strings: ["Software Development.", "Physical Simulation.", "Artificial Intelligence.", "Robotics."],
+      strings: ["Software Development.", "Game Development.", "Cloud Computing.", "Artificial Intelligence.", "Blockchain."],
       typeSpeed: 100,
       loop: true,
     });
