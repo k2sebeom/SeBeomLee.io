@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/SeBeomLee.io/static/css/main.b02f2999.css",
+    "main.js": "/SeBeomLee.io/static/js/main.87c7dbeb.js",
+    "static/js/787.66d89f44.chunk.js": "/SeBeomLee.io/static/js/787.66d89f44.chunk.js",
+    "static/media/at-at.glb": "/SeBeomLee.io/static/media/at-at.96829040050395e5291f.glb",
+    "static/media/Oberlin.png": "/SeBeomLee.io/static/media/Oberlin.620ea7331390863e4f49.png",
+    "static/media/desk.glb": "/SeBeomLee.io/static/media/desk.4669141532f41cb46fd8.glb",
+    "static/media/KMLA.png": "/SeBeomLee.io/static/media/KMLA.c1ceaa5393cbdf8b5acf.png",
+    "index.html": "/SeBeomLee.io/index.html",
+    "main.b02f2999.css.map": "/SeBeomLee.io/static/css/main.b02f2999.css.map",
+    "main.87c7dbeb.js.map": "/SeBeomLee.io/static/js/main.87c7dbeb.js.map",
+    "787.66d89f44.chunk.js.map": "/SeBeomLee.io/static/js/787.66d89f44.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b02f2999.css",
+    "static/js/main.87c7dbeb.js"
+  ]
+}
