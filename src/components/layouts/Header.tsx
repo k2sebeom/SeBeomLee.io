@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 const HeaderContainer = styled(motion.nav)`
   display: flex;
@@ -20,12 +21,27 @@ const HeaderContainer = styled(motion.nav)`
 `;
 
 const HeaderLink = styled.a`
-  color: white;
+  color: ${(props) => props.theme.colors.textColorLight};
   margin-right: 0.7rem;
   margin-left: 0.7rem;
 
   @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
     display: none;
+  }
+`;
+
+const MenuIcon = styled(RxHamburgerMenu)`
+  color: ${(props) => props.theme.colors.textColorLight};
+
+  display: none;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  &:active {
+    opacity: 0.5;
   }
 `;
 
@@ -36,6 +52,7 @@ function Header(): JSX.Element {
       <HeaderLink>Projects</HeaderLink>
       <HeaderLink>Work</HeaderLink>
       <HeaderLink>Education</HeaderLink>
+      <MenuIcon />
     </HeaderContainer>
   );
 }

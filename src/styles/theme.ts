@@ -4,6 +4,9 @@ const theme = {
     primaryDark: '#1A405D',
     secondaryLight: '#FFF',
     secondaryDark: '#0F2C3E',
+
+    textColorLight: '#FFF',
+    textColorDark: '#FFF',
   },
   breakpoints: {
     xs: '450px',
