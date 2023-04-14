@@ -13,12 +13,20 @@ const HeaderContainer = styled(motion.nav)`
 
   box-sizing: border-box;
   padding-right: 4rem;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    padding-right: 1rem;
+  }
 `;
 
 const HeaderLink = styled.a`
   color: white;
   margin-right: 0.7rem;
   margin-left: 0.7rem;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
+    display: none;
+  }
 `;
 
 function Header(): JSX.Element {

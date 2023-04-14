@@ -5,6 +5,13 @@ const theme = {
     secondaryLight: '#FFF',
     secondaryDark: '#0F2C3E',
   },
+  breakpoints: {
+    xs: '450px',
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+  },
 };
 
 export default theme;
