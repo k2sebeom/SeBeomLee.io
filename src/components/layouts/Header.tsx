@@ -15,20 +15,9 @@ const HeaderContainer = styled(motion.nav)`
   padding-right: 4rem;
 `;
 
-const HeaderLink = styled.a`
-  color: white;
-  margin-right: 0.7rem;
-  margin-left: 0.7rem;
-`;
-
 function Header(): JSX.Element {
   return (
-    <HeaderContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-      <HeaderLink>About Me</HeaderLink>
-      <HeaderLink>Projects</HeaderLink>
-      <HeaderLink>Work</HeaderLink>
-      <HeaderLink>Education</HeaderLink>
-    </HeaderContainer>
+    <HeaderContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}></HeaderContainer>
   );
 }
 
