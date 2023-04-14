@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const HeaderContainer = styled.nav`
+const HeaderContainer = styled(motion.nav)`
   display: flex;
   width: 100vw;
   background-color: ${(props) => props.theme.colors.primaryLight};
@@ -22,7 +23,7 @@ const HeaderLink = styled.a`
 
 function Header(): JSX.Element {
   return (
-    <HeaderContainer>
+    <HeaderContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
       <HeaderLink>About Me</HeaderLink>
       <HeaderLink>Projects</HeaderLink>
       <HeaderLink>Work</HeaderLink>
