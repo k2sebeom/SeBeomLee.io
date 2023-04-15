@@ -1,12 +1,21 @@
-import React from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars, useGLTF } from '@react-three/drei';
 import styled from 'styled-components';
+import { type Group } from 'three';
 
 const Earth = (): JSX.Element => {
   const earth = useGLTF('./models/earth.glb');
 
-  return <primitive object={earth.scene} position-y={-2} scale={2} />;
+  const earthRef = useRef<Group | null>(null);
+
+  const rotateSpeed = 0.4;
+
+  useFrame((state, delta) => {
+    earthRef.current?.rotateY(rotateSpeed * delta);
+  });
+
+  return <primitive ref={earthRef} object={earth.scene} position-y={-2} scale={2} />;
 };
 
 const CanvasContainer = styled.div`
