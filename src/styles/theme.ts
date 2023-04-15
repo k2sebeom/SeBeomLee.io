@@ -7,6 +7,8 @@ const theme = {
 
     textColorLight: '#FFF',
     textColorDark: '#FFF',
+
+    labelColorLight: '#000',
   },
   breakpoints: {
     xs: '450px',

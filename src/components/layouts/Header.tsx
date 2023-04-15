@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 const HeaderContainer = styled(motion.nav)`
@@ -25,8 +25,28 @@ const HeaderLink = styled.a`
   margin-right: 0.7rem;
   margin-left: 0.7rem;
 
+  user-select: none;
+
   @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
     display: none;
+  }
+`;
+
+const MenuLink = styled.a`
+  color: ${(props) => props.theme.colors.labelColorLight};
+  margin-right: 0.7rem;
+  margin-left: 0.7rem;
+
+  border-bottom: 1px solid #ddd;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-sizing: border-box;
+
+  user-select: none;
+  cursor: pointer;
+
+  &:active {
+    opacity: 0.5;
   }
 `;
 
@@ -34,6 +54,8 @@ const MenuIcon = styled(RxHamburgerMenu)`
   color: ${(props) => props.theme.colors.textColorLight};
 
   display: none;
+
+  cursor: pointer;
 
   @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
     display: block;
@@ -45,15 +67,46 @@ const MenuIcon = styled(RxHamburgerMenu)`
   }
 `;
 
+const MenuContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  overflow: hidden;
+`;
+
 function Header(): JSX.Element {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+
   return (
-    <HeaderContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-      <HeaderLink>About Me</HeaderLink>
-      <HeaderLink>Projects</HeaderLink>
-      <HeaderLink>Work</HeaderLink>
-      <HeaderLink>Education</HeaderLink>
-      <MenuIcon />
-    </HeaderContainer>
+    <div>
+      <HeaderContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+        <HeaderLink>About Me</HeaderLink>
+        <HeaderLink>Projects</HeaderLink>
+        <HeaderLink>Work</HeaderLink>
+        <HeaderLink>Education</HeaderLink>
+        <MenuIcon
+          onClick={() => {
+            setShowMenu((prev) => !prev);
+          }}
+        />
+      </HeaderContainer>
+      <AnimatePresence>
+        {showMenu && (
+          <MenuContainer
+            initial={{ height: 0, transformOrigin: 'top' }}
+            animate={{ height: 150, transformOrigin: 'top' }}
+            exit={{ height: 0, transformOrigin: 'top' }}
+            transition={{ duration: 0.7 }}
+          >
+            <MenuLink>About Me</MenuLink>
+            <MenuLink>Projects</MenuLink>
+            <MenuLink>Work</MenuLink>
+            <MenuLink>Education</MenuLink>
+          </MenuContainer>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
