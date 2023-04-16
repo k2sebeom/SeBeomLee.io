@@ -1,22 +1,32 @@
-const theme = {
-  colors: {
-    primaryLight: '#99ADD3',
-    primaryDark: '#1A405D',
-    secondaryLight: '#FFF',
-    secondaryDark: '#0F2C3E',
+const themes = {
+  dark: {
+    colors: {
+      primary: '#1A405D',
+      secondary: '#0F2C3E',
 
-    textColorLight: '#FFF',
-    textColorDark: '#FFF',
+      textColor: '#FFF',
 
-    labelColorLight: '#000',
+      labelColor: '#FFF',
+    },
   },
-  breakpoints: {
-    xs: '450px',
-    sm: '640px',
-    md: '768px',
-    lg: '1024px',
-    xl: '1280px',
+  light: {
+    colors: {
+      primary: '#99ADD3',
+      secondary: '#FFF',
+
+      textColor: '#FFF',
+
+      labelColor: '#000',
+    },
   },
 };
 
-export default theme;
+const breakpoints = {
+  xs: '450px',
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+};
+
+export { themes, breakpoints };
