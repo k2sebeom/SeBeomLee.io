@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/layouts/Header';
 import Intro from './components/intro/Intro';
 import styled, { ThemeProvider } from 'styled-components';
-import { useTheme } from './hooks/useTheme';
+import { useThemeSwitcher } from './hooks/useThemeSwitcher';
 import { themes } from './styles/theme';
 
 const Container = styled.div`
@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 function App(): JSX.Element {
-  const { activeTheme } = useTheme();
+  const { activeTheme } = useThemeSwitcher();
 
   return (
     <ThemeProvider theme={activeTheme === 'dark' ? themes.dark : themes.light}>

@@ -5,7 +5,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { FaRegMoon } from 'react-icons/fa';
 import { RiSunLine } from 'react-icons/ri';
 import { breakpoints } from '../../styles/theme';
-import { useTheme } from '../../hooks/useTheme';
+import { useThemeSwitcher } from '../../hooks/useThemeSwitcher';
 
 const HeaderContainer = styled(motion.nav)`
   display: flex;
@@ -105,7 +105,7 @@ const SquareButton = styled.div`
 function Header(): JSX.Element {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
-  const { toggleTheme, activeTheme } = useTheme();
+  const { toggleTheme, activeTheme } = useThemeSwitcher();
 
   return (
     <div>

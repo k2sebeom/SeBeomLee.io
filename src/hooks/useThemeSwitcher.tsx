@@ -16,7 +16,7 @@ interface ProviderProps {
   children: React.ReactNode;
 }
 
-export const ThemeSwitchProvider = ({ children }: ProviderProps): JSX.Element => {
+export const ThemeSwitcherProvider = ({ children }: ProviderProps): JSX.Element => {
   const [activeTheme, setTheme] = useState<'dark' | 'light'>('light');
 
   const toggleTheme = (): void => {
@@ -42,6 +42,6 @@ export const ThemeSwitchProvider = ({ children }: ProviderProps): JSX.Element =>
   );
 };
 
-export const useTheme = (): Theme => {
+export const useThemeSwitcher = (): Theme => {
   return useContext(ThemeContext);
 };

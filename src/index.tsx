@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import GlobalStyles from './styles/globalStyles';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ThemeSwitchProvider } from './hooks/useTheme';
+import { ThemeSwitcherProvider } from './hooks/useThemeSwitcher';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ThemeSwitchProvider>
+    <ThemeSwitcherProvider>
       <GlobalStyles />
       <App />
-    </ThemeSwitchProvider>
+    </ThemeSwitcherProvider>
   </React.StrictMode>,
 );
 
