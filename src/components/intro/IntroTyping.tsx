@@ -16,6 +16,7 @@ const TypingContainer = styled.div`
 
 const TypingArea = styled.div`
   width: 80%;
+  user-select: none;
 `;
 
 const FixedName = styled.h3`

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { FaRegMoon } from 'react-icons/fa';
 
 const HeaderContainer = styled(motion.nav)`
   display: flex;
@@ -55,6 +56,8 @@ const MenuIcon = styled(RxHamburgerMenu)`
 
   display: none;
 
+  margin-left: 15px;
+
   cursor: pointer;
 
   @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
@@ -75,6 +78,25 @@ const MenuContainer = styled(motion.div)`
   overflow: hidden;
 `;
 
+const SquareButton = styled.div`
+  width: 35px;
+  height: 35px;
+
+  border-radius: 10px;
+
+  margin-left: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${(props) => props.theme.colors.secondaryLight};
+
+  &:active {
+    opacity: 0.7;
+  }
+`;
+
 function Header(): JSX.Element {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
@@ -85,6 +107,10 @@ function Header(): JSX.Element {
         <HeaderLink>Projects</HeaderLink>
         <HeaderLink>Work</HeaderLink>
         <HeaderLink>Education</HeaderLink>
+
+        <SquareButton>
+          <FaRegMoon />
+        </SquareButton>
         <MenuIcon
           onClick={() => {
             setShowMenu((prev) => !prev);
