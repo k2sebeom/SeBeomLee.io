@@ -1,4 +1,5 @@
 import React, { useContext, createContext, useState } from 'react';
+import { type ProviderProps } from '../types/Provider.props';
 
 interface Theme {
   activeTheme: 'dark' | 'light';
@@ -11,10 +12,6 @@ const ThemeContext = createContext<Theme>({
   setTheme: () => {},
   toggleTheme: () => {},
 });
-
-interface ProviderProps {
-  children: React.ReactNode;
-}
 
 export const ThemeSwitcherProvider = ({ children }: ProviderProps): JSX.Element => {
   const [activeTheme, setTheme] = useState<'dark' | 'light'>('light');
