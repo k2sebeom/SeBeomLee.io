@@ -1,4 +1,11 @@
-const themes = {
+import { type DefaultTheme } from 'styled-components';
+
+interface ThemeCollection {
+  dark: DefaultTheme;
+  light: DefaultTheme;
+}
+
+const themes: ThemeCollection = {
   dark: {
     colors: {
       primary: '#1A405D',
