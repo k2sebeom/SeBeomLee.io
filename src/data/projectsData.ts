@@ -4,3 +4,31 @@ export interface ProjectInfo {
 
   thumbnail: string;
 }
+
+export const projectsList: ProjectInfo[] = [
+  {
+    title: 'museVerse',
+    description: 'asdasdas',
+    thumbnail: './portfolio/dambyurak.png',
+  },
+  {
+    title: 'museVerse',
+    description: 'asdasdas',
+    thumbnail: './portfolio/dambyurak.png',
+  },
+  {
+    title: 'museVerse',
+    description: 'asdasdas',
+    thumbnail: './portfolio/dambyurak.png',
+  },
+  {
+    title: 'museVerse',
+    description: 'asdasdas',
+    thumbnail: './portfolio/dambyurak.png',
+  },
+  {
+    title: 'museVerse',
+    description: 'asdasdas',
+    thumbnail: './portfolio/dambyurak.png',
+  },
+];

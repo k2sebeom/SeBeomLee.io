@@ -3,6 +3,8 @@ import SectionContainer from '../layouts/SectionContainer';
 import { SectionTitle } from '../shared/Typography';
 import styled from 'styled-components';
 import { ProjectsProvider } from '../../contexts/ProjectsContext';
+import { projectsList } from '../../data/projectsData';
+import ProjectItem from './ProjectItem';
 
 const ProjectsContainer = styled.div`
   /* background-color: pink; */
@@ -38,8 +40,8 @@ function Projects(): JSX.Element {
         <SectionTitle>Projects</SectionTitle>
         <ProjectsProvider>
           <ProjectsGrid>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((e, i) => {
-              return <h1 key={`foo-${i}`}>Foo {i}</h1>;
+            {projectsList.map((proj, i) => {
+              return <ProjectItem key={`project-${i}`} project={proj} />;
             })}
           </ProjectsGrid>
         </ProjectsProvider>
