@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ProjectsProvider } from '../../contexts/ProjectsContext';
 import { projectsList } from '../../data/projectsData';
 import ProjectItem from './ProjectItem';
+import { breakpoints } from '../../styles/theme';
 
 const ProjectsContainer = styled.div`
   /* background-color: pink; */
@@ -22,7 +23,7 @@ const ProjectsContainer = styled.div`
 const ProjectsGrid = styled.div`
   display: grid;
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1rem;
 
   width: 100%;
@@ -30,6 +31,14 @@ const ProjectsGrid = styled.div`
   & h1 {
     text-align: center;
     /* background-color: blue; */
+  }
+
+  @media (min-width: ${breakpoints.sm}) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 `;
 
