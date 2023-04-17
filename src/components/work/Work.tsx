@@ -4,22 +4,77 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 // import { useTheme } from 'styled-components';
 import { themes } from '../../styles/theme';
+import SectionContainer from '../layouts/SectionContainer';
+import styled, { useTheme } from 'styled-components';
+import { SectionTitle } from '../shared/Typography';
+import { type WorkInfo, workList } from '../../data/workData';
 
-function Work(): JSX.Element {
-  // const theme = useTheme();
+const WorkContainer = styled.div`
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const WorkIcon = styled.img`
+  /* width: 100%; */
+  height: 100%;
+
+  border-radius: 50%;
+  object-fit: contain;
+`;
+
+const WorkItemContainer = styled.div`
+  & h3 {
+    color: ${(props) => props.theme.colors.labelColor};
+  }
+
+  & p {
+    color: ${(props) => props.theme.colors.labelColor};
+  }
+`;
+
+interface WorkItemProps {
+  work: WorkInfo;
+}
+
+function WorkItem({ work }: WorkItemProps): JSX.Element {
+  const theme = useTheme();
 
   return (
-    <VerticalTimeline lineColor={themes.light.colors.primary}>
-      <VerticalTimelineElement position="left">
-        <h1>asdsa</h1>
-      </VerticalTimelineElement>
-      <VerticalTimelineElement>
-        <h1>asdsa</h1>
-      </VerticalTimelineElement>
-      <VerticalTimelineElement>
-        <h1>asdsa</h1>
-      </VerticalTimelineElement>
-    </VerticalTimeline>
+    <VerticalTimelineElement
+      contentStyle={{
+        color: 'black',
+        borderTop: `3px solid ${theme.colors.primary}`,
+        paddingTop: '0.2rem',
+        background: `${theme.colors.cardColor}`,
+      }}
+      icon={<WorkIcon src={work.icon} />}
+      date={work.date}
+    >
+      <WorkItemContainer>
+        <h3>{work.company}</h3>
+        <p>{work.position}</p>
+      </WorkItemContainer>
+    </VerticalTimelineElement>
+  );
+}
+
+function Work(): JSX.Element {
+  const theme = useTheme();
+
+  return (
+    <SectionContainer>
+      <WorkContainer>
+        <SectionTitle>Work</SectionTitle>
+        <VerticalTimeline lineColor={theme.colors.primary}>
+          {workList.map((work, i) => {
+            return <WorkItem key={`work-${i}`} work={work} />;
+          })}
+        </VerticalTimeline>
+      </WorkContainer>
+    </SectionContainer>
   );
 }
 
