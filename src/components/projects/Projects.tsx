@@ -44,7 +44,7 @@ const ProjectsGrid = styled.div`
 
 function Projects(): JSX.Element {
   return (
-    <SectionContainer>
+    <SectionContainer id="projects">
       <SectionTitle>Projects</SectionTitle>
       <ProjectsContainer>
         <ProjectsProvider>

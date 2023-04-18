@@ -31,6 +31,8 @@ const HeaderLink = styled.a`
 
   user-select: none;
 
+  text-decoration: none;
+
   @media (max-width: ${breakpoints.xs}) {
     display: none;
   }
@@ -48,6 +50,8 @@ const MenuLink = styled.a`
 
   user-select: none;
   cursor: pointer;
+
+  text-decoration: none;
 
   &:active {
     opacity: 0.5;
@@ -110,10 +114,10 @@ function Header(): JSX.Element {
   return (
     <div>
       <HeaderContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-        <HeaderLink>About Me</HeaderLink>
-        <HeaderLink>Projects</HeaderLink>
-        <HeaderLink>Work</HeaderLink>
-        <HeaderLink>Education</HeaderLink>
+        <HeaderLink href="#aboutme">About Me</HeaderLink>
+        <HeaderLink href="#projects">Projects</HeaderLink>
+        <HeaderLink href="#work">Work</HeaderLink>
+        <HeaderLink href="#education">Education</HeaderLink>
 
         <SquareButton onClick={toggleTheme}>{activeTheme === 'dark' ? <RiSunLine /> : <FaRegMoon />}</SquareButton>
         <MenuIcon
@@ -130,10 +134,10 @@ function Header(): JSX.Element {
             exit={{ height: 0, transformOrigin: 'top' }}
             transition={{ duration: 0.7 }}
           >
-            <MenuLink>About Me</MenuLink>
-            <MenuLink>Projects</MenuLink>
-            <MenuLink>Work</MenuLink>
-            <MenuLink>Education</MenuLink>
+            <MenuLink href="#aboutme">About Me</MenuLink>
+            <MenuLink href="#projects">Projects</MenuLink>
+            <MenuLink href="#work">Work</MenuLink>
+            <MenuLink href="#education">Education</MenuLink>
           </MenuContainer>
         )}
       </AnimatePresence>

@@ -26,7 +26,7 @@ const EduGrid = styled.div`
 
 function Education(): JSX.Element {
   return (
-    <SectionContainer>
+    <SectionContainer id="education">
       <SectionTitle>Education</SectionTitle>
       <EduContainer>
         <EduGrid>

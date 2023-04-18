@@ -34,7 +34,7 @@ const BioText = styled.p`
 
 function AboutMe(): JSX.Element {
   return (
-    <SectionContainer>
+    <SectionContainer id="aboutme">
       <SectionTitle>About Me</SectionTitle>
       <Container>
         <StatementText>{aboutMeData.statement}</StatementText>

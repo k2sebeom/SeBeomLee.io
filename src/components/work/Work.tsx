@@ -63,7 +63,7 @@ function Work(): JSX.Element {
   const theme = useTheme();
 
   return (
-    <SectionContainer>
+    <SectionContainer id="work">
       <SectionTitle>Work</SectionTitle>
       <WorkContainer>
         <VerticalTimeline lineColor={theme.colors.primary}>
