@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useState } from 'react';
+import React, { useContext, createContext, useState, useEffect } from 'react';
 import { type ProviderProps } from '../types/Provider.props';
 
 interface Theme {
@@ -15,6 +15,21 @@ const ThemeContext = createContext<Theme>({
 
 export const ThemeSwitcherProvider = ({ children }: ProviderProps): JSX.Element => {
   const [activeTheme, setTheme] = useState<'dark' | 'light'>('light');
+
+  useEffect(() => {
+    let mode = localStorage.getItem('mode');
+    if (mode === null) {
+      localStorage.setItem('mode', activeTheme);
+      mode = activeTheme;
+    }
+    if (mode !== activeTheme) {
+      setTheme(mode as 'dark' | 'light');
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('mode', activeTheme);
+  }, [activeTheme]);
 
   const toggleTheme = (): void => {
     setTheme((prev) => {
