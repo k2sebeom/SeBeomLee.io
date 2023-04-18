@@ -15,6 +15,7 @@ const ItemContainer = styled.div`
 
 const Thumbnail = styled.img`
   width: 100%;
+  height: 14rem;
   border-radius: 1rem 1rem 0 0;
 `;
 
@@ -22,12 +23,23 @@ interface ProjectItemProps {
   project: ProjectInfo;
 }
 
+const TitleText = styled.h1`
+  margin-top: 0.3rem;
+  font-size: 1.6rem;
+`;
+
+const DescText = styled.p`
+  padding-left: 1rem;
+`;
+
 function ProjectItem({ project }: ProjectItemProps): JSX.Element {
   return (
     <ItemContainer>
-      <Thumbnail src={project.thumbnail} />
-      <h1>{project.title}</h1>
-      <p>{project.description}</p>
+      <a href={project.link} target="_blank" rel="noreferrer">
+        <Thumbnail src={project.thumbnail} />
+      </a>
+      <TitleText>{project.title}</TitleText>
+      <DescText>{project.description}</DescText>
     </ItemContainer>
   );
 }
