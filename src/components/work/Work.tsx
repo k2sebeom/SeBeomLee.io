@@ -8,7 +8,7 @@ import { SectionTitle } from '../shared/Typography';
 import { type WorkInfo, workList } from '../../data/workData';
 
 const WorkContainer = styled.div`
-  width: 90%;
+  width: 70%;
 
   display: flex;
   flex-direction: column;
