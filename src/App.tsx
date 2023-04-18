@@ -8,6 +8,7 @@ import Projects from './components/projects/Projects';
 import Work from './components/work/Work';
 import Education from './components/education/Education';
 import Footer from './components/layouts/Footer';
+import AboutMe from './components/aboutme/AboutMe';
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
@@ -22,6 +23,8 @@ function App(): JSX.Element {
         <Header />
 
         <Intro />
+
+        <AboutMe />
         <Projects />
         <Work />
         <Education />

@@ -45,8 +45,8 @@ const ProjectsGrid = styled.div`
 function Projects(): JSX.Element {
   return (
     <SectionContainer>
+      <SectionTitle>Projects</SectionTitle>
       <ProjectsContainer>
-        <SectionTitle>Projects</SectionTitle>
         <ProjectsProvider>
           <ProjectsGrid>
             {projectsList.map((proj, i) => {

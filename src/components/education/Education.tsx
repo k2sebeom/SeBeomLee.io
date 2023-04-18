@@ -27,8 +27,8 @@ const EduGrid = styled.div`
 function Education(): JSX.Element {
   return (
     <SectionContainer>
+      <SectionTitle>Education</SectionTitle>
       <EduContainer>
-        <SectionTitle>Education</SectionTitle>
         <EduGrid>
           {educationList.map((edu, i) => {
             return <EducationCard key={`educard-${i}`} education={edu} />;

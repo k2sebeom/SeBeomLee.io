@@ -64,8 +64,8 @@ function Work(): JSX.Element {
 
   return (
     <SectionContainer>
+      <SectionTitle>Work</SectionTitle>
       <WorkContainer>
-        <SectionTitle>Work</SectionTitle>
         <VerticalTimeline lineColor={theme.colors.primary}>
           {workList.map((work, i) => {
             return <WorkItem key={`work-${i}`} work={work} />;
