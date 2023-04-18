@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { type ProjectInfo } from '../../data/projectsData';
 import { breakpoints } from '../../styles/theme';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-const ItemContainer = styled.div`
+const ItemContainer = styled(motion.div)`
   border-radius: 1rem;
   box-shadow: ${(props) => props.theme.colors.shadowPrimary};
 
@@ -45,9 +47,28 @@ const DescText = styled.p`
   padding-right: 1rem;
 `;
 
+const itemVariants = {
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+  hidden: { opacity: 0, x: -50 },
+};
+
 function ProjectItem({ project }: ProjectItemProps): JSX.Element {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls
+        .start('visible')
+        .then(() => {})
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [controls, inView]);
+
   return (
-    <ItemContainer>
+    <ItemContainer ref={ref} animate={controls} initial="hidden" variants={itemVariants}>
       <a href={project.link} target="_blank" rel="noreferrer">
         <Thumbnail src={project.thumbnail} />
       </a>
