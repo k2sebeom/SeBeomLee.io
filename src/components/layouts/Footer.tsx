@@ -23,6 +23,12 @@ const SocialLink = styled.a`
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
+
+  transition: font-size 0.5s ease;
+
+  &:hover {
+    font-size: 3rem;
+  }
 `;
 
 function Footer(): JSX.Element {
