@@ -47,6 +47,8 @@ function WorkItem({ work }: WorkItemProps): JSX.Element {
         borderTop: `3px solid ${theme.colors.primary}`,
         paddingTop: '0.2rem',
         background: `${theme.colors.cardColor}`,
+
+        boxShadow: theme.colors.shadowPrimary,
       }}
       icon={<WorkIcon src={work.icon} />}
       date={work.date}

@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 const FooterContainer = styled.div`
   width: 100%;
 
-  height: 12rem;
+  height: 8rem;
 
   display: flex;
   justify-content: center;
