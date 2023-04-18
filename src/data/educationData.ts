@@ -13,6 +13,6 @@ export const educationList: EducationInfo[] = [
   {
     title: 'Korean Minjok Leadership Academy',
     degrees: ['Graduated'],
-    thumbnail: './education/KMLA.jpg',
+    thumbnail: './education/KMLA.png',
   },
 ];
