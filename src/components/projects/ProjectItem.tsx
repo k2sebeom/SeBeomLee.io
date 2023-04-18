@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { type ProjectInfo } from '../../data/projectsData';
+import { breakpoints } from '../../styles/theme';
 
 const ItemContainer = styled.div`
   border-radius: 1rem;
@@ -15,8 +16,16 @@ const ItemContainer = styled.div`
 
 const Thumbnail = styled.img`
   width: 100%;
-  height: 14rem;
+  height: 18rem;
   border-radius: 1rem 1rem 0 0;
+
+  @media (min-width: ${breakpoints.sm}) {
+    height: 16rem;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    height: 18rem;
+  }
 `;
 
 interface ProjectItemProps {
@@ -26,10 +35,14 @@ interface ProjectItemProps {
 const TitleText = styled.h1`
   margin-top: 0.3rem;
   font-size: 1.6rem;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;
 
 const DescText = styled.p`
   padding-left: 1rem;
+  padding-right: 1rem;
 `;
 
 function ProjectItem({ project }: ProjectItemProps): JSX.Element {
