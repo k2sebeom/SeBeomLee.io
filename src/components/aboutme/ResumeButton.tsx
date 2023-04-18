@@ -29,14 +29,18 @@ const StyledButton = styled.button`
   }
 `;
 
+const ButtonLink = styled.a`
+  text-decoration: none;
+`;
+
 function ResumeButton(): JSX.Element {
   return (
-    <a download="SeBeom_Lee_Resume.pdf" href="./resume/Moses_Resume.pdf">
+    <ButtonLink download="SeBeom_Lee_Resume.pdf" href="./resume/Moses_Resume.pdf">
       <StyledButton>
         <HiOutlineDownload />
         Download Resume
       </StyledButton>
-    </a>
+    </ButtonLink>
   );
 }
 
