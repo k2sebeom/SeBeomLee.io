@@ -4,6 +4,7 @@ import { aboutMeData } from '../../data/aboutData';
 import SectionContainer from '../layouts/SectionContainer';
 import { SectionTitle } from '../shared/Typography';
 import { breakpoints } from '../../styles/theme';
+import ResumeButton from './ResumeButton';
 
 const Container = styled.div`
   width: 80%;
@@ -13,12 +14,14 @@ const Container = styled.div`
 
   align-items: flex-start;
 
-  & * {
+  & h2,
+  p {
     width: 80%;
   }
 
   @media (max-width: ${breakpoints.md}) {
-    & * {
+    & h2,
+    p {
       width: 100%;
     }
   }
@@ -39,6 +42,7 @@ function AboutMe(): JSX.Element {
       <Container>
         <StatementText>{aboutMeData.statement}</StatementText>
         <BioText>{aboutMeData.bio}</BioText>
+        <ResumeButton />
       </Container>
     </SectionContainer>
   );
