@@ -9,6 +9,7 @@ interface IThemeColors {
   secondary: string;
 
   textColor: string;
+  subTextColor: string;
 
   labelColor: string;
   cardColor: string;

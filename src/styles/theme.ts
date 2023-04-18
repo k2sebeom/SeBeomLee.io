@@ -12,6 +12,7 @@ const themes: ThemeCollection = {
       secondary: '#0F2C3E',
 
       textColor: '#FFF',
+      subTextColor: '#999',
 
       labelColor: '#FFF',
       cardColor: '#1A405D',
@@ -27,6 +28,7 @@ const themes: ThemeCollection = {
       secondary: '#FFF',
 
       textColor: '#FFF',
+      subTextColor: '#999',
 
       labelColor: '#000',
       cardColor: '#FFF',

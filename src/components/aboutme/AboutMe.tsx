@@ -29,10 +29,12 @@ const Container = styled.div`
 
 const StatementText = styled.h2`
   font-size: 1.3rem;
+
+  color: ${(props) => props.theme.colors.labelColor};
 `;
 
 const BioText = styled.p`
-  color: #999;
+  color: ${(props) => props.theme.colors.subTextColor};
 `;
 
 function AboutMe(): JSX.Element {
