@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { portfolioIdentities } from '../../data/introData';
+import { motion } from 'framer-motion';
 
-const TypingContainer = styled.div`
+const TypingContainer = styled(motion.div)`
   font-size: 2.5rem;
   font-weight: 600;
 
@@ -30,7 +31,11 @@ const FixedName = styled.h3`
 
 const IntroTyping = (): JSX.Element => {
   return (
-    <TypingContainer>
+    <TypingContainer
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.4, duration: 1 }}
+    >
       <TypingArea>
         <FixedName>Hello, I am SeBeom</FixedName>
         <Typewriter
