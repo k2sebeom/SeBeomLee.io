@@ -42,7 +42,9 @@ const CardTitle = styled.h3`
 function EducationCard({ education }: CardProps): JSX.Element {
   return (
     <CardContainer>
-      <Thumbnail src={education.thumbnail} />
+      <a href={education.link} target="_blank" rel="noreferrer">
+        <Thumbnail src={education.thumbnail} />
+      </a>
 
       <CardTitle>{education.title}</CardTitle>
       <DegreeList>
