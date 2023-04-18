@@ -1,6 +1,7 @@
 import React from 'react';
 import { type EducationInfo } from '../../data/educationData';
 import styled from 'styled-components';
+import { breakpoints } from '../../styles/theme';
 
 interface CardProps {
   education: EducationInfo;
@@ -11,12 +12,16 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+
+  @media (max-width: ${breakpoints.sm}) {
+    align-items: center;
+  }
 `;
 
 const Thumbnail = styled.img`
   height: 160px;
 
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 `;
 
 const DegreeItem = styled.li`
@@ -25,13 +30,13 @@ const DegreeItem = styled.li`
 `;
 
 const DegreeList = styled.ul`
-  padding-left: 2rem;
+  padding-left: 1rem;
 `;
 
 const CardTitle = styled.h3`
   margin-top: 1rem;
   margin-bottom: 0.2rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 `;
 
 function EducationCard({ education }: CardProps): JSX.Element {
