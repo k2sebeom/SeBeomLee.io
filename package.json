@@ -2,7 +2,6 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://k2sebeom.github.io/temp-portfolio/",
   "dependencies": {
     "@react-three/drei": "^9.65.3",
     "@react-three/fiber": "^8.12.1",
