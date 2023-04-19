@@ -8,11 +8,24 @@ export interface ProjectInfo {
 
 export const featuredProjects: ProjectInfo[] = [
   {
-    title: 'Squid Game AI Robot',
+    title: 'museLIVE',
+    description: 'Developed an iOS application for virtual musical concerts and voice chatting using SwiftUI.',
+    thumbnail: './portfolio/muselive.png',
+    link: 'https://apps.apple.com/ca/app/muselive-virtual-concerts/id1564042040',
+  },
+  {
+    title: 'Geyser.AI',
     description:
-      'An implementation of the artificial intelligence for Young-hee robot from Squid Game. Built with Unity and PyTorch.',
-    thumbnail: './portfolio/younghee.PNG',
-    link: 'https://youtu.be/09M4UaBqaHE',
+      'Geyser is a GPT powered assistant that recommends video games based on user preference synced from Steam account. Developed a web page using Next.js and a server using FastAPI.',
+    thumbnail: './portfolio/geyser.png',
+    link: 'https://geyser.games/',
+  },
+  {
+    title: 'Splux - Multiplayer Game',
+    description:
+      'Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.',
+    thumbnail: './portfolio/Splux.JPG',
+    link: 'https://www.crazygames.com/game/splux',
   },
   {
     title: 'LEGO Combat Field',
@@ -35,22 +48,36 @@ export const featuredProjects: ProjectInfo[] = [
     thumbnail: './portfolio/AutoBin.jpg',
     link: 'https://www.youtube.com/watch?v=9VwjptOWMng&t',
   },
-  {
-    title: 'Splux - Multiplayer Game',
-    description:
-      'Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.',
-    thumbnail: './portfolio/Splux.JPG',
-    link: 'https://www.crazygames.com/game/splux',
-  },
 ];
 
 export const projectsList: ProjectInfo[] = [
+  {
+    title: 'True Detective',
+    description:
+      'True Detective is a narrative based game powered by GPT. Player should reveal the criminal by interrogating 5 suspects.',
+    thumbnail: './portfolio/detective.png',
+    link: 'https://truedetective.app/',
+  },
+  {
+    title: 'Github Arcade',
+    description:
+      'Github Arcade is a Chrome Extension that enables playgin servel ATARI styled games on Github commit history board.',
+    thumbnail: './portfolio/arcade.gif',
+    link: 'https://github.com/1006labs/github-arcade',
+  },
   {
     title: 'museLIVEStudio',
     description:
       'museLIVEStudio is a simple Digital Audio Workstation for museLIVE musicians. Paired with museLIVE platforms, museLIVEStudio can be used to live-stream high quality audio with processing capability. Designed, developed, and managed by SeBeom Lee.',
     thumbnail: './portfolio/studio.png',
     link: 'https://studio.muse.live/latest/museLIVEStudio_latest.dmg',
+  },
+  {
+    title: 'Sooni NFT',
+    description:
+      'Developed a web page on which users can mint tokens for NFT stake project using React.js and ether.js',
+    thumbnail: './portfolio/sooni.png',
+    link: 'https://stake.gom2.io/',
   },
   {
     title: 'museVerse',
@@ -86,6 +113,13 @@ export const projectsList: ProjectInfo[] = [
       'A guide and scripts to use NICE Enginframe with HPC Connector on an EC2 instance. HPC Connector is a feature in NICE EnginFrame that enables a usage of AWS ParallelCluster. This guide addresses how to install and use HPC Connector on an EC2 instance.',
     thumbnail: 'https://github.com/k2sebeom/hpc-connector-on-ec2/raw/main/src/pic10.png',
     link: 'https://github.com/k2sebeom/hpc-connector-on-ec2',
+  },
+  {
+    title: 'Squid Game AI Robot',
+    description:
+      'An implementation of the artificial intelligence for Young-hee robot from Squid Game. Built with Unity and PyTorch.',
+    thumbnail: './portfolio/younghee.PNG',
+    link: 'https://youtu.be/09M4UaBqaHE',
   },
   {
     title: 'Face Recognition with AWS DeepLens',
