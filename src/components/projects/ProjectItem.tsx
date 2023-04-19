@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { type ProjectInfo } from '../../data/projectsData';
 import { breakpoints } from '../../styles/theme';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+import useAnimateOnAppear from '../../hooks/useAnimateOnAppear';
 
 const ItemContainer = styled(motion.div)`
   border-radius: 1rem;
@@ -53,22 +53,10 @@ const itemVariants = {
 };
 
 function ProjectItem({ project }: ProjectItemProps): JSX.Element {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      controls
-        .start('visible')
-        .then(() => {})
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  }, [controls, inView]);
+  const { ref, controls, variants } = useAnimateOnAppear(itemVariants);
 
   return (
-    <ItemContainer ref={ref} animate={controls} initial="hidden" variants={itemVariants}>
+    <ItemContainer ref={ref} animate={controls} initial="hidden" variants={variants}>
       <a href={project.link} target="_blank" rel="noreferrer">
         <Thumbnail src={project.thumbnail} />
       </a>
