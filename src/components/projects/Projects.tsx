@@ -10,7 +10,7 @@ import { breakpoints } from '../../styles/theme';
 const ProjectsContainer = styled.div`
   /* background-color: pink; */
 
-  width: 90%;
+  width: 70%;
 
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ const ProjectsGrid = styled.div`
   display: grid;
 
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.4rem;
 
   width: 100%;
 

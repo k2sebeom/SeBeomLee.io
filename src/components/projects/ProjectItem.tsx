@@ -36,15 +36,21 @@ interface ProjectItemProps {
 
 const TitleText = styled.h1`
   margin-top: 0.3rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 
   padding-left: 1rem;
   padding-right: 1rem;
+
+  color: ${(props) => props.theme.colors.labelColor};
 `;
 
 const DescText = styled.p`
   padding-left: 1rem;
   padding-right: 1rem;
+
+  line-height: 1.4rem;
+
+  color: ${(props) => props.theme.colors.subTextColor};
 `;
 
 const itemVariants = {

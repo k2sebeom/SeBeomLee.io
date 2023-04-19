@@ -7,6 +7,7 @@ interface IPalette {
 interface IThemeColors {
   primary: string;
   secondary: string;
+  ternary: string;
 
   textColor: string;
   subTextColor: string;

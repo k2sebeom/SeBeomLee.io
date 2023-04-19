@@ -16,7 +16,7 @@ const TypingContainer = styled(motion.div)`
 `;
 
 const TypingArea = styled.div`
-  width: 80%;
+  width: 70%;
   user-select: none;
 
   color: ${(props) => props.theme.colors.labelColor};

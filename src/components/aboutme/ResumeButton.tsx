@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.ternary};
 
   font-size: 0.9rem;
   font-weight: 700;
@@ -22,7 +22,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   background-color: ${(props) => props.theme.colors.secondary};
-  border: 2px solid ${(props) => props.theme.colors.primary};
+  border: 2px solid ${(props) => props.theme.colors.ternary};
 
   box-shadow: ${(props) => props.theme.colors.shadowPrimary};
 

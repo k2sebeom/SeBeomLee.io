@@ -25,7 +25,7 @@ const Thumbnail = styled.img`
 `;
 
 const DegreeItem = styled.li`
-  color: #777;
+  color: ${(props) => props.theme.colors.subTextColor};
   padding-left: 0.2rem;
 `;
 
@@ -36,6 +36,8 @@ const DegreeList = styled.ul`
 const CardTitle = styled.h3`
   margin-top: 1rem;
   margin-bottom: 0.2rem;
+
+  color: ${(props) => props.theme.colors.labelColor};
   /* margin-left: 1rem; */
 `;
 

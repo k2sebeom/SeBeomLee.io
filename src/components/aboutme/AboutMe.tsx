@@ -7,7 +7,7 @@ import { breakpoints } from '../../styles/theme';
 import ResumeButton from './ResumeButton';
 
 const Container = styled.div`
-  width: 80%;
+  width: 70%;
 
   display: flex;
   flex-direction: column;

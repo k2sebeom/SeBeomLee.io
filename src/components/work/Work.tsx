@@ -35,11 +35,8 @@ const WorkIcon = styled.img`
 `;
 
 const WorkItemContainer = styled.div`
-  & h3 {
-    color: ${(props) => props.theme.colors.labelColor};
-  }
-
-  & p {
+  & h3,
+  p {
     color: ${(props) => props.theme.colors.labelColor};
   }
 `;
@@ -59,6 +56,8 @@ function WorkItem({ work }: WorkItemProps): JSX.Element {
         background: `${theme.colors.cardColor}`,
 
         boxShadow: `${theme.colors.shadowPrimary}`,
+
+        color: `${theme.colors.labelColor}`,
       }}
       contentArrowStyle={{
         borderRight: `7px solid ${theme.colors.cardColor}`,
