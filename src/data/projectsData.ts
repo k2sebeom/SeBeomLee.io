@@ -68,7 +68,7 @@ export const projectsList: ProjectInfo[] = [
   {
     title: 'museLIVEStudio',
     description:
-      'museLIVEStudio is a simple Digital Audio Workstation for museLIVE musicians. Paired with museLIVE platforms, museLIVEStudio can be used to live-stream high quality audio with processing capability. Designed, developed, and managed by SeBeom Lee.',
+      'museLIVEStudio is a simple Digital Audio Workstation for museLIVE musicians. Paired with museLIVE platforms, museLIVEStudio can be used to live-stream high quality audio with processing capability. Developed using C++ with libAV and JUCE',
     thumbnail: './portfolio/studio.png',
     link: 'https://studio.muse.live/latest/museLIVEStudio_latest.dmg',
   },
