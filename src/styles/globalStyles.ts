@@ -11,6 +11,10 @@ const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
   }
+  .vertical-timeline-element-icon {
+    box-shadow: 0 0 0 4px ${(props) =>
+      props.theme.colors.primary}, inset 0 2px 0 rgba(0,0,0,.0), 0 3px 0 4px rgba(0,0,0,.0)
+  }
 `;
 
 export default GlobalStyles;

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import GlobalStyles from './styles/globalStyles';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeSwitcherProvider } from './hooks/useThemeSwitcher';
@@ -9,7 +8,6 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <ThemeSwitcherProvider>
-      <GlobalStyles />
       <App />
     </ThemeSwitcherProvider>
   </React.StrictMode>,

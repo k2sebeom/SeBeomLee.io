@@ -14,7 +14,12 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
 
-  color: ${(props) => props.theme.colors.labelColor};
+  color: ${(props) => props.theme.colors.primary};
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
 
   background-color: ${(props) => props.theme.colors.secondary};
   border: 2px solid ${(props) => props.theme.colors.primary};

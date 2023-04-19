@@ -13,13 +13,24 @@ const WorkContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding-bottom: 2rem;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
 `;
 
 const WorkIcon = styled.img`
-  /* width: 100%; */
-  height: 100%;
+  height: 80%;
+  width: 80%;
 
-  border-radius: 50%;
+  border-radius: 30%;
   object-fit: contain;
 `;
 
@@ -43,14 +54,23 @@ function WorkItem({ work }: WorkItemProps): JSX.Element {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        color: 'black',
         borderTop: `3px solid ${theme.colors.primary}`,
         paddingTop: '0.2rem',
         background: `${theme.colors.cardColor}`,
 
-        boxShadow: theme.colors.shadowPrimary,
+        boxShadow: `${theme.colors.shadowPrimary}`,
       }}
-      icon={<WorkIcon src={work.icon} />}
+      contentArrowStyle={{
+        borderRight: `7px solid ${theme.colors.cardColor}`,
+      }}
+      icon={
+        <IconContainer>
+          <WorkIcon src={work.icon} />
+        </IconContainer>
+      }
+      iconStyle={{
+        background: work.color,
+      }}
       date={work.date}
     >
       <WorkItemContainer>

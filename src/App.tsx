@@ -9,6 +9,7 @@ import Work from './components/work/Work';
 import Education from './components/education/Education';
 import Footer from './components/layouts/Footer';
 import AboutMe from './components/aboutme/AboutMe';
+import GlobalStyles from './styles/globalStyles';
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
@@ -19,6 +20,7 @@ function App(): JSX.Element {
 
   return (
     <ThemeProvider theme={activeTheme === 'dark' ? themes.dark : themes.light}>
+      <GlobalStyles />
       <Container>
         <Header />
 

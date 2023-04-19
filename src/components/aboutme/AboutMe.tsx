@@ -29,12 +29,14 @@ const Container = styled.div`
 
 const StatementText = styled.h2`
   font-size: 1.3rem;
+  margin-top: 0.2rem;
 
   color: ${(props) => props.theme.colors.labelColor};
 `;
 
 const BioText = styled.p`
   color: ${(props) => props.theme.colors.subTextColor};
+  line-height: 1.6rem;
 `;
 
 function AboutMe(): JSX.Element {
