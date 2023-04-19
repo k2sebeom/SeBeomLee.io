@@ -26,6 +26,10 @@ const Thumbnail = styled.img`
   }
 
   @media (min-width: ${breakpoints.lg}) {
+    height: 14rem;
+  }
+
+  @media (min-width: ${breakpoints.xl}) {
     height: 18rem;
   }
 `;
