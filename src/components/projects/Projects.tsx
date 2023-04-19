@@ -43,10 +43,10 @@ const ProjectsGrid = styled.div`
 `;
 
 const MoreButton = styled.button`
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
 
   margin-top: 2rem;
   border-radius: 0.5rem;
@@ -54,17 +54,21 @@ const MoreButton = styled.button`
   display: flex;
   align-items: center;
 
-  color: ${(props) => props.theme.colors.ternary};
+  color: ${(props) => props.theme.colors.textColor};
 
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
 
   cursor: pointer;
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.primary};
   border: 2px solid ${(props) => props.theme.colors.ternary};
 
   box-shadow: ${(props) => props.theme.colors.shadowPrimary};
+  transition: box-shadow 0.5s ease;
+  &:hover {
+    box-shadow: ${(props) => props.theme.colors.shadowSecondary};
+  }
 `;
 
 function Projects(): JSX.Element {
