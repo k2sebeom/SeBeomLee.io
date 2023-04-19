@@ -6,20 +6,58 @@ export interface ProjectInfo {
   link: string;
 }
 
-export const projectsList: ProjectInfo[] = [
+export const featuredProjects: ProjectInfo[] = [
   {
-    title: 'museVerse',
+    title: 'Squid Game AI Robot',
     description:
-      'museVerse is a metaverse platform that provides vritual concert experience. Equipped with live streaming and proximity voice chatting, museVerse rooms serve as places for virtual concert, social community, and a private gathering for NFT holders.',
-    thumbnail: './portfolio/museverse.png',
-    link: 'https://verse.museli.o-r.kr/?id=464',
+      'An implementation of the artificial intelligence for Young-hee robot from Squid Game. Built with Unity and PyTorch.',
+    thumbnail: './portfolio/younghee.PNG',
+    link: 'https://youtu.be/09M4UaBqaHE',
   },
+  {
+    title: 'LEGO Combat Field',
+    description:
+      'A third person shooter game made with LEGO models. Has most of the feature available in any TPS games. Won the "Best Creator" award from Unity LEGO Microgame competition.',
+    thumbnail: './portfolio/LEGO.png',
+    link: 'https://play.unity.com/mg/lego/lego-combat-field',
+  },
+  {
+    title: '2D Motion Capture',
+    description:
+      'A Unity Asset which enables a deviceless motion capture for sprite animations. The python counterpart is built using openCV and torchvision.',
+    thumbnail: './portfolio/mocap.gif',
+    link: 'https://youtu.be/HTSUtTCNbGg',
+  },
+  {
+    title: 'Auto-Sorting Smart Bin',
+    description:
+      'An artificial intelligence sorts out trash based on the image. A transfer learning from VGG16 is used.',
+    thumbnail: './portfolio/AutoBin.jpg',
+    link: 'https://www.youtube.com/watch?v=9VwjptOWMng&t',
+  },
+  {
+    title: 'Splux - Multiplayer Game',
+    description:
+      'Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.',
+    thumbnail: './portfolio/Splux.JPG',
+    link: 'https://www.crazygames.com/game/splux',
+  },
+];
+
+export const projectsList: ProjectInfo[] = [
   {
     title: 'museLIVEStudio',
     description:
       'museLIVEStudio is a simple Digital Audio Workstation for museLIVE musicians. Paired with museLIVE platforms, museLIVEStudio can be used to live-stream high quality audio with processing capability. Designed, developed, and managed by SeBeom Lee.',
     thumbnail: './portfolio/studio.png',
     link: 'https://studio.muse.live/latest/museLIVEStudio_latest.dmg',
+  },
+  {
+    title: 'museVerse',
+    description:
+      'museVerse is a metaverse platform that provides vritual concert experience. Equipped with live streaming and proximity voice chatting, museVerse rooms serve as places for virtual concert, social community, and a private gathering for NFT holders.',
+    thumbnail: './portfolio/museverse.png',
+    link: 'https://verse.museli.o-r.kr/?id=464',
   },
   {
     title: 'TrollinTown',
@@ -50,13 +88,6 @@ export const projectsList: ProjectInfo[] = [
     link: 'https://github.com/k2sebeom/hpc-connector-on-ec2',
   },
   {
-    title: 'Squid Game AI Robot',
-    description:
-      'An implementation of the artificial intelligence for Young-hee robot from Squid Game. Built with Unity and PyTorch.',
-    thumbnail: './portfolio/younghee.PNG',
-    link: 'https://youtu.be/09M4UaBqaHE',
-  },
-  {
     title: 'Face Recognition with AWS DeepLens',
     description:
       'A workshop document for creating a face-recognition device using AWS DeepLens and Amazon Rekognition. AWS DeepLens is a camera-based device specialized in machine learning projects. By integrating two AI services by Amazon, this workshop introduces how to make a custom face recognizer.',
@@ -85,39 +116,11 @@ export const projectsList: ProjectInfo[] = [
     link: 'https://github.com/k2sebeom/gokemon',
   },
   {
-    title: 'LEGO Combat Field',
-    description:
-      'A third person shooter game made with LEGO models. Has most of the feature available in any TPS games. Won the "Best Creator" award from Unity LEGO Microgame competition.',
-    thumbnail: './portfolio/LEGO.png',
-    link: 'https://play.unity.com/mg/lego/lego-combat-field',
-  },
-  {
     title: 'Content Management Service using Amazon IVS',
     description:
       'Amazon Interactive Video Service is a high level service for live video streaming. This architecture is for building a simple content management service using a serverless architecture.',
     thumbnail: 'https://github.com/k2sebeom/Amazon-IVS-CMS/raw/main/src/diagram.png',
     link: 'https://github.com/k2sebeom/Amazon-IVS-CMS',
-  },
-  {
-    title: '2D Motion Capture',
-    description:
-      'A Unity Asset which enables a deviceless motion capture for sprite animations. The python counterpart is built using openCV and torchvision.',
-    thumbnail: './portfolio/mocap.gif',
-    link: 'https://youtu.be/HTSUtTCNbGg',
-  },
-  {
-    title: 'Auto-Sorting Smart Bin',
-    description:
-      'An artificial intelligence sorts out trash based on the image. A transfer learning from VGG16 is used.',
-    thumbnail: './portfolio/AutoBin.jpg',
-    link: 'https://www.youtube.com/watch?v=9VwjptOWMng&t',
-  },
-  {
-    title: 'Splux - Multiplayer Game',
-    description:
-      'Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.',
-    thumbnail: './portfolio/Splux.JPG',
-    link: 'https://www.crazygames.com/game/splux',
   },
   {
     title: 'AI -"Swipe Brick Breaker"',

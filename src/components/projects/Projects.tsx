@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SectionContainer from '../layouts/SectionContainer';
 import { SectionTitle } from '../shared/Typography';
 import styled from 'styled-components';
 import { ProjectsProvider } from '../../contexts/ProjectsContext';
-import { projectsList } from '../../data/projectsData';
+import { featuredProjects, projectsList } from '../../data/projectsData';
 import ProjectItem from './ProjectItem';
 import { breakpoints } from '../../styles/theme';
 
@@ -42,17 +42,57 @@ const ProjectsGrid = styled.div`
   }
 `;
 
+const MoreButton = styled.button`
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+
+  color: ${(props) => props.theme.colors.ternary};
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  background-color: ${(props) => props.theme.colors.secondary};
+  border: 2px solid ${(props) => props.theme.colors.ternary};
+
+  box-shadow: ${(props) => props.theme.colors.shadowPrimary};
+`;
+
 function Projects(): JSX.Element {
+  const [showMoreProjects, setShowMoreProjects] = useState<boolean>(false);
+
   return (
     <SectionContainer id="projects">
       <SectionTitle>Projects</SectionTitle>
       <ProjectsContainer>
         <ProjectsProvider>
           <ProjectsGrid>
-            {projectsList.map((proj, i) => {
+            {featuredProjects.map((proj, i) => {
               return <ProjectItem key={`project-${i}`} project={proj} />;
             })}
+            {showMoreProjects &&
+              projectsList.map((proj, i) => {
+                return <ProjectItem key={`project-${i}`} project={proj} />;
+              })}
           </ProjectsGrid>
+          <MoreButton
+            onClick={() => {
+              setShowMoreProjects((prev) => {
+                return !prev;
+              });
+            }}
+          >
+            {showMoreProjects ? 'Show Less' : 'Show All'}
+          </MoreButton>
         </ProjectsProvider>
       </ProjectsContainer>
     </SectionContainer>
