@@ -31,7 +31,7 @@ function IntroEarth(): JSX.Element {
         }}
       >
         <Stars />
-        <OrbitControls rotateSpeed={0.5} enableZoom={false} />
+        <OrbitControls rotateSpeed={0.5} enableZoom={false} enablePan={false} />
         <directionalLight position={[2, 0, 2]} />
         <ambientLight color={'#FFF'} intensity={0.3} />
         <Earth />
