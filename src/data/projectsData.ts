@@ -18,7 +18,7 @@ export const featuredProjects: ProjectInfo[] = [
     description:
       'Geyser is a GPT powered assistant that recommends video games based on user preference synced from Steam account. Developed a web page using Next.js and a server using FastAPI.',
     thumbnail: './portfolio/geyser.png',
-    link: 'https://geyser.games/',
+    link: 'https://youtu.be/8jqpWXnwXPs',
   },
   {
     title: 'Splux - Multiplayer Game',
