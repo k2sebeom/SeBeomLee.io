@@ -52,6 +52,13 @@ export const featuredProjects: ProjectInfo[] = [
 
 export const projectsList: ProjectInfo[] = [
   {
+    title: 'Desktop Idle Tree',
+    description:
+      'Desktop Idle Tree is a Desktop Application built with Electron.js and React.js. You can decorate your own christmas tree and display at as a desktop widget.',
+    thumbnail: 'https://github.com/k2sebeom/tree-decoration-idle/blob/main/source/demo.gif?raw=true',
+    link: 'https://github.com/k2sebeom/tree-decoration-idle',
+  },
+  {
     title: 'True Detective',
     description:
       'True Detective is a narrative based game powered by GPT. Player should reveal the criminal by interrogating 5 suspects.',
