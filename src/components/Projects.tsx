@@ -1,69 +1,25 @@
 import React, { useState } from 'react';
 import { featuredProjects, projectsList } from '../data/projectsData';
+import { projectCategories, projectStats } from '../data/projectsConfig';
 import './Projects.css';
 
 const Projects: React.FC = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const categories = [
-    { id: 'all', label: 'All Projects', icon: '🌌' },
-    { id: 'ai', label: 'AI/ML', icon: '🤖' },
-    { id: 'game', label: 'Games', icon: '🎮' },
-    { id: 'cloud', label: 'Cloud/AWS', icon: '☁️' },
-    { id: 'physics', label: 'Physics', icon: '⚛️' },
-    { id: 'web', label: 'Web/Mobile', icon: '💻' },
-  ];
-
   const filterProjects = (projects: typeof projectsList) => {
     if (selectedCategory === 'all') return projects;
+
+    const category = projectCategories.find(cat => cat.id === selectedCategory);
+    if (!category) return projects;
 
     return projects.filter(project => {
       const title = project.title.toLowerCase();
       const description = project.description.toLowerCase();
 
-      switch (selectedCategory) {
-        case 'ai':
-          return (
-            description.includes('ai') ||
-            description.includes('machine learning') ||
-            description.includes('neural') ||
-            description.includes('deep learning') ||
-            title.includes('ai') ||
-            description.includes('gpt')
-          );
-        case 'game':
-          return (
-            description.includes('game') ||
-            description.includes('unity') ||
-            description.includes('multiplayer') ||
-            title.includes('game')
-          );
-        case 'cloud':
-          return (
-            description.includes('aws') ||
-            description.includes('cloud') ||
-            description.includes('ec2') ||
-            description.includes('serverless')
-          );
-        case 'physics':
-          return (
-            description.includes('physics') ||
-            description.includes('numerical') ||
-            description.includes('simulation') ||
-            description.includes('calculus')
-          );
-        case 'web':
-          return (
-            description.includes('web') ||
-            description.includes('react') ||
-            description.includes('ios') ||
-            description.includes('mobile') ||
-            description.includes('electron')
-          );
-        default:
-          return true;
-      }
+      return category.keywords.some(keyword => 
+        title.includes(keyword) || description.includes(keyword)
+      );
     });
   };
 
@@ -78,7 +34,7 @@ const Projects: React.FC = () => {
 
         <div className="project-controls">
           <div className="category-filters">
-            {categories.map(category => (
+            {projectCategories.map(category => (
               <button
                 key={category.id}
                 className={`filter-btn ${selectedCategory === category.id ? 'active' : ''}`}
@@ -133,35 +89,18 @@ const Projects: React.FC = () => {
                 <p className="project-description">{project.description}</p>
 
                 <div className="project-tags">
-                  {project.title.toLowerCase().includes('ai') ||
-                  project.description.toLowerCase().includes('ai') ||
-                  project.description
-                    .toLowerCase()
-                    .includes('machine learning') ? (
-                    <span className="project-tag ai">AI/ML</span>
-                  ) : null}
+                  {projectCategories.slice(1).map(category => {
+                    const matchesCategory = category.keywords.some(keyword =>
+                      project.title.toLowerCase().includes(keyword) ||
+                      project.description.toLowerCase().includes(keyword)
+                    );
 
-                  {project.title.toLowerCase().includes('game') ||
-                  project.description.toLowerCase().includes('game') ||
-                  project.description.toLowerCase().includes('unity') ? (
-                    <span className="project-tag game">Game</span>
-                  ) : null}
-
-                  {project.description.toLowerCase().includes('aws') ||
-                  project.description.toLowerCase().includes('cloud') ? (
-                    <span className="project-tag cloud">Cloud</span>
-                  ) : null}
-
-                  {project.description.toLowerCase().includes('physics') ||
-                  project.description.toLowerCase().includes('numerical') ? (
-                    <span className="project-tag physics">Physics</span>
-                  ) : null}
-
-                  {project.description.toLowerCase().includes('react') ||
-                  project.description.toLowerCase().includes('ios') ||
-                  project.description.toLowerCase().includes('web') ? (
-                    <span className="project-tag web">Web/Mobile</span>
-                  ) : null}
+                    return matchesCategory ? (
+                      <span key={category.id} className={`project-tag ${category.id}`}>
+                        {category.label}
+                      </span>
+                    ) : null;
+                  })}
                 </div>
               </div>
             </div>
@@ -182,12 +121,12 @@ const Projects: React.FC = () => {
             <div className="stat-label">Total Projects</div>
           </div>
           <div className="stat">
-            <div className="stat-number">6</div>
+            <div className="stat-number">{projectStats.categories}</div>
             <div className="stat-label">Categories</div>
           </div>
           <div className="stat">
-            <div className="stat-number">∞</div>
-            <div className="stat-label">Ideas Brewing</div>
+            <div className="stat-number">{projectStats.ideasBrewing}</div>
+            <div className="stat-label">{projectStats.brewingLabel}</div>
           </div>
         </div>
       </div>
