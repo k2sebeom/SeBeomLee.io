@@ -39,16 +39,16 @@ The development server will be available at `http://localhost:5173`
 
 ## 📜 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `yarn dev` | Start development server with hot reload |
-| `yarn build` | Build for production |
-| `yarn preview` | Preview production build locally |
-| `yarn lint` | Run ESLint to check code quality |
-| `yarn lint:fix` | Automatically fix ESLint issues |
-| `yarn format` | Format code with Prettier |
-| `yarn format:check` | Check if code is properly formatted |
-| `yarn deploy` | Deploy to GitHub Pages |
+| Command             | Description                              |
+| ------------------- | ---------------------------------------- |
+| `yarn dev`          | Start development server with hot reload |
+| `yarn build`        | Build for production                     |
+| `yarn preview`      | Preview production build locally         |
+| `yarn lint`         | Run ESLint to check code quality         |
+| `yarn lint:fix`     | Automatically fix ESLint issues          |
+| `yarn format`       | Format code with Prettier                |
+| `yarn format:check` | Check if code is properly formatted      |
+| `yarn deploy`       | Deploy to GitHub Pages                   |
 
 ## 🏗️ Project Structure
 
@@ -130,6 +130,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 **SeBeom Lee**
+
 - Website: [sebeomlee.com](https://sebeomlee.com)
 - GitHub: [@k2sebeom](https://github.com/k2sebeom)
 

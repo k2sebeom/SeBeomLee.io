@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { contactMethods, serviceHighlights, contactIntro, footerInfo } from '../data/contactData';
+import {
+  contactMethods,
+  serviceHighlights,
+  contactIntro,
+  footerInfo,
+} from '../data/contactData';
 import './Contact.css';
 
 const Contact: React.FC = () => {

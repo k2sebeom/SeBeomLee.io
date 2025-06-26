@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { featuredProjects, projectsList } from '../data/projectsData';
-import { projectCategories, projectStats, galleryConfig, projectsConfig } from '../data/projectsConfig';
+import {
+  projectCategories,
+  projectStats,
+  galleryConfig,
+  projectsConfig,
+} from '../data/projectsConfig';
 import './Projects.css';
 
-const ProjectCard: React.FC<{ project: typeof projectsList[0]; index: number }> = ({
-  project,
-  index,
-}) => (
+const ProjectCard: React.FC<{
+  project: (typeof projectsList)[0];
+  index: number;
+}> = ({ project, index }) => (
   <div
     className="project-card cosmic-card"
     style={{ animationDelay: `${index * 0.1}s` }}
@@ -40,9 +45,10 @@ const ProjectCard: React.FC<{ project: typeof projectsList[0]; index: number }> 
 
       <div className="project-tags">
         {projectCategories.slice(1).map(category => {
-          const matchesCategory = category.keywords.some(keyword =>
-            project.title.toLowerCase().includes(keyword) ||
-            project.description.toLowerCase().includes(keyword)
+          const matchesCategory = category.keywords.some(
+            keyword =>
+              project.title.toLowerCase().includes(keyword) ||
+              project.description.toLowerCase().includes(keyword)
           );
 
           return matchesCategory ? (
@@ -58,7 +64,9 @@ const ProjectCard: React.FC<{ project: typeof projectsList[0]; index: number }> 
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(projectsConfig.pagination.initialCount);
+  const [visibleCount, setVisibleCount] = useState(
+    projectsConfig.pagination.initialCount
+  );
   const [filteredProjects, setFilteredProjects] = useState(projectsList);
 
   const filterProjects = (projects: typeof projectsList) => {
@@ -71,8 +79,8 @@ const Projects: React.FC = () => {
       const title = project.title.toLowerCase();
       const description = project.description.toLowerCase();
 
-      return category.keywords.some(keyword => 
-        title.includes(keyword) || description.includes(keyword)
+      return category.keywords.some(
+        keyword => title.includes(keyword) || description.includes(keyword)
       );
     });
   };
@@ -109,7 +117,7 @@ const Projects: React.FC = () => {
         {/* All Projects Section */}
         <div className="all-projects">
           <h3 className="category-title">{projectsConfig.categoryTitle}</h3>
-          
+
           <div className="project-controls">
             <div className="category-filters">
               {projectCategories.map(category => (
@@ -133,20 +141,32 @@ const Projects: React.FC = () => {
 
           {filteredProjects.length === 0 ? (
             <div className="no-projects">
-              <div className="no-projects-icon">{projectsConfig.noProjectsFound.icon}</div>
+              <div className="no-projects-icon">
+                {projectsConfig.noProjectsFound.icon}
+              </div>
               <h3>{projectsConfig.noProjectsFound.title}</h3>
               <p>{projectsConfig.noProjectsFound.description}</p>
             </div>
-          ) : hasMoreProjects && (
-            <div className="load-more-container">
-              <button className="load-more-button cosmic-button" onClick={handleLoadMore}>
-                <span className="button-icon">{projectsConfig.pagination.loadMoreIcon}</span>
-                <span className="button-text">{projectsConfig.pagination.loadMoreText}</span>
-              </button>
-              <div className="projects-remaining">
-                {filteredProjects.length - visibleCount} more projects available
+          ) : (
+            hasMoreProjects && (
+              <div className="load-more-container">
+                <button
+                  className="load-more-button cosmic-button"
+                  onClick={handleLoadMore}
+                >
+                  <span className="button-icon">
+                    {projectsConfig.pagination.loadMoreIcon}
+                  </span>
+                  <span className="button-text">
+                    {projectsConfig.pagination.loadMoreText}
+                  </span>
+                </button>
+                <div className="projects-remaining">
+                  {filteredProjects.length - visibleCount} more projects
+                  available
+                </div>
               </div>
-            </div>
+            )
           )}
         </div>
 

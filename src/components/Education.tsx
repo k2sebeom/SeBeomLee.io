@@ -1,6 +1,10 @@
 import React from 'react';
 import { educationList } from '../data/educationData';
-import { academicAreas, learningPhilosophy, getDegreeIcon } from '../data/academicData';
+import {
+  academicAreas,
+  learningPhilosophy,
+  getDegreeIcon,
+} from '../data/academicData';
 import './Education.css';
 
 const Education: React.FC = () => {
@@ -44,9 +48,7 @@ const Education: React.FC = () => {
               <div className="degrees-list">
                 {education.degrees.map((degree, degreeIndex) => (
                   <div key={degreeIndex} className="degree-item">
-                    <div className="degree-icon">
-                      {getDegreeIcon(degree)}
-                    </div>
+                    <div className="degree-icon">{getDegreeIcon(degree)}</div>
                     <span className="degree-text">{degree}</span>
                   </div>
                 ))}
