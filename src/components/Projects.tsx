@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { featuredProjects, projectsList } from '../data/projectsData';
 import {
   projectCategories,
@@ -69,27 +69,32 @@ const Projects: React.FC = () => {
   );
   const [filteredProjects, setFilteredProjects] = useState(projectsList);
 
-  const filterProjects = (projects: typeof projectsList) => {
-    if (selectedCategory === 'all') return projects;
+  const filterProjects = useCallback(
+    (projects: typeof projectsList) => {
+      if (selectedCategory === 'all') return projects;
 
-    const category = projectCategories.find(cat => cat.id === selectedCategory);
-    if (!category) return projects;
-
-    return projects.filter(project => {
-      const title = project.title.toLowerCase();
-      const description = project.description.toLowerCase();
-
-      return category.keywords.some(
-        keyword => title.includes(keyword) || description.includes(keyword)
+      const category = projectCategories.find(
+        cat => cat.id === selectedCategory
       );
-    });
-  };
+      if (!category) return projects;
+
+      return projects.filter(project => {
+        const title = project.title.toLowerCase();
+        const description = project.description.toLowerCase();
+
+        return category.keywords.some(
+          keyword => title.includes(keyword) || description.includes(keyword)
+        );
+      });
+    },
+    [selectedCategory]
+  );
 
   useEffect(() => {
     const filtered = filterProjects(projectsList);
     setFilteredProjects(filtered);
     setVisibleCount(projectsConfig.pagination.initialCount);
-  }, [selectedCategory]);
+  }, [selectedCategory, filterProjects]);
 
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + projectsConfig.pagination.loadMoreCount);
