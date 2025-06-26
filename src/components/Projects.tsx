@@ -26,10 +26,10 @@ const ProjectCard: React.FC<{ project: typeof projectsList[0]; index: number }> 
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="project-link"
+          className="project-link cosmic-button"
         >
           <span className="link-icon">🚀</span>
-          Launch Project
+          <span className="link-text">Launch Project</span>
         </a>
       </div>
     </div>
