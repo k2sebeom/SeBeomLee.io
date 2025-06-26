@@ -66,10 +66,10 @@
 }
 
 .company-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  filter: brightness(1.2);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: auto;
 }
 
 .timeline-content {
