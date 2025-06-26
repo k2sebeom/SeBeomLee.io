@@ -29,4 +29,11 @@ export const workList: WorkInfo[] = [
     date: 'Mar 2022 - Aug 2022',
     color: '#FECA00',
   },
+  {
+    company: 'AWS Korea',
+    position: 'Solutions Architect',
+    icon: './work/aws.png',
+    date: 'Jan 2025 - Present',
+    color: '#262E3B',
+  },
 ];
