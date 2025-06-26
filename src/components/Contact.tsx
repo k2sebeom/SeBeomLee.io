@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { contactMethods, serviceHighlights, contactIntro, footerInfo } from '../data/contactData';
 import './Contact.css';
 
 const Contact: React.FC = () => {
@@ -31,37 +32,6 @@ const Contact: React.FC = () => {
     window.location.href = `mailto:slee5@oberlin.edu?subject=${subject}&body=${body}`;
   };
 
-  const contactMethods = [
-    {
-      icon: '📧',
-      title: 'Email',
-      value: 'slee5@oberlin.edu',
-      link: 'mailto:slee5@oberlin.edu',
-      description: 'Primary communication channel',
-    },
-    {
-      icon: '💼',
-      title: 'LinkedIn',
-      value: 'Connect with me',
-      link: 'https://linkedin.com/in/sebeom-lee',
-      description: 'Professional networking',
-    },
-    {
-      icon: '🐙',
-      title: 'GitHub',
-      value: 'k2sebeom',
-      link: 'https://github.com/k2sebeom',
-      description: 'Code repositories & projects',
-    },
-    {
-      icon: '🌐',
-      title: 'Portfolio',
-      value: 'sebeom.dev',
-      link: 'https://sebeom.dev',
-      description: 'Personal website',
-    },
-  ];
-
   return (
     <section id="contact" className="section contact">
       <div className="contact-container">
@@ -70,32 +40,15 @@ const Contact: React.FC = () => {
         <div className="contact-content">
           <div className="contact-info">
             <div className="contact-intro cosmic-card">
-              <h3 className="intro-title">
-                Ready to Launch Something Amazing?
-              </h3>
-              <p className="intro-text">
-                Whether you're looking to build the next breakthrough AI
-                application, architect scalable cloud solutions, or explore the
-                intersection of physics and technology, I'm here to help turn
-                your vision into reality.
-              </p>
+              <h3 className="intro-title">{contactIntro.title}</h3>
+              <p className="intro-text">{contactIntro.text}</p>
               <div className="intro-highlights">
-                <div className="highlight">
-                  <span className="highlight-icon">🚀</span>
-                  <span>Cloud Architecture & AWS Solutions</span>
-                </div>
-                <div className="highlight">
-                  <span className="highlight-icon">🤖</span>
-                  <span>AI/ML Implementation & Strategy</span>
-                </div>
-                <div className="highlight">
-                  <span className="highlight-icon">⚛️</span>
-                  <span>Physics-Based Computational Solutions</span>
-                </div>
-                <div className="highlight">
-                  <span className="highlight-icon">🎮</span>
-                  <span>Game Development & Interactive Experiences</span>
-                </div>
+                {serviceHighlights.map((highlight, index) => (
+                  <div key={index} className="highlight">
+                    <span className="highlight-icon">{highlight.icon}</span>
+                    <span>{highlight.text}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -198,17 +151,14 @@ const Contact: React.FC = () => {
           <div className="footer-content cosmic-card">
             <div className="footer-quote">
               <blockquote>
-                "The universe is not only stranger than we imagine, it is
-                stranger than we can imagine."
-                <cite>- J.B.S. Haldane</cite>
+                {footerInfo.quote}
+                <cite>- {footerInfo.author}</cite>
               </blockquote>
             </div>
             <div className="footer-info">
-              <p>Currently based in Seoul, South Korea 🇰🇷</p>
-              <p>
-                Available for collaboration across Asia-Pacific and beyond 🌏
-              </p>
-              <p>Response time: Usually within 24 Earth hours ⏰</p>
+              <p>{footerInfo.location}</p>
+              <p>{footerInfo.availability}</p>
+              <p>{footerInfo.responseTime}</p>
             </div>
           </div>
         </div>
