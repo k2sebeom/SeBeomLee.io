@@ -51,11 +51,13 @@
   height: 60px;
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
 .identity-prefix {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 300;
+  margin-right: 8px;
 }
 
 .identity-text {
