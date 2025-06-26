@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { featuredProjects, projectsList } from '../data/projectsData';
 import { projectCategories, projectStats, galleryConfig, projectsConfig } from '../data/projectsConfig';
 import './Projects.css';
@@ -58,6 +58,8 @@ const ProjectCard: React.FC<{ project: typeof projectsList[0]; index: number }> 
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [visibleCount, setVisibleCount] = useState(projectsConfig.pagination.initialCount);
+  const [filteredProjects, setFilteredProjects] = useState(projectsList);
 
   const filterProjects = (projects: typeof projectsList) => {
     if (selectedCategory === 'all') return projects;
@@ -75,7 +77,18 @@ const Projects: React.FC = () => {
     });
   };
 
-  const filteredProjects = filterProjects(projectsList);
+  useEffect(() => {
+    const filtered = filterProjects(projectsList);
+    setFilteredProjects(filtered);
+    setVisibleCount(projectsConfig.pagination.initialCount);
+  }, [selectedCategory]);
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + projectsConfig.pagination.loadMoreCount);
+  };
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+  const hasMoreProjects = visibleCount < filteredProjects.length;
 
   return (
     <section id="projects" className="section projects">
@@ -113,16 +126,26 @@ const Projects: React.FC = () => {
           </div>
 
           <div className="projects-grid">
-            {filteredProjects.map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
           </div>
 
-          {filteredProjects.length === 0 && (
+          {filteredProjects.length === 0 ? (
             <div className="no-projects">
               <div className="no-projects-icon">{projectsConfig.noProjectsFound.icon}</div>
               <h3>{projectsConfig.noProjectsFound.title}</h3>
               <p>{projectsConfig.noProjectsFound.description}</p>
+            </div>
+          ) : hasMoreProjects && (
+            <div className="load-more-container">
+              <button className="load-more-button cosmic-button" onClick={handleLoadMore}>
+                <span className="button-icon">{projectsConfig.pagination.loadMoreIcon}</span>
+                <span className="button-text">{projectsConfig.pagination.loadMoreText}</span>
+              </button>
+              <div className="projects-remaining">
+                {filteredProjects.length - visibleCount} more projects available
+              </div>
             </div>
           )}
         </div>
