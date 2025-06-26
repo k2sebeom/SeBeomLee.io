@@ -7,45 +7,75 @@ const Experience: React.FC = () => {
     <section id="experience" className="section experience">
       <div className="experience-container">
         <h2 className="section-title">Mission Timeline</h2>
-        
+
         <div className="timeline">
           <div className="timeline-line"></div>
-          
+
           {[...workList].reverse().map((work, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="timeline-marker">
-                <div className="marker-inner" style={{ backgroundColor: work.color }}>
-                  <img src={work.icon} alt={work.company} className="company-icon" />
+                <div
+                  className="marker-inner"
+                  style={{ backgroundColor: work.color }}
+                >
+                  <img
+                    src={work.icon}
+                    alt={work.company}
+                    className="company-icon"
+                  />
                 </div>
               </div>
-              
+
               <div className="timeline-content cosmic-card">
                 <div className="work-header">
                   <h3 className="company-name">{work.company}</h3>
                   <span className="work-date">{work.date}</span>
                 </div>
-                
+
                 <h4 className="position-title">{work.position}</h4>
-                
+
                 <div className="work-description">
-                  {work.company === 'AWS Korea' && work.position === 'Solutions Architect' && (
-                    <p>Currently architecting cloud solutions for enterprise clients across Korea and the Asia-Pacific region. Specializing in AI/ML workloads, serverless architectures, and helping organizations leverage the latest wave of artificial intelligence technologies to transform their businesses.</p>
-                  )}
-                  {work.company === 'Amazon Web Services' && work.position === 'Solutions Architect Intern' && (
-                    <p>Designed and implemented cloud architectures for enterprise clients. Developed proof-of-concepts for AI/ML workloads and contributed to customer success through technical guidance and best practices.</p>
-                  )}
+                  {work.company === 'AWS Korea' &&
+                    work.position === 'Solutions Architect' && (
+                      <p>
+                        Currently architecting cloud solutions for enterprise
+                        clients across Korea and the Asia-Pacific region.
+                        Specializing in AI/ML workloads, serverless
+                        architectures, and helping organizations leverage the
+                        latest wave of artificial intelligence technologies to
+                        transform their businesses.
+                      </p>
+                    )}
+                  {work.company === 'Amazon Web Services' &&
+                    work.position === 'Solutions Architect Intern' && (
+                      <p>
+                        Designed and implemented cloud architectures for
+                        enterprise clients. Developed proof-of-concepts for
+                        AI/ML workloads and contributed to customer success
+                        through technical guidance and best practices.
+                      </p>
+                    )}
                   {work.company === 'Pumpkin Inc.' && (
-                    <p>Developed full-stack applications using modern web technologies. Built scalable backend services and responsive frontend interfaces, contributing to the company's digital transformation initiatives.</p>
+                    <p>
+                      Developed full-stack applications using modern web
+                      technologies. Built scalable backend services and
+                      responsive frontend interfaces, contributing to the
+                      company's digital transformation initiatives.
+                    </p>
                   )}
                   {work.company === 'LUXROBO Co., Ltd.' && (
-                    <p>Developed Python applications for robotics and automation systems. Worked on computer vision algorithms and machine learning models for intelligent robotic behaviors.</p>
+                    <p>
+                      Developed Python applications for robotics and automation
+                      systems. Worked on computer vision algorithms and machine
+                      learning models for intelligent robotic behaviors.
+                    </p>
                   )}
                 </div>
-                
+
                 <div className="work-technologies">
                   {work.company === 'AWS Korea' && (
                     <>
@@ -86,7 +116,7 @@ const Experience: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="experience-summary cosmic-card">
           <h3 className="summary-title">Journey Highlights</h3>
           <div className="highlights-grid">

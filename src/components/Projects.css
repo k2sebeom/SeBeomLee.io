@@ -267,26 +267,26 @@
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .category-filters {
     justify-content: center;
   }
-  
+
   .filter-btn {
     flex: 1;
     justify-content: center;
     min-width: 120px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .project-card {
     max-width: none;
   }
-  
+
   .projects-stats {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -297,27 +297,27 @@
   .category-filters {
     flex-direction: column;
   }
-  
+
   .filter-btn {
     width: 100%;
   }
-  
+
   .filter-label {
     display: none;
   }
-  
+
   .filter-icon {
     font-size: 1.3rem;
   }
-  
+
   .project-image {
     height: 150px;
   }
-  
+
   .project-content {
     padding: 20px;
   }
-  
+
   .project-title {
     font-size: 1.2rem;
   }

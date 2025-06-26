@@ -156,7 +156,11 @@
 }
 
 .tech-tag {
-  background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(131, 56, 236, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 110, 0.2),
+    rgba(131, 56, 236, 0.2)
+  );
   border: 1px solid rgba(255, 0, 110, 0.3);
   color: rgba(255, 255, 255, 0.9);
   padding: 4px 10px;
@@ -234,39 +238,39 @@
   .timeline-line {
     left: 30px;
   }
-  
+
   .timeline-item.left,
   .timeline-item.right {
     padding-left: 80px;
     padding-right: 0;
   }
-  
+
   .timeline-marker {
     left: 30px;
   }
-  
+
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
     margin-left: 0;
     margin-right: 0;
   }
-  
+
   .timeline-content::before {
     left: -30px !important;
     right: auto !important;
     border-right-color: rgba(26, 26, 46, 0.8) !important;
     border-left-color: transparent !important;
   }
-  
+
   .work-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .highlights-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .highlight-item {
     flex-direction: column;
     text-align: center;
@@ -278,15 +282,15 @@
   .timeline-item {
     margin-bottom: 60px;
   }
-  
+
   .company-name {
     font-size: 1.2rem;
   }
-  
+
   .position-title {
     font-size: 1.1rem;
   }
-  
+
   .summary-title {
     font-size: 1.5rem;
   }

@@ -12,7 +12,7 @@ interface Star {
 const StarField: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -28,8 +28,10 @@ const StarField: React.FC = () => {
 
     const createStars = () => {
       const stars: Star[] = [];
-      const numStars = Math.floor((window.innerWidth * window.innerHeight) / 8000);
-      
+      const numStars = Math.floor(
+        (window.innerWidth * window.innerHeight) / 8000
+      );
+
       for (let i = 0; i < numStars; i++) {
         stars.push({
           x: Math.random() * canvas.width,
@@ -39,27 +41,31 @@ const StarField: React.FC = () => {
           opacity: Math.random() * 0.8 + 0.2,
         });
       }
-      
+
       starsRef.current = stars;
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Create nebula effect
       const gradient = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width / 2
+        canvas.width / 2,
+        canvas.height / 2,
+        0,
+        canvas.width / 2,
+        canvas.height / 2,
+        canvas.width / 2
       );
       gradient.addColorStop(0, 'rgba(102, 126, 234, 0.05)');
       gradient.addColorStop(0.5, 'rgba(118, 75, 162, 0.03)');
       gradient.addColorStop(1, 'rgba(10, 10, 10, 0.1)');
-      
+
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Draw and animate stars
-      starsRef.current.forEach((star) => {
+      starsRef.current.forEach(star => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;

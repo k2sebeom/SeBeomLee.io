@@ -17,44 +17,65 @@ const Projects: React.FC = () => {
 
   const filterProjects = (projects: typeof projectsList) => {
     if (selectedCategory === 'all') return projects;
-    
+
     return projects.filter(project => {
       const title = project.title.toLowerCase();
       const description = project.description.toLowerCase();
-      
+
       switch (selectedCategory) {
         case 'ai':
-          return description.includes('ai') || description.includes('machine learning') || 
-                 description.includes('neural') || description.includes('deep learning') ||
-                 title.includes('ai') || description.includes('gpt');
+          return (
+            description.includes('ai') ||
+            description.includes('machine learning') ||
+            description.includes('neural') ||
+            description.includes('deep learning') ||
+            title.includes('ai') ||
+            description.includes('gpt')
+          );
         case 'game':
-          return description.includes('game') || description.includes('unity') || 
-                 description.includes('multiplayer') || title.includes('game');
+          return (
+            description.includes('game') ||
+            description.includes('unity') ||
+            description.includes('multiplayer') ||
+            title.includes('game')
+          );
         case 'cloud':
-          return description.includes('aws') || description.includes('cloud') || 
-                 description.includes('ec2') || description.includes('serverless');
+          return (
+            description.includes('aws') ||
+            description.includes('cloud') ||
+            description.includes('ec2') ||
+            description.includes('serverless')
+          );
         case 'physics':
-          return description.includes('physics') || description.includes('numerical') || 
-                 description.includes('simulation') || description.includes('calculus');
+          return (
+            description.includes('physics') ||
+            description.includes('numerical') ||
+            description.includes('simulation') ||
+            description.includes('calculus')
+          );
         case 'web':
-          return description.includes('web') || description.includes('react') || 
-                 description.includes('ios') || description.includes('mobile') ||
-                 description.includes('electron');
+          return (
+            description.includes('web') ||
+            description.includes('react') ||
+            description.includes('ios') ||
+            description.includes('mobile') ||
+            description.includes('electron')
+          );
         default:
           return true;
       }
     });
   };
 
-  const displayedProjects = showAllProjects ? 
-    filterProjects(projectsList) : 
-    filterProjects(featuredProjects);
+  const displayedProjects = showAllProjects
+    ? filterProjects(projectsList)
+    : filterProjects(featuredProjects);
 
   return (
     <section id="projects" className="section projects">
       <div className="projects-container">
         <h2 className="section-title">Project Galaxy</h2>
-        
+
         <div className="project-controls">
           <div className="category-filters">
             {categories.map(category => (
@@ -68,35 +89,36 @@ const Projects: React.FC = () => {
               </button>
             ))}
           </div>
-          
-          <button 
+
+          <button
             className="toggle-btn cosmic-button"
             onClick={() => setShowAllProjects(!showAllProjects)}
           >
             {showAllProjects ? 'Show Featured' : 'Show All Projects'}
           </button>
         </div>
-        
+
         <div className="projects-grid">
           {displayedProjects.map((project, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="project-card cosmic-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="project-image">
-                <img 
-                  src={project.thumbnail} 
+                <img
+                  src={project.thumbnail}
                   alt={project.title}
-                  onError={(e) => {
+                  onError={e => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTJlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwZDRmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
+                    target.src =
+                      'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTJlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwZDRmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
                   }}
                 />
                 <div className="project-overlay">
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
+                  <a
+                    href={project.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="project-link"
                   >
@@ -105,37 +127,39 @@ const Projects: React.FC = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
-                
+
                 <div className="project-tags">
-                  {project.title.toLowerCase().includes('ai') || 
-                   project.description.toLowerCase().includes('ai') ||
-                   project.description.toLowerCase().includes('machine learning') ? (
+                  {project.title.toLowerCase().includes('ai') ||
+                  project.description.toLowerCase().includes('ai') ||
+                  project.description
+                    .toLowerCase()
+                    .includes('machine learning') ? (
                     <span className="project-tag ai">AI/ML</span>
                   ) : null}
-                  
-                  {project.title.toLowerCase().includes('game') || 
-                   project.description.toLowerCase().includes('game') ||
-                   project.description.toLowerCase().includes('unity') ? (
+
+                  {project.title.toLowerCase().includes('game') ||
+                  project.description.toLowerCase().includes('game') ||
+                  project.description.toLowerCase().includes('unity') ? (
                     <span className="project-tag game">Game</span>
                   ) : null}
-                  
-                  {project.description.toLowerCase().includes('aws') || 
-                   project.description.toLowerCase().includes('cloud') ? (
+
+                  {project.description.toLowerCase().includes('aws') ||
+                  project.description.toLowerCase().includes('cloud') ? (
                     <span className="project-tag cloud">Cloud</span>
                   ) : null}
-                  
-                  {project.description.toLowerCase().includes('physics') || 
-                   project.description.toLowerCase().includes('numerical') ? (
+
+                  {project.description.toLowerCase().includes('physics') ||
+                  project.description.toLowerCase().includes('numerical') ? (
                     <span className="project-tag physics">Physics</span>
                   ) : null}
-                  
-                  {project.description.toLowerCase().includes('react') || 
-                   project.description.toLowerCase().includes('ios') ||
-                   project.description.toLowerCase().includes('web') ? (
+
+                  {project.description.toLowerCase().includes('react') ||
+                  project.description.toLowerCase().includes('ios') ||
+                  project.description.toLowerCase().includes('web') ? (
                     <span className="project-tag web">Web/Mobile</span>
                   ) : null}
                 </div>
@@ -143,7 +167,7 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         {displayedProjects.length === 0 && (
           <div className="no-projects">
             <div className="no-projects-icon">🔍</div>
@@ -151,7 +175,7 @@ const Projects: React.FC = () => {
             <p>Try selecting a different category or view all projects</p>
           </div>
         )}
-        
+
         <div className="projects-stats cosmic-card">
           <div className="stat">
             <div className="stat-number">{projectsList.length}+</div>

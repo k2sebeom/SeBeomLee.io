@@ -10,7 +10,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(102, 126, 234, 0.1) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -299,28 +303,28 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 30px;
     text-align: center;
   }
-  
+
   .contact-method {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .contact-method:hover {
     transform: translateY(-5px);
   }
-  
+
   .footer-quote blockquote {
     padding-left: 0;
     text-align: center;
   }
-  
+
   .footer-quote blockquote::before {
     left: 50%;
     transform: translateX(-50%);
@@ -332,26 +336,26 @@
   .form-title {
     font-size: 1.4rem;
   }
-  
+
   .contact-intro,
   .contact-form {
     padding: 20px;
   }
-  
+
   .form-input,
   .form-textarea {
     padding: 10px 14px;
   }
-  
+
   .form-submit {
     padding: 12px 25px;
     font-size: 1rem;
   }
-  
+
   .method-icon {
     font-size: 1.5rem;
   }
-  
+
   .footer-quote blockquote {
     font-size: 1rem;
   }

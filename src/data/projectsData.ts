@@ -9,7 +9,8 @@ export interface ProjectInfo {
 export const featuredProjects: ProjectInfo[] = [
   {
     title: 'museLIVE',
-    description: 'Developed an iOS application for virtual musical concerts and voice chatting using SwiftUI.',
+    description:
+      'Developed an iOS application for virtual musical concerts and voice chatting using SwiftUI.',
     thumbnail: './portfolio/muselive.png',
     link: 'https://apps.apple.com/ca/app/muselive-virtual-concerts/id1564042040',
   },
@@ -55,7 +56,8 @@ export const projectsList: ProjectInfo[] = [
     title: 'Desktop Idle Tree',
     description:
       'Desktop Idle Tree is a Desktop Application built with Electron.js and React.js. You can decorate your own christmas tree and display at as a desktop widget.',
-    thumbnail: 'https://github.com/k2sebeom/tree-decoration-idle/blob/main/source/demo.gif?raw=true',
+    thumbnail:
+      'https://github.com/k2sebeom/tree-decoration-idle/blob/main/source/demo.gif?raw=true',
     link: 'https://github.com/k2sebeom/tree-decoration-idle',
   },
   {
@@ -104,7 +106,8 @@ export const projectsList: ProjectInfo[] = [
     title: 'HPC Connector on EC2',
     description:
       'A guide and scripts to use NICE Enginframe with HPC Connector on an EC2 instance. HPC Connector is a feature in NICE EnginFrame that enables a usage of AWS ParallelCluster. This guide addresses how to install and use HPC Connector on an EC2 instance.',
-    thumbnail: 'https://github.com/k2sebeom/hpc-connector-on-ec2/raw/main/src/pic10.png',
+    thumbnail:
+      'https://github.com/k2sebeom/hpc-connector-on-ec2/raw/main/src/pic10.png',
     link: 'https://github.com/k2sebeom/hpc-connector-on-ec2',
   },
   {
@@ -118,7 +121,8 @@ export const projectsList: ProjectInfo[] = [
     title: 'Face Recognition with AWS DeepLens',
     description:
       'A workshop document for creating a face-recognition device using AWS DeepLens and Amazon Rekognition. AWS DeepLens is a camera-based device specialized in machine learning projects. By integrating two AI services by Amazon, this workshop introduces how to make a custom face recognizer.',
-    thumbnail: 'https://k2sebeom.github.io/deeplens-rekognition-workshop/images/architecture.png',
+    thumbnail:
+      'https://k2sebeom.github.io/deeplens-rekognition-workshop/images/architecture.png',
     link: 'https://k2sebeom.github.io/deeplens-rekognition-workshop/',
   },
   {
@@ -132,7 +136,8 @@ export const projectsList: ProjectInfo[] = [
     title: 'On-the-fly HLS deployment using Elemental MediaConvert',
     description:
       'A workshop document for on-the-fly deployment VOD contents using HLS. Elemental MediaConvert is a cloud service for media format conversion. The workshop introduces how we can deploy a large VOD content while the conversion is in progress.',
-    thumbnail: 'https://k2sebeom.github.io/emc-on-the-fly-workshop/images/diagram.png',
+    thumbnail:
+      'https://k2sebeom.github.io/emc-on-the-fly-workshop/images/diagram.png',
     link: 'https://k2sebeom.github.io/emc-on-the-fly-workshop/',
   },
   {
@@ -146,7 +151,8 @@ export const projectsList: ProjectInfo[] = [
     title: 'Content Management Service using Amazon IVS',
     description:
       'Amazon Interactive Video Service is a high level service for live video streaming. This architecture is for building a simple content management service using a serverless architecture.',
-    thumbnail: 'https://github.com/k2sebeom/Amazon-IVS-CMS/raw/main/src/diagram.png',
+    thumbnail:
+      'https://github.com/k2sebeom/Amazon-IVS-CMS/raw/main/src/diagram.png',
     link: 'https://github.com/k2sebeom/Amazon-IVS-CMS',
   },
   {
@@ -158,7 +164,8 @@ export const projectsList: ProjectInfo[] = [
   },
   {
     title: 'Numerical Method for Calculus of Variation',
-    description: 'A numerical method of optimization using Fourier series and gradient descent',
+    description:
+      'A numerical method of optimization using Fourier series and gradient descent',
     thumbnail: './portfolio/CalVar.JPG',
     link: './pdf/CVar.pdf',
   },
@@ -178,13 +185,15 @@ export const projectsList: ProjectInfo[] = [
   },
   {
     title: 'Reinforcement Learning - Drone',
-    description: 'Using Unity ML Agent, an artificial intelligence learns how to fly a drone.',
+    description:
+      'Using Unity ML Agent, an artificial intelligence learns how to fly a drone.',
     thumbnail: './portfolio/Drone.JPG',
     link: 'https://www.youtube.com/watch?v=LDCNoa7i5RM',
   },
   {
     title: 'Top-View Multiplayer Game',
-    description: 'In a battle-royal styled multiplayer game, different players shoot each other to survive.',
+    description:
+      'In a battle-royal styled multiplayer game, different players shoot each other to survive.',
     thumbnail: './portfolio/Field.JPG',
     link: 'https://k2sebeom.itch.io/combat-field',
   },
@@ -204,13 +213,15 @@ export const projectsList: ProjectInfo[] = [
   },
   {
     title: 'Image based Artificial Composer',
-    description: 'An artificial intelligence creates a post-modern musical piece based on the computer vision!',
+    description:
+      'An artificial intelligence creates a post-modern musical piece based on the computer vision!',
     thumbnail: './portfolio/Composer.JPG',
     link: 'https://github.com/k2sebeom/Image-based-Composer',
   },
   {
     title: 'PyPlayscii - Ascii Game Engine',
-    description: 'PyPlayscii is an open source python package by which you can easily make an ascii-art styled game.',
+    description:
+      'PyPlayscii is an open source python package by which you can easily make an ascii-art styled game.',
     thumbnail: './portfolio/Playscii.JPG',
     link: 'https://github.com/k2sebeom/pyplayscii',
   },
@@ -223,7 +234,8 @@ export const projectsList: ProjectInfo[] = [
   },
   {
     title: 'DIY Gyro Game Controller',
-    description: 'Using Unity and PyMODI, a user can control the game using a DIY game controller.',
+    description:
+      'Using Unity and PyMODI, a user can control the game using a DIY game controller.',
     thumbnail: './portfolio/GyroPad.JPG',
     link: 'https://www.youtube.com/watch?v=092Vcyxriis',
   },

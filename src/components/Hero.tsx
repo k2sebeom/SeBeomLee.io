@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const identity = portfolioIdentities[currentIdentity];
     let currentIndex = 0;
-    
+
     const typeText = () => {
       if (currentIndex < identity.length) {
         setDisplayText(identity.substring(0, currentIndex + 1));
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         setTimeout(() => {
           setIsTyping(true);
           setDisplayText('');
-          setCurrentIdentity((prev) => (prev + 1) % portfolioIdentities.length);
+          setCurrentIdentity(prev => (prev + 1) % portfolioIdentities.length);
         }, 2000);
       }
     };
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             <span className="greeting">Hello, I'm</span>
             <span className="name">SeBeom Lee</span>
           </h1>
-          
+
           <div className="identity-container">
             <span className="identity-prefix">A </span>
             <span className="identity-text">
@@ -54,26 +54,26 @@ const Hero: React.FC = () => {
               <span className={`cursor ${isTyping ? 'blink' : ''}`}>|</span>
             </span>
           </div>
-          
+
           <p className="hero-description">
-            Solutions Architect at AWS with a passion for Physics, AI, and Game Development.
-            I build innovative solutions that bridge the gap between cutting-edge technology 
-            and real-world applications.
+            Solutions Architect at AWS with a passion for Physics, AI, and Game
+            Development. I build innovative solutions that bridge the gap
+            between cutting-edge technology and real-world applications.
           </p>
-          
+
           <div className="hero-buttons">
             <button className="cosmic-button primary" onClick={scrollToAbout}>
               Explore My Universe
             </button>
-            <a 
-              href="mailto:slee5@oberlin.edu" 
+            <a
+              href="mailto:slee5@oberlin.edu"
               className="cosmic-button secondary"
             >
               Contact Mission Control
             </a>
           </div>
         </div>
-        
+
         <div className="hero-visual">
           <div className="quantum-sphere">
             <div className="sphere-core"></div>
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
               <div className="particle"></div>
             </div>
           </div>
-          
+
           <div className="floating-elements">
             <div className="element element-1">⚛️</div>
             <div className="element element-2">🚀</div>
@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="scroll-indicator">
         <div className="scroll-arrow"></div>
         <span>Scroll to explore</span>

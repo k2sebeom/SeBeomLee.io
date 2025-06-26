@@ -98,7 +98,11 @@
 }
 
 .skill-tag {
-  background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 136, 0.2),
+    rgba(0, 212, 255, 0.2)
+  );
   border: 1px solid rgba(0, 212, 255, 0.3);
   padding: 6px 12px;
   border-radius: 15px;
@@ -116,7 +120,12 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -207,20 +216,20 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .about-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-  
+
   .stat-item {
     padding: 30px 15px;
   }
-  
+
   .stat-number {
     font-size: 2.5rem;
   }
@@ -230,11 +239,11 @@
   .about-stats {
     grid-template-columns: 1fr;
   }
-  
+
   .skills-title {
     font-size: 1.5rem;
   }
-  
+
   .statement-title,
   .bio-title {
     font-size: 1.3rem;

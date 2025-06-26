@@ -240,29 +240,29 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
+
   .education-header {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
-  
+
   .education-logo {
     width: 60px;
     height: 60px;
   }
-  
+
   .highlights-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .philosophy-item {
     flex-direction: column;
     text-align: center;
     gap: 20px;
   }
-  
+
   .philosophy-item:hover {
     transform: translateY(-5px);
   }
@@ -272,28 +272,28 @@
   .education-card {
     padding: 20px;
   }
-  
+
   .institution-name {
     font-size: 1.2rem;
   }
-  
+
   .highlights-title,
   .journey-title {
     font-size: 1.5rem;
   }
-  
+
   .degree-item {
     padding: 12px;
   }
-  
+
   .degree-text {
     font-size: 0.9rem;
   }
-  
+
   .area-icon {
     font-size: 2.5rem;
   }
-  
+
   .philosophy-icon {
     font-size: 2rem;
   }
