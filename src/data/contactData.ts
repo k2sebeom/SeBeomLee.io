@@ -53,31 +53,32 @@ export const contactMethods: ContactMethod[] = [
 export const serviceHighlights: ServiceHighlight[] = [
   {
     icon: '🚀',
-    text: 'Cloud Architecture & AWS Solutions'
+    text: 'Cloud Architecture & AWS Solutions',
   },
   {
     icon: '🤖',
-    text: 'AI/ML Implementation & Strategy'
+    text: 'AI/ML Implementation & Strategy',
   },
   {
     icon: '⚛️',
-    text: 'Physics-Based Computational Solutions'
+    text: 'Physics-Based Computational Solutions',
   },
   {
     icon: '🎮',
-    text: 'Game Development & Interactive Experiences'
-  }
+    text: 'Game Development & Interactive Experiences',
+  },
 ];
 
 export const contactIntro = {
   title: 'Ready to Launch Something Amazing?',
-  text: 'Whether you\'re looking to build the next breakthrough AI application, architect scalable cloud solutions, or explore the intersection of physics and technology, I\'m here to help turn your vision into reality.'
+  text: "Whether you're looking to build the next breakthrough AI application, architect scalable cloud solutions, or explore the intersection of physics and technology, I'm here to help turn your vision into reality.",
 };
 
 export const footerInfo: FooterInfo = {
-  quote: 'The universe is not only stranger than we imagine, it is stranger than we can imagine.',
-  author: 'J.B.S. Haldane',
+  quote:
+    'Not only is the Universe stranger than we think, it is stranger than we can think.',
+  author: 'Werner Heisenberg',
   location: 'Currently based in Seoul, South Korea 🇰🇷',
   availability: 'Available for collaboration across Asia-Pacific and beyond 🌏',
-  responseTime: 'Response time: Usually within 24 Earth hours ⏰'
+  responseTime: 'Response time: Usually within 24 Earth hours ⏰',
 };
