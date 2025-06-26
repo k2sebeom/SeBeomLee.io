@@ -1,39 +1,34 @@
-import React from 'react';
-import Header from './components/layouts/Header';
-import Intro from './components/intro/Intro';
-import styled, { ThemeProvider } from 'styled-components';
-import { useThemeSwitcher } from './hooks/useThemeSwitcher';
-import { themes } from './styles/theme';
-import Projects from './components/projects/Projects';
-import Work from './components/work/Work';
-import Education from './components/education/Education';
-import Footer from './components/layouts/Footer';
-import AboutMe from './components/aboutme/AboutMe';
-import GlobalStyles from './styles/globalStyles';
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
-const Container = styled.div`
-  background-color: ${(props) => props.theme.colors.secondary};
-`;
-
-function App(): JSX.Element {
-  const { activeTheme } = useThemeSwitcher();
+function App() {
+  const [count, setCount] = useState(0);
 
   return (
-    <ThemeProvider theme={activeTheme === 'dark' ? themes.dark : themes.light}>
-      <GlobalStyles />
-      <Container>
-        <Header />
-
-        <Intro />
-
-        <AboutMe />
-        <Projects />
-        <Work />
-        <Education />
-
-        <Footer />
-      </Container>
-    </ThemeProvider>
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount(count => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   );
 }
 
