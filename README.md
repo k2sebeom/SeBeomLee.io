@@ -1,69 +1,138 @@
-# React + TypeScript + Vite
+# SeBeom Lee Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React, TypeScript, and Vite. This project showcases SeBeom Lee's professional experience, projects, and skills in a clean, interactive interface.
 
-Currently, two official plugins are available:
+🌐 **Live Site**: [sebeomlee.com](https://sebeomlee.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Modern Tech Stack**: Built with React 19, TypeScript, and Vite for optimal performance
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Type Safety**: Full TypeScript implementation with strict type checking
+- **Code Quality**: Comprehensive ESLint and Prettier configuration
+- **Fast Development**: Hot module replacement with Vite for instant updates
+- **Automated Deployment**: GitHub Pages deployment with custom domain
+- **Data-Driven**: Content managed through structured data files for easy updates
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Quick Start
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Node.js (version 18 or higher)
+- Yarn package manager
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/k2sebeom/SeBeomLee.io.git
+cd SeBeomLee.io
+
+# Install dependencies
+yarn install
+
+# Start development server
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The development server will be available at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## 📜 Available Scripts
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+| Command | Description |
+|---------|-------------|
+| `yarn dev` | Start development server with hot reload |
+| `yarn build` | Build for production |
+| `yarn preview` | Preview production build locally |
+| `yarn lint` | Run ESLint to check code quality |
+| `yarn lint:fix` | Automatically fix ESLint issues |
+| `yarn format` | Format code with Prettier |
+| `yarn format:check` | Check if code is properly formatted |
+| `yarn deploy` | Deploy to GitHub Pages |
+
+## 🏗️ Project Structure
+
 ```
+src/
+├── components/         # Reusable React components
+│   ├── Header/        # Navigation and header components
+│   ├── About/         # About section components
+│   ├── Projects/      # Project showcase components
+│   └── ...           # Other feature components
+├── data/              # Content data files
+│   ├── projects.ts    # Project information
+│   ├── experience.ts  # Work experience data
+│   ├── skills.ts      # Skills and technologies
+│   └── ...           # Other content data
+├── App.tsx            # Main application component
+├── main.tsx           # Application entry point
+└── *.css             # Styling files
+```
+
+## 🎨 Design Philosophy
+
+### Data-Driven Architecture
+
+This portfolio follows a **data-driven approach** where:
+
+- **Content lives in `src/data/`**: All portfolio content (projects, experience, skills) is stored as structured data
+- **Components consume data**: React components import and display data rather than hard-coding content
+- **Easy content updates**: Modify portfolio content by editing data files without touching component code
+
+### Code Quality Standards
+
+- **TypeScript**: Strict type checking for reliability and developer experience
+- **ESLint**: Comprehensive linting rules including React hooks and TypeScript best practices
+- **Prettier**: Consistent code formatting across the entire codebase
+- **Modern React**: Functional components with hooks following current best practices
+
+## 🛠️ Technology Stack
+
+- **Frontend**: React 19, TypeScript
+- **Build Tool**: Vite 7.0
+- **Styling**: CSS3 with modern features
+- **Code Quality**: ESLint, Prettier, TypeScript strict mode
+- **Deployment**: GitHub Pages with custom domain
+- **Package Manager**: Yarn
+
+## 🚀 Deployment
+
+The site is automatically deployed to GitHub Pages:
+
+- **Production URL**: [sebeomlee.com](https://sebeomlee.com)
+- **Deployment**: Automated via `yarn deploy` command
+- **Custom Domain**: Configured with CNAME for sebeomlee.com
+- **Build Output**: Static files generated in `dist/` directory
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read the [Contributing Guide](CONTRIBUTING.md) for details on:
+
+- Development workflow
+- Code quality standards
+- Project structure guidelines
+- Submission process
+
+### Quick Contribution Checklist
+
+Before submitting changes, ensure you run:
+
+```bash
+yarn format      # Format code
+yarn lint:fix    # Fix linting issues
+yarn build       # Verify build works
+```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📞 Contact
+
+**SeBeom Lee**
+- Website: [sebeomlee.com](https://sebeomlee.com)
+- GitHub: [@k2sebeom](https://github.com/k2sebeom)
+
+---
+
+Built with ❤️ using React, TypeScript, and Vite
