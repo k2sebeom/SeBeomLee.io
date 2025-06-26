@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { navItems, logoText } from '../data/navigationData';
 import './Navigation.css';
 
 const Navigation: React.FC = () => {
@@ -10,14 +11,7 @@ const Navigation: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = [
-        'hero',
-        'about',
-        'experience',
-        'projects',
-        'education',
-        'contact',
-      ];
+      const sections = navItems.map(item => item.id);
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -46,20 +40,11 @@ const Navigation: React.FC = () => {
     }
   };
 
-  const navItems = [
-    { id: 'hero', label: 'Home', icon: '🏠' },
-    { id: 'about', label: 'About', icon: '👨‍🚀' },
-    { id: 'experience', label: 'Experience', icon: '🚀' },
-    { id: 'projects', label: 'Projects', icon: '🛸' },
-    { id: 'education', label: 'Education', icon: '🎓' },
-    { id: 'contact', label: 'Contact', icon: '📡' },
-  ];
-
   return (
     <nav className={`navigation ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <div className="nav-logo">
-          <span className="logo-text">SeBeom.dev</span>
+          <span className="logo-text">{logoText}</span>
           <div className="logo-orbit"></div>
         </div>
 
