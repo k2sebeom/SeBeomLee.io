@@ -51,25 +51,6 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        <div className="about-stats">
-          <div className="stat-item cosmic-card">
-            <div className="stat-number">5+</div>
-            <div className="stat-label">Years of Coding</div>
-          </div>
-          <div className="stat-item cosmic-card">
-            <div className="stat-number">3</div>
-            <div className="stat-label">Degrees Pursuing</div>
-          </div>
-          <div className="stat-item cosmic-card">
-            <div className="stat-number">∞</div>
-            <div className="stat-label">Curiosity Level</div>
-          </div>
-          <div className="stat-item cosmic-card">
-            <div className="stat-number">42</div>
-            <div className="stat-label">Answer to Everything</div>
-          </div>
-        </div>
       </div>
     </section>
   );

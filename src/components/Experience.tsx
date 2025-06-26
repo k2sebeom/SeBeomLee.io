@@ -11,7 +11,7 @@ const Experience: React.FC = () => {
         <div className="timeline">
           <div className="timeline-line"></div>
           
-          {workList.map((work, index) => (
+          {[...workList].reverse().map((work, index) => (
             <div 
               key={index} 
               className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
