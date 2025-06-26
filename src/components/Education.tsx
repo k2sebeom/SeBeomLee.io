@@ -1,5 +1,6 @@
 import React from 'react';
 import { educationList } from '../data/educationData';
+import { academicAreas, learningPhilosophy, getDegreeIcon } from '../data/academicData';
 import './Education.css';
 
 const Education: React.FC = () => {
@@ -44,13 +45,7 @@ const Education: React.FC = () => {
                 {education.degrees.map((degree, degreeIndex) => (
                   <div key={degreeIndex} className="degree-item">
                     <div className="degree-icon">
-                      {degree.includes('Computer Science')
-                        ? '💻'
-                        : degree.includes('Physics')
-                          ? '⚛️'
-                          : degree.includes('Mathematics')
-                            ? '📐'
-                            : '🎓'}
+                      {getDegreeIcon(degree)}
                     </div>
                     <span className="degree-text">{degree}</span>
                   </div>
@@ -63,59 +58,28 @@ const Education: React.FC = () => {
         <div className="academic-highlights cosmic-card">
           <h3 className="highlights-title">Academic Focus Areas</h3>
           <div className="highlights-grid">
-            <div className="highlight-area">
-              <div className="area-icon">💻</div>
-              <h4>Computer Science</h4>
-              <p>Algorithms, Data Structures, Software Engineering, AI/ML</p>
-            </div>
-            <div className="highlight-area">
-              <div className="area-icon">⚛️</div>
-              <h4>Physics</h4>
-              <p>Computational Physics, Quantum Mechanics, Numerical Methods</p>
-            </div>
-            <div className="highlight-area">
-              <div className="area-icon">📐</div>
-              <h4>Mathematics</h4>
-              <p>
-                Calculus, Linear Algebra, Differential Equations, Statistics
-              </p>
-            </div>
+            {academicAreas.map((area, index) => (
+              <div key={index} className="highlight-area">
+                <div className="area-icon">{area.icon}</div>
+                <h4>{area.title}</h4>
+                <p>{area.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="education-journey cosmic-card">
           <h3 className="journey-title">Learning Philosophy</h3>
           <div className="philosophy-content">
-            <div className="philosophy-item">
-              <div className="philosophy-icon">🌌</div>
-              <div className="philosophy-text">
-                <h4>Interdisciplinary Approach</h4>
-                <p>
-                  Bridging the gap between theoretical physics and practical
-                  computer science to solve complex problems.
-                </p>
+            {learningPhilosophy.map((item, index) => (
+              <div key={index} className="philosophy-item">
+                <div className="philosophy-icon">{item.icon}</div>
+                <div className="philosophy-text">
+                  <h4>{item.title}</h4>
+                  <p>{item.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="philosophy-item">
-              <div className="philosophy-icon">🔬</div>
-              <div className="philosophy-text">
-                <h4>Research-Driven Learning</h4>
-                <p>
-                  Applying scientific methodology to software development and
-                  exploring computational solutions to physical phenomena.
-                </p>
-              </div>
-            </div>
-            <div className="philosophy-item">
-              <div className="philosophy-icon">🚀</div>
-              <div className="philosophy-text">
-                <h4>Innovation Through Education</h4>
-                <p>
-                  Leveraging academic knowledge to drive technological
-                  innovation and create meaningful impact in the industry.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
