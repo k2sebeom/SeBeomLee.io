@@ -1,42 +1,256 @@
-#root {
-  max-width: 1280px;
+/* Space Theme Variables */
+:root {
+  --space-black: #0a0a0a;
+  --deep-space: #1a1a2e;
+  --nebula-purple: #16213e;
+  --cosmic-blue: #0f3460;
+  --star-white: #ffffff;
+  --plasma-cyan: #00d4ff;
+  --quantum-green: #00ff88;
+  --energy-orange: #ff6b35;
+  --warp-pink: #ff006e;
+  --galaxy-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --nebula-gradient: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+  --quantum-gradient: linear-gradient(90deg, #00ff88, #00d4ff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--space-black);
+  color: var(--star-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-space);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--plasma-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--quantum-green);
+}
+
+/* Section Styling */
+.section {
+  padding: 100px 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
   text-align: center;
+  margin-bottom: 60px;
+  background: var(--quantum-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--quantum-gradient);
+  border-radius: 2px;
 }
 
-@keyframes logo-spin {
+/* Glowing Effects */
+.glow {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(50px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+.animate-up {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.animate-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Button Styles */
+.cosmic-button {
+  background: var(--nebula-gradient);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  color: var(--star-white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cosmic-button:hover::before {
+  left: 100%;
+}
+
+.cosmic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 0, 110, 0.3);
+}
+
+/* Card Styles */
+.cosmic-card {
+  background: rgba(26, 26, 46, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--quantum-gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.cosmic-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cosmic-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 15px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
 }
