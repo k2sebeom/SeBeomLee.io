@@ -49,3 +49,18 @@ export const projectStats = {
   ideasBrewing: '∞',
   brewingLabel: 'Ideas Brewing'
 };
+
+export const galleryConfig = {
+  title: 'Featured Missions',
+  description: 'Highlighting some of my most impactful and innovative projects'
+};
+
+export const projectsConfig = {
+  title: 'Project Galaxy',
+  categoryTitle: 'Explore All Projects',
+  noProjectsFound: {
+    icon: '🔍',
+    title: 'No projects found in this category',
+    description: 'Try selecting a different category'
+  }
+};
