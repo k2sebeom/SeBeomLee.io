@@ -1,46 +1,9 @@
 import React from 'react';
 import { aboutMeData } from '../data/aboutData';
+import { skillGroups } from '../data/skillsData';
 import './About.css';
 
 const About: React.FC = () => {
-  const skills = [
-    {
-      category: 'Cloud & Architecture',
-      items: ['AWS', 'Solutions Architecture', 'Serverless', 'Microservices'],
-      icon: '☁️',
-    },
-    {
-      category: 'AI & Machine Learning',
-      items: ['TensorFlow', 'PyTorch', 'Computer Vision', 'NLP'],
-      icon: '🤖',
-    },
-    {
-      category: 'Physics & Simulation',
-      items: [
-        'Computational Physics',
-        'Numerical Methods',
-        'Quantum Computing',
-        'Modeling',
-      ],
-      icon: '⚛️',
-    },
-    {
-      category: 'Game Development',
-      items: ['Unity', 'C#', 'Game Design', 'Graphics Programming'],
-      icon: '🎮',
-    },
-    {
-      category: 'Full-Stack Development',
-      items: ['React', 'TypeScript', 'Node.js', 'Python'],
-      icon: '💻',
-    },
-    {
-      category: 'Blockchain & Web3',
-      items: ['Smart Contracts', 'Solidity', 'DeFi', 'Ethereum'],
-      icon: '⛓️',
-    },
-  ];
-
   return (
     <section id="about" className="section about">
       <div className="about-container">
@@ -62,7 +25,7 @@ const About: React.FC = () => {
           <div className="skills-constellation">
             <h3 className="skills-title">Technical Arsenal</h3>
             <div className="skills-grid">
-              {skills.map((skillGroup, index) => (
+              {skillGroups.map((skillGroup, index) => (
                 <div key={index} className="skill-planet cosmic-card">
                   <div className="skill-header">
                     <span className="skill-icon">{skillGroup.icon}</span>
