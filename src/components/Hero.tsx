@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { portfolioIdentities } from '../data/introData';
+import { portfolioIdentities, heroContent } from '../data/introData';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -43,8 +43,8 @@ const Hero: React.FC = () => {
       <div className="hero-content">
         <div className="hero-text">
           <h1 className="hero-title">
-            <span className="greeting">Hello, I'm</span>
-            <span className="name">SeBeom Lee</span>
+            <span className="greeting">{heroContent.greeting}</span>
+            <span className="name">{heroContent.name}</span>
           </h1>
 
           <div className="identity-container">
@@ -55,21 +55,17 @@ const Hero: React.FC = () => {
             </span>
           </div>
 
-          <p className="hero-description">
-            Solutions Architect at AWS with a passion for Physics, AI, and Game
-            Development. I build innovative solutions that bridge the gap
-            between cutting-edge technology and real-world applications.
-          </p>
+          <p className="hero-description">{heroContent.description}</p>
 
           <div className="hero-buttons">
             <button className="cosmic-button primary" onClick={scrollToAbout}>
-              Explore My Universe
+              {heroContent.buttons.primary}
             </button>
             <a
-              href="mailto:slee5@oberlin.edu"
+              href={`mailto:${heroContent.contact.email}`}
               className="cosmic-button secondary"
             >
-              Contact Mission Control
+              {heroContent.buttons.secondary}
             </a>
           </div>
         </div>
@@ -89,18 +85,18 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="floating-elements">
-            <div className="element element-1">⚛️</div>
-            <div className="element element-2">🚀</div>
-            <div className="element element-3">🎮</div>
-            <div className="element element-4">🤖</div>
-            <div className="element element-5">☁️</div>
+            {heroContent.floatingElements.map((element, index) => (
+              <div key={index} className={`element element-${index + 1}`}>
+                {element}
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="scroll-indicator">
         <div className="scroll-arrow"></div>
-        <span>Scroll to explore</span>
+        <span>{heroContent.scrollText}</span>
       </div>
     </section>
   );
