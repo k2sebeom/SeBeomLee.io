@@ -39,78 +39,15 @@ const Experience: React.FC = () => {
                 <h4 className="position-title">{work.position}</h4>
 
                 <div className="work-description">
-                  {work.company === 'AWS Korea' &&
-                    work.position === 'Solutions Architect' && (
-                      <p>
-                        Currently architecting cloud solutions for enterprise
-                        clients across Korea and the Asia-Pacific region.
-                        Specializing in AI/ML workloads, serverless
-                        architectures, and helping organizations leverage the
-                        latest wave of artificial intelligence technologies to
-                        transform their businesses.
-                      </p>
-                    )}
-                  {work.company === 'Amazon Web Services' &&
-                    work.position === 'Solutions Architect Intern' && (
-                      <p>
-                        Designed and implemented cloud architectures for
-                        enterprise clients. Developed proof-of-concepts for
-                        AI/ML workloads and contributed to customer success
-                        through technical guidance and best practices.
-                      </p>
-                    )}
-                  {work.company === 'Pumpkin Inc.' && (
-                    <p>
-                      Developed full-stack applications using modern web
-                      technologies. Built scalable backend services and
-                      responsive frontend interfaces, contributing to the
-                      company's digital transformation initiatives.
-                    </p>
-                  )}
-                  {work.company === 'LUXROBO Co., Ltd.' && (
-                    <p>
-                      Developed Python applications for robotics and automation
-                      systems. Worked on computer vision algorithms and machine
-                      learning models for intelligent robotic behaviors.
-                    </p>
-                  )}
+                  <p>{work.description}</p>
                 </div>
 
                 <div className="work-technologies">
-                  {work.company === 'AWS Korea' && (
-                    <>
-                      <span className="tech-tag">AWS</span>
-                      <span className="tech-tag">AI/ML</span>
-                      <span className="tech-tag">Cloud Architecture</span>
-                      <span className="tech-tag">Serverless</span>
-                      <span className="tech-tag">SageMaker</span>
-                      <span className="tech-tag">Bedrock</span>
-                    </>
-                  )}
-                  {work.company === 'Amazon Web Services' && (
-                    <>
-                      <span className="tech-tag">AWS</span>
-                      <span className="tech-tag">Cloud Architecture</span>
-                      <span className="tech-tag">AI/ML</span>
-                      <span className="tech-tag">Serverless</span>
-                    </>
-                  )}
-                  {work.company === 'Pumpkin Inc.' && (
-                    <>
-                      <span className="tech-tag">React</span>
-                      <span className="tech-tag">Node.js</span>
-                      <span className="tech-tag">TypeScript</span>
-                      <span className="tech-tag">MongoDB</span>
-                    </>
-                  )}
-                  {work.company === 'LUXROBO Co., Ltd.' && (
-                    <>
-                      <span className="tech-tag">Python</span>
-                      <span className="tech-tag">OpenCV</span>
-                      <span className="tech-tag">Machine Learning</span>
-                      <span className="tech-tag">Robotics</span>
-                    </>
-                  )}
+                  {work.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
