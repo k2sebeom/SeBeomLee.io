@@ -1,5 +1,6 @@
 import React from 'react';
 import { workList } from '../data/workData';
+import { journeyHighlights } from '../data/experienceData';
 import './Experience.css';
 
 const Experience: React.FC = () => {
@@ -57,34 +58,15 @@ const Experience: React.FC = () => {
         <div className="experience-summary cosmic-card">
           <h3 className="summary-title">Journey Highlights</h3>
           <div className="highlights-grid">
-            <div className="highlight-item">
-              <div className="highlight-icon">🚀</div>
-              <div className="highlight-text">
-                <h4>Cloud Architecture</h4>
-                <p>Designed scalable solutions for enterprise clients</p>
+            {journeyHighlights.map((highlight, index) => (
+              <div key={index} className="highlight-item">
+                <div className="highlight-icon">{highlight.icon}</div>
+                <div className="highlight-text">
+                  <h4>{highlight.title}</h4>
+                  <p>{highlight.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="highlight-item">
-              <div className="highlight-icon">🤖</div>
-              <div className="highlight-text">
-                <h4>AI/ML Integration</h4>
-                <p>Implemented intelligent systems across various domains</p>
-              </div>
-            </div>
-            <div className="highlight-item">
-              <div className="highlight-icon">💻</div>
-              <div className="highlight-text">
-                <h4>Full-Stack Development</h4>
-                <p>Built end-to-end applications with modern technologies</p>
-              </div>
-            </div>
-            <div className="highlight-item">
-              <div className="highlight-icon">⚛️</div>
-              <div className="highlight-text">
-                <h4>Research & Innovation</h4>
-                <p>Applied physics principles to computational problems</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
