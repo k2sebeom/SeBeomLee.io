@@ -32,8 +32,8 @@ const Experience: React.FC = () => {
                 <h4 className="position-title">{work.position}</h4>
                 
                 <div className="work-description">
-                  {work.company === 'Amazon Web Services' && work.position === 'Solutions Architect' && (
-                    <p>Currently architecting cloud solutions and helping customers transform their businesses with AWS services. Specializing in AI/ML, serverless architectures, and enterprise-scale deployments.</p>
+                  {work.company === 'AWS Korea' && work.position === 'Solutions Architect' && (
+                    <p>Currently architecting cloud solutions for enterprise clients across Korea and the Asia-Pacific region. Specializing in AI/ML workloads, serverless architectures, and helping organizations leverage the latest wave of artificial intelligence technologies to transform their businesses.</p>
                   )}
                   {work.company === 'Amazon Web Services' && work.position === 'Solutions Architect Intern' && (
                     <p>Designed and implemented cloud architectures for enterprise clients. Developed proof-of-concepts for AI/ML workloads and contributed to customer success through technical guidance and best practices.</p>
@@ -47,6 +47,16 @@ const Experience: React.FC = () => {
                 </div>
                 
                 <div className="work-technologies">
+                  {work.company === 'AWS Korea' && (
+                    <>
+                      <span className="tech-tag">AWS</span>
+                      <span className="tech-tag">AI/ML</span>
+                      <span className="tech-tag">Cloud Architecture</span>
+                      <span className="tech-tag">Serverless</span>
+                      <span className="tech-tag">SageMaker</span>
+                      <span className="tech-tag">Bedrock</span>
+                    </>
+                  )}
                   {work.company === 'Amazon Web Services' && (
                     <>
                       <span className="tech-tag">AWS</span>

@@ -30,7 +30,7 @@ export const workList: WorkInfo[] = [
     color: '#FECA00',
   },
   {
-    company: 'Amazon Web Services',
+    company: 'AWS Korea',
     position: 'Solutions Architect',
     icon: './work/aws.png',
     date: 'Jan 2025 - Present',

@@ -10,14 +10,24 @@ const Navigation: React.FC = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['hero', 'about', 'experience', 'projects', 'education', 'contact'];
+      const sections = [
+        'hero',
+        'about',
+        'experience',
+        'projects',
+        'education',
+        'contact',
+      ];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -52,9 +62,9 @@ const Navigation: React.FC = () => {
           <span className="logo-text">SeBeom.dev</span>
           <div className="logo-orbit"></div>
         </div>
-        
+
         <ul className="nav-menu">
-          {navItems.map((item) => (
+          {navItems.map(item => (
             <li key={item.id} className="nav-item">
               <button
                 className={`nav-link ${activeSection === item.id ? 'active' : ''}`}

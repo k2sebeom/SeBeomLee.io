@@ -188,8 +188,8 @@ const Contact: React.FC = () => {
               </blockquote>
             </div>
             <div className="footer-info">
-              <p>Currently based in Ohio, USA 🌍</p>
-              <p>Available for remote collaboration across the galaxy 🛸</p>
+              <p>Currently based in Seoul, South Korea 🇰🇷</p>
+              <p>Available for collaboration across Asia-Pacific and beyond 🌏</p>
               <p>Response time: Usually within 24 Earth hours ⏰</p>
             </div>
           </div>
