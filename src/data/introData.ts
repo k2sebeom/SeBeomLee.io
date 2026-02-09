@@ -26,12 +26,12 @@ export const heroContent: HeroContent = {
   description:
     'Solutions Architect at AWS with a passion for Physics, AI, and Game Development. I build innovative solutions that bridge the gap between cutting-edge technology and real-world applications.',
   buttons: {
-    primary: 'Explore My Universe',
-    secondary: 'Contact Mission Control',
+    primary: 'View My Work',
+    secondary: 'Get in Touch',
   },
   contact: {
     email: 'slee5@oberlin.edu',
   },
-  floatingElements: ['⚛️', '🚀', '🎮', '🤖', '☁️'],
-  scrollText: 'Scroll to explore',
+  floatingElements: [],
+  scrollText: 'scroll',
 };

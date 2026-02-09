@@ -9,15 +9,12 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
       const sections = navItems.map(item => item.id);
-      const scrollPosition = window.scrollY + 100;
-
+      const scrollPosition = window.scrollY + 120;
       for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
+        const el = document.getElementById(section);
+        if (el) {
+          const { offsetTop, offsetHeight } = el;
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
@@ -28,39 +25,32 @@ const Navigation: React.FC = () => {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav className={`navigation ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="nav-container">
-        <div className="nav-logo">
-          <span className="logo-text">{logoText}</span>
-          <div className="logo-orbit"></div>
-        </div>
+    <nav className={`nav ${isScrolled ? 'nav--scrolled' : ''}`}>
+      <div className="nav__inner">
+        <button className="nav__logo" onClick={() => scrollTo('hero')}>
+          <span className="nav__logo-text">{logoText}</span>
+        </button>
 
-        <ul className="nav-menu">
+        <div className="nav__links">
           {navItems.map(item => (
-            <li key={item.id} className="nav-item">
-              <button
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-                onClick={() => scrollToSection(item.id)}
-              >
-                <span className="nav-icon">{item.icon}</span>
-                <span className="nav-label">{item.label}</span>
-              </button>
-            </li>
+            <button
+              key={item.id}
+              className={`nav__link ${activeSection === item.id ? 'nav__link--active' : ''}`}
+              onClick={() => scrollTo(item.id)}
+            >
+              {item.label}
+            </button>
           ))}
-        </ul>
+        </div>
       </div>
     </nav>
   );

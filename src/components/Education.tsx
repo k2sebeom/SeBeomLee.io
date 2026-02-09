@@ -5,86 +5,94 @@ import {
   learningPhilosophy,
   getDegreeIcon,
 } from '../data/academicData';
+import ScrollReveal from './ScrollReveal';
 import './Education.css';
 
 const Education: React.FC = () => {
   return (
     <section id="education" className="section education">
-      <div className="education-container">
-        <h2 className="section-title">Academic Odyssey</h2>
+      <ScrollReveal>
+        <div className="section-header">
+          <span className="section-number">// 04</span>
+          <h2 className="section-title">
+            <span className="gradient-text">Education</span>
+          </h2>
+          <p className="section-subtitle">
+            A foundation in Computer Science, Physics, and Mathematics.
+          </p>
+        </div>
+      </ScrollReveal>
 
-        <div className="education-grid">
-          {educationList.map((education, index) => (
-            <div
-              key={index}
-              className="education-card cosmic-card"
-              style={{ animationDelay: `${index * 0.3}s` }}
-            >
-              <div className="education-header">
-                <div className="education-logo">
+      <div className="edu__cards">
+        {educationList.map((edu, i) => (
+          <ScrollReveal key={i} delay={i * 150} direction="scale">
+            <div className="edu__card glass-elevated">
+              <div className="edu__top">
+                <div className="edu__logo">
                   <img
-                    src={education.thumbnail}
-                    alt={education.title}
+                    src={edu.thumbnail}
+                    alt={edu.title}
                     onError={e => {
-                      const target = e.target as HTMLImageElement;
-                      target.src =
-                        'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMWEyZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMwMGQ0ZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7wn4+r77iPPC90ZXh0Pjwvc3ZnPg==';
+                      (e.target as HTMLImageElement).style.display = 'none';
                     }}
                   />
                 </div>
-                <div className="education-info">
-                  <h3 className="institution-name">{education.title}</h3>
+                <div>
+                  <h3 className="edu__name">{edu.title}</h3>
                   <a
-                    href={education.link}
+                    href={edu.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="institution-link"
+                    className="edu__link"
                   >
-                    Visit Institution 🔗
+                    Visit &rarr;
                   </a>
                 </div>
               </div>
-
-              <div className="degrees-list">
-                {education.degrees.map((degree, degreeIndex) => (
-                  <div key={degreeIndex} className="degree-item">
-                    <div className="degree-icon">{getDegreeIcon(degree)}</div>
-                    <span className="degree-text">{degree}</span>
+              <div className="edu__degrees">
+                {edu.degrees.map((deg, di) => (
+                  <div key={di} className="edu__degree">
+                    <span>{getDegreeIcon(deg)}</span>
+                    <span>{deg}</span>
                   </div>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
+          </ScrollReveal>
+        ))}
+      </div>
 
-        <div className="academic-highlights cosmic-card">
-          <h3 className="highlights-title">Academic Focus Areas</h3>
-          <div className="highlights-grid">
-            {academicAreas.map((area, index) => (
-              <div key={index} className="highlight-area">
-                <div className="area-icon">{area.icon}</div>
-                <h4>{area.title}</h4>
-                <p>{area.description}</p>
+      <ScrollReveal delay={100}>
+        <div className="edu__areas glass">
+          <h3 className="edu__heading">Academic Focus</h3>
+          <div className="edu__areas-grid">
+            {academicAreas.map((a, i) => (
+              <div key={i} className="edu__area">
+                <span className="edu__area-icon">{a.icon}</span>
+                <h4 className="edu__area-name">{a.title}</h4>
+                <p className="edu__area-desc">{a.description}</p>
               </div>
             ))}
           </div>
         </div>
+      </ScrollReveal>
 
-        <div className="education-journey cosmic-card">
-          <h3 className="journey-title">Learning Philosophy</h3>
-          <div className="philosophy-content">
-            {learningPhilosophy.map((item, index) => (
-              <div key={index} className="philosophy-item">
-                <div className="philosophy-icon">{item.icon}</div>
-                <div className="philosophy-text">
-                  <h4>{item.title}</h4>
-                  <p>{item.description}</p>
+      <ScrollReveal delay={200}>
+        <div className="edu__phil glass">
+          <h3 className="edu__heading">Learning Philosophy</h3>
+          <div className="edu__phil-list">
+            {learningPhilosophy.map((p, i) => (
+              <div key={i} className="edu__phil-item">
+                <span className="edu__phil-icon">{p.icon}</span>
+                <div>
+                  <h4 className="edu__phil-name">{p.title}</h4>
+                  <p className="edu__phil-desc">{p.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };
