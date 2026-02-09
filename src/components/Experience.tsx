@@ -1,75 +1,70 @@
 import React from 'react';
 import { workList } from '../data/workData';
 import { journeyHighlights } from '../data/experienceData';
+import ScrollReveal from './ScrollReveal';
 import './Experience.css';
 
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="section experience">
-      <div className="experience-container">
-        <h2 className="section-title">Mission Timeline</h2>
+      <ScrollReveal>
+        <div className="section-header">
+          <span className="section-number">// 02</span>
+          <h2 className="section-title">
+            <span className="gradient-text">Experience</span>
+          </h2>
+          <p className="section-subtitle">
+            From intern to architect &mdash; designing cloud solutions at scale.
+          </p>
+        </div>
+      </ScrollReveal>
 
-        <div className="timeline">
-          <div className="timeline-line"></div>
-
-          {[...workList].reverse().map((work, index) => (
-            <div
-              key={index}
-              className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="timeline-marker">
-                <div
-                  className="marker-inner"
-                  style={{ backgroundColor: work.color }}
-                >
-                  <img
-                    src={work.icon}
-                    alt={work.company}
-                    className="company-icon"
-                  />
-                </div>
+      <div className="exp__timeline">
+        {[...workList].reverse().map((work, i) => (
+          <ScrollReveal key={i} delay={i * 120}>
+            <div className="exp__entry">
+              <div className="exp__dot-wrap">
+                <div className="exp__dot" />
+                {i < workList.length - 1 && <div className="exp__line" />}
               </div>
-
-              <div className="timeline-content cosmic-card">
-                <div className="work-header">
-                  <h3 className="company-name">{work.company}</h3>
-                  <span className="work-date">{work.date}</span>
+              <div className="exp__card glass-elevated">
+                <div className="exp__top">
+                  <div>
+                    <h3 className="exp__company">{work.company}</h3>
+                    <h4 className="exp__role">{work.position}</h4>
+                  </div>
+                  <span className="exp__date">{work.date}</span>
                 </div>
-
-                <h4 className="position-title">{work.position}</h4>
-
-                <div className="work-description">
-                  <p>{work.description}</p>
-                </div>
-
-                <div className="work-technologies">
-                  {work.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
-                      {tech}
+                <p className="exp__desc">{work.description}</p>
+                <div className="exp__tech">
+                  {work.technologies.map((t, ti) => (
+                    <span key={ti} className="tag-aurora">
+                      {t}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </ScrollReveal>
+        ))}
+      </div>
 
-        <div className="experience-summary cosmic-card">
-          <h3 className="summary-title">Journey Highlights</h3>
-          <div className="highlights-grid">
-            {journeyHighlights.map((highlight, index) => (
-              <div key={index} className="highlight-item">
-                <div className="highlight-icon">{highlight.icon}</div>
-                <div className="highlight-text">
-                  <h4>{highlight.title}</h4>
-                  <p>{highlight.description}</p>
+      <ScrollReveal delay={200}>
+        <div className="exp__highlights glass">
+          <h3 className="exp__hl-title">Key Highlights</h3>
+          <div className="exp__hl-grid">
+            {journeyHighlights.map((h, i) => (
+              <div key={i} className="exp__hl-item">
+                <span className="exp__hl-icon">{h.icon}</span>
+                <div>
+                  <h4 className="exp__hl-name">{h.title}</h4>
+                  <p className="exp__hl-desc">{h.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 };

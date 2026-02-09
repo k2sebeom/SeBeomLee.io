@@ -9,95 +9,76 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const identity = portfolioIdentities[currentIdentity];
-    let currentIndex = 0;
+    let idx = 0;
 
-    const typeText = () => {
-      if (currentIndex < identity.length) {
-        setDisplayText(identity.substring(0, currentIndex + 1));
-        currentIndex++;
-        setTimeout(typeText, 100);
+    const typeChar = () => {
+      if (idx < identity.length) {
+        setDisplayText(identity.substring(0, idx + 1));
+        idx++;
+        setTimeout(typeChar, 70);
       } else {
         setIsTyping(false);
         setTimeout(() => {
           setIsTyping(true);
           setDisplayText('');
           setCurrentIdentity(prev => (prev + 1) % portfolioIdentities.length);
-        }, 2000);
+        }, 2500);
       }
     };
 
-    if (isTyping) {
-      typeText();
-    }
+    if (isTyping) typeChar();
   }, [currentIdentity, isTyping]);
 
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const scrollToAbout = () =>
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <section id="hero" className="hero">
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1 className="hero-title">
-            <span className="greeting">{heroContent.greeting}</span>
-            <span className="name">{heroContent.name}</span>
+      <div className="hero__content">
+        <div className="hero__text">
+          <div className="hero__greeting">{heroContent.greeting}</div>
+
+          <h1 className="hero__name">
+            <span className="hero__name-first">SeBeom</span>
+            <span className="hero__name-last">Lee</span>
           </h1>
 
-          <div className="identity-container">
-            <span className="identity-prefix">A </span>
-            <span className="identity-text">
+          <div className="hero__identity">
+            <span className="hero__identity-text">
               {displayText}
-              <span className={`cursor ${isTyping ? 'blink' : ''}`}>|</span>
+              <span
+                className={`hero__cursor ${isTyping ? 'hero__cursor--active' : ''}`}
+              />
             </span>
           </div>
 
-          <p className="hero-description">{heroContent.description}</p>
+          <p className="hero__desc">{heroContent.description}</p>
 
-          <div className="hero-buttons">
-            <button className="cosmic-button primary" onClick={scrollToAbout}>
+          <div className="hero__ctas">
+            <button className="btn-primary" onClick={scrollToAbout}>
               {heroContent.buttons.primary}
             </button>
             <a
               href={`mailto:${heroContent.contact.email}`}
-              className="cosmic-button secondary"
+              className="btn-glass"
             >
               {heroContent.buttons.secondary}
             </a>
           </div>
         </div>
 
-        <div className="hero-visual">
-          <div className="quantum-sphere">
-            <div className="sphere-core"></div>
-            <div className="orbit orbit-1">
-              <div className="particle"></div>
-            </div>
-            <div className="orbit orbit-2">
-              <div className="particle"></div>
-            </div>
-            <div className="orbit orbit-3">
-              <div className="particle"></div>
-            </div>
-          </div>
-
-          <div className="floating-elements">
-            {heroContent.floatingElements.map((element, index) => (
-              <div key={index} className={`element element-${index + 1}`}>
-                {element}
-              </div>
-            ))}
-          </div>
+        <div className="hero__visual">
+          <div className="hero__glass-shape hero__glass-shape--1" />
+          <div className="hero__glass-shape hero__glass-shape--2" />
+          <div className="hero__glass-shape hero__glass-shape--3" />
+          <div className="hero__glow-core" />
         </div>
       </div>
 
-      <div className="scroll-indicator">
-        <div className="scroll-arrow"></div>
-        <span>{heroContent.scrollText}</span>
-      </div>
+      <button className="hero__scroll" onClick={scrollToAbout}>
+        <span className="hero__scroll-dot" />
+        <span className="hero__scroll-label">scroll</span>
+      </button>
     </section>
   );
 };
