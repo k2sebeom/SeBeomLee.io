@@ -19,26 +19,56 @@ interface Encounter {
 function App() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [walkFrame, setWalkFrame] = useState(1);
-  const [activeEncounter, setActiveEncounter] = useState<Encounter | null>(null);
+  const [activeEncounter, setActiveEncounter] = useState<Encounter | null>(
+    null
+  );
   const [lastClosedId, setLastClosedId] = useState<string | null>(null);
-  const [encounteredIds, setEncounteredIds] = useState<Set<string>>(new Set());
   const [showPokedexView, setShowPokedexView] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   const scrollTimeoutRef = useRef<number | undefined>(undefined);
   const walkIntervalRef = useRef<number | undefined>(undefined);
   const pokemonRefs = useRef<Map<string, HTMLImageElement>>(new Map());
 
   const encounters: Encounter[] = [
-    { id: 'pikachu', name: 'About Me', sprite: '/sprites/pikachu.png', data: aboutData },
-    { id: 'pachirisu', name: 'Work Experience', sprite: '/sprites/pachirisu.png', data: workData },
-    { id: 'pengdori', name: 'Projects', sprite: '/sprites/pengdori.png', data: projectsData },
-    { id: 'snorlax', name: 'Education', sprite: '/sprites/snorlax.png', data: educationData },
-    { id: 'psyduck', name: 'Contact', sprite: '/sprites/psyduck.png', data: contactData },
+    {
+      id: 'pikachu',
+      name: 'About Me',
+      sprite: '/sprites/pikachu.png',
+      data: aboutData,
+    },
+    {
+      id: 'pachirisu',
+      name: 'Work Experience',
+      sprite: '/sprites/pachirisu.png',
+      data: workData,
+    },
+    {
+      id: 'pengdori',
+      name: 'Projects',
+      sprite: '/sprites/pengdori.png',
+      data: projectsData,
+    },
+    {
+      id: 'snorlax',
+      name: 'Education',
+      sprite: '/sprites/snorlax.png',
+      data: educationData,
+    },
+    {
+      id: 'psyduck',
+      name: 'Contact',
+      sprite: '/sprites/psyduck.png',
+      data: contactData,
+    },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolling(true);
+
+      // Check if at top of page
+      setIsAtTop(window.scrollY < 100);
 
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
@@ -65,7 +95,6 @@ function App() {
 
         if (distance < 50) {
           setActiveEncounter(encounter);
-          setEncounteredIds((prev) => new Set(prev).add(encounter.id));
           break;
         }
       }
@@ -98,7 +127,7 @@ function App() {
   useEffect(() => {
     if (isScrolling) {
       walkIntervalRef.current = setInterval(() => {
-        setWalkFrame((prev) => (prev === 1 ? 2 : 1));
+        setWalkFrame(prev => (prev === 1 ? 2 : 1));
       }, 200) as unknown as number;
     } else {
       if (walkIntervalRef.current) {
@@ -141,8 +170,8 @@ function App() {
           rotate: [0, -5, 5, -5, 0],
           transition: {
             rotate: { duration: 0.5 },
-            scale: { duration: 0.2 }
-          }
+            scale: { duration: 0.2 },
+          },
         }}
         whileTap={{ scale: 0.95 }}
         animate={{
@@ -152,8 +181,8 @@ function App() {
           scale: {
             duration: 2,
             repeat: Infinity,
-            ease: "easeInOut"
-          }
+            ease: 'easeInOut',
+          },
         }}
       >
         <img src="/sprites/pokedex.png" alt="Pokédex" />
@@ -164,13 +193,32 @@ function App() {
       <div className="content">
         <div className="logo-container">
           <img src="/sprites/logo.png" alt="Logo" className="logo" />
+          <motion.div
+            className="scroll-indicator"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: isAtTop ? 1 : 0,
+              y: [0, 10, 0],
+            }}
+            transition={{
+              opacity: { duration: 0.3 },
+              y: {
+                duration: 1.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              },
+            }}
+          >
+            <div className="scroll-text">Scroll Down</div>
+            <div className="scroll-arrow">▼</div>
+          </motion.div>
         </div>
 
         <div className="pokemon-column">
-          {encounters.map((encounter) => (
+          {encounters.map(encounter => (
             <img
               key={encounter.id}
-              ref={(el) => {
+              ref={el => {
                 if (el) pokemonRefs.current.set(encounter.id, el);
               }}
               src={encounter.sprite}
@@ -180,9 +228,7 @@ function App() {
           ))}
         </div>
 
-        <div className="footnote">
-          © 2026 SeBeom Lee. Made with Claude Code.
-        </div>
+        <div className="footnote">© 2026 SeBeom Lee</div>
       </div>
 
       {activeEncounter && (

@@ -5,6 +5,7 @@ This directory contains all the portfolio content in JSON format. Simply edit th
 ## Data Files
 
 ### 📄 `aboutData.json`
+
 Your personal introduction and bio.
 
 ```json
@@ -15,6 +16,7 @@ Your personal introduction and bio.
 ```
 
 ### 💼 `workData.json`
+
 Your work experience history.
 
 ```json
@@ -32,6 +34,7 @@ Your work experience history.
 ```
 
 ### 🎓 `educationData.json`
+
 Your educational background.
 
 ```json
@@ -48,6 +51,7 @@ Your educational background.
 ```
 
 ### 🎮 `projectsData.json`
+
 Your portfolio projects.
 
 ```json
@@ -67,6 +71,7 @@ Your portfolio projects.
 ```
 
 ### 📞 `contactData.json`
+
 Your contact information.
 
 ```json
@@ -91,18 +96,20 @@ Your contact information.
 ## Customization
 
 ### Layout Configuration
+
 To adjust spacing and positioning, edit `src/data/index.ts`:
 
 ```typescript
 export const LAYOUT_CONFIG = {
-  SECTION_SPACING: 60,  // Space between sections (in vw)
-  CARD_SPACING: 35,     // Space between cards (in vw)
-  START_POSITION: 20,   // Initial offset (in vw)
-  CARD_OFFSET: 15,      // Offset from section header (in vw)
+  SECTION_SPACING: 60, // Space between sections (in vw)
+  CARD_SPACING: 35, // Space between cards (in vw)
+  START_POSITION: 20, // Initial offset (in vw)
+  CARD_OFFSET: 15, // Offset from section header (in vw)
 };
 ```
 
 ### Section Metadata
+
 To change section names or icons, edit `src/data/index.ts`:
 
 ```typescript

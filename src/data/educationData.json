@@ -12,9 +12,7 @@
     },
     {
       "title": "Korean Minjok Leadership Academy",
-      "degrees": [
-        "Graduated"
-      ],
+      "degrees": ["Graduated"],
       "thumbnail": "./education/KMLA.png",
       "link": "http://www.minjok.hs.kr/"
     }

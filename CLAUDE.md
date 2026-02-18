@@ -1,13 +1,24 @@
 # SeBeomLee.io - Pokemon-themed Portfolio
 
 ## Project Overview
+
 Interactive portfolio website with Pokemon-style scrolling mechanics. As users scroll through content, they "walk" through a map and encounter Pokemon that reveal portfolio information via Pokedex cards.
 
 ## Current Implementation
 
 ### Layout Structure
+
 - **Map Background**: `map.png` repeats vertically as background of `.content`, fills 100% width
 - **Logo**: Centered on initial viewport (100vh container)
+- **Scroll Down Indicator**: Animated message at bottom of logo container, z-index: 25
+  - Shows "Scroll Down" text with downward arrow (▼)
+  - Only visible when at top of page (scrollY < 100px)
+  - Animated with Framer Motion:
+    - Bouncing motion: `y: [0, 10, 0]` (1.5s loop)
+    - Fades in/out with 0.3s transition
+  - Pokemon-themed styling: white text with black outline, golden arrow with glow effects
+  - Positioned 40px from bottom of viewport (30px on mobile)
+  - Responsive: 18px text / 32px arrow on desktop, 16px / 28px on mobile
 - **Pokemon Column**: Single centered column with uniform spacing
 - **Player Sprite**: Fixed at center of screen (50%, 50%), z-index: 15
 - **Pokedex Button**: Fixed at upper right corner (20px from top/right), z-index: 100
@@ -20,7 +31,9 @@ Interactive portfolio website with Pokemon-style scrolling mechanics. As users s
 - **Footnote**: Footer bar with copyright notice
 
 ### Responsive Design
+
 All sprites and spacing scale proportionally to screen width, optimized for 950px:
+
 - **Player sprite**: `6.74vw` (64px at 950px)
 - **Pokemon sprites**: `5.05vw` (48px at 950px)
 - **Pokedex button**: `80px` desktop, `60px` mobile (fixed size)
@@ -29,12 +42,15 @@ All sprites and spacing scale proportionally to screen width, optimized for 950p
 - **Bottom margin**: `50vh` before footnote
 
 ### Player Animation
+
 - Shows `player_idle.png` when stationary
 - Alternates `player_walk_1.png` and `player_walk_2.png` (200ms interval) while scrolling
 - 150ms debounce to detect scroll stop
 
 ### Encounter System
+
 Pokemon sprites mapped to portfolio data in order:
+
 1. **Pikachu** → About Me (`aboutData.json`)
 2. **Pachirisu** → Work Experience (`workData.json`)
 3. **Pengdori** → Projects (`projectsData.json`)
@@ -42,13 +58,16 @@ Pokemon sprites mapped to portfolio data in order:
 5. **Psyduck** → Contact (`contactData.json`)
 
 **Detection logic**:
+
 - Triggers when Pokemon sprite reaches within 50px of screen center (where player is)
 - Shows PokedexCard overlay with portfolio data
 - 200px deadzone after closing to prevent immediate re-trigger
 - Encounters are repeatable after moving away
 
 ### Pokedex View
+
 Accessed via button in upper right corner (`pokedex.png`):
+
 - Shows grid of all 5 Pokemon entries
 - All Pokemon visible from the start with sprites and names
 - Clicking any Pokemon opens its PokedexCard with full portfolio details
@@ -56,19 +75,23 @@ Accessed via button in upper right corner (`pokedex.png`):
 - Red Pokedex-themed design with responsive grid layout
 
 ### Z-Index Layering
+
 - Map: 0 (background)
 - Pokemon sprites: 5
 - Player: 15
 - Logo: 20
+- Scroll indicator: 25
 - Pokedex button: 100
 - Pokedex overlays (Card & View): 1000
 
 ### Styling Rules
+
 - **Pixel art**: Use `image-rendering: pixelated` (with vendor prefixes) for map, Pokemon, and player sprites
 - **Logo**: Use `image-rendering: auto` for smooth rendering
 - **Background**: `background-repeat: repeat-y` on map to tile vertically
 
 ## File Structure
+
 ```
 src/
 ├── App.tsx              # Main app with scroll logic, encounter detection, and Pokedex tracking
@@ -87,14 +110,34 @@ src/
 ```
 
 ## Dependencies
+
 - **React 19.1.0**: Core framework
 - **Framer Motion 12.34.2**: Animation library for Pokedex button effects
 - **Vite**: Build tool and dev server
 
+## Development Guide
+
+### Setup
+
+- Always run `yarn` to install/update dependencies before starting work
+
+### Code Quality
+
+After making code changes, always run:
+
+```bash
+yarn lint:fix  # Fix linting issues automatically
+yarn format    # Format code with Prettier
+```
+
+This ensures consistent code quality and style across the codebase.
+
 ## Development Notes
+
 - No fixed heights - document scrolls naturally based on content
 - All spacing uses `vw`/`vh` units for proportional scaling (except Pokedex button uses fixed px)
 - Encounters use refs to track Pokemon element positions
 - Player animation state managed with useEffect hooks
+- Scroll position tracked to show/hide scroll indicator (visible when scrollY < 100px)
 - Pokedex view provides quick access to all portfolio sections without scrolling
 - All animations use Framer Motion for smooth, performant effects

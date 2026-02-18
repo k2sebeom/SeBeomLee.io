@@ -130,8 +130,12 @@ function PokedexCard({ name, sprite, data, onClose }: PokedexCardProps) {
               className="contact-card"
             >
               <h3>{contact.title}</h3>
-              {contact.value && <p className="contact-value">{contact.value}</p>}
-              {contact.description && <p className="contact-desc">{contact.description}</p>}
+              {contact.value && (
+                <p className="contact-value">{contact.value}</p>
+              )}
+              {contact.description && (
+                <p className="contact-desc">{contact.description}</p>
+              )}
             </a>
           ))}
         </div>
@@ -143,7 +147,7 @@ function PokedexCard({ name, sprite, data, onClose }: PokedexCardProps) {
 
   return (
     <div className="pokedex-overlay" onClick={onClose}>
-      <div className="pokedex-card" onClick={(e) => e.stopPropagation()}>
+      <div className="pokedex-card" onClick={e => e.stopPropagation()}>
         <div className="pokedex-header">
           <h2>{name}</h2>
         </div>

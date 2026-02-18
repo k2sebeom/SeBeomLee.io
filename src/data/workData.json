@@ -5,36 +5,21 @@
       "position": "Python Development Intern",
       "date": "May 2020 - Aug 2020",
       "description": "Developed Python applications for robotics and automation systems. Worked on computer vision algorithms and machine learning models for intelligent robotic behaviors.",
-      "technologies": [
-        "Python",
-        "OpenCV",
-        "Machine Learning",
-        "Robotics"
-      ]
+      "technologies": ["Python", "OpenCV", "Machine Learning", "Robotics"]
     },
     {
       "company": "Amazon Web Services",
       "position": "Solutions Architect Intern",
       "date": "May 2021 - Feb 2022",
       "description": "Designed and implemented cloud architectures for enterprise clients. Developed proof-of-concepts for AI/ML workloads and contributed to customer success through technical guidance and best practices.",
-      "technologies": [
-        "AWS",
-        "Cloud Architecture",
-        "AI/ML",
-        "Serverless"
-      ]
+      "technologies": ["AWS", "Cloud Architecture", "AI/ML", "Serverless"]
     },
     {
       "company": "Pumpkin Inc.",
       "position": "Software Developer",
       "date": "Jun 2023 - Dec 2024",
       "description": "Developed full-stack applications using modern web technologies. Built scalable backend services and responsive frontend interfaces, contributing to the company's digital transformation initiatives.",
-      "technologies": [
-        "React",
-        "Node.js",
-        "TypeScript",
-        "MongoDB"
-      ]
+      "technologies": ["React", "Node.js", "TypeScript", "MongoDB"]
     },
     {
       "company": "Amazon Web Services",

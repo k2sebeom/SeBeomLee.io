@@ -24,13 +24,15 @@ function PokedexView({ encounters, onClose, onSelect }: PokedexViewProps) {
 
   return (
     <div className="pokedex-view-overlay" onClick={onClose}>
-      <div className="pokedex-view" onClick={(e) => e.stopPropagation()}>
+      <div className="pokedex-view" onClick={e => e.stopPropagation()}>
         <div className="pokedex-view-header">
           <h2>Pokédex</h2>
-          <button className="close-button" onClick={onClose}>✕</button>
+          <button className="close-button" onClick={onClose}>
+            ✕
+          </button>
         </div>
         <div className="pokedex-grid">
-          {encounters.map((encounter) => (
+          {encounters.map(encounter => (
             <div
               key={encounter.id}
               className="pokedex-entry"
@@ -39,9 +41,7 @@ function PokedexView({ encounters, onClose, onSelect }: PokedexViewProps) {
               <div className="entry-sprite">
                 <img src={encounter.sprite} alt={encounter.name} />
               </div>
-              <div className="entry-name">
-                {encounter.name}
-              </div>
+              <div className="entry-name">{encounter.name}</div>
             </div>
           ))}
         </div>
