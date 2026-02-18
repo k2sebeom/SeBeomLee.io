@@ -3,6 +3,44 @@
   position: relative;
 }
 
+.pokedex-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+          drop-shadow(0 0 12px rgba(255, 200, 0, 0.4));
+}
+
+.pokedex-button:hover {
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4))
+          drop-shadow(0 0 20px rgba(255, 200, 0, 0.6))
+          drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+}
+
+.pokedex-button img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 768px) {
+  .pokedex-button {
+    width: 60px;
+    height: 60px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
 .player-sprite {
   position: fixed;
   top: 50%;

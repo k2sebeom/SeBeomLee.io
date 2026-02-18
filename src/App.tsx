@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import './App.css';
 import PokedexCard from './components/PokedexCard';
+import PokedexView from './components/PokedexView';
 import aboutData from './data/aboutData.json';
 import workData from './data/workData.json';
 import projectsData from './data/projectsData.json';
@@ -19,6 +21,8 @@ function App() {
   const [walkFrame, setWalkFrame] = useState(1);
   const [activeEncounter, setActiveEncounter] = useState<Encounter | null>(null);
   const [lastClosedId, setLastClosedId] = useState<string | null>(null);
+  const [encounteredIds, setEncounteredIds] = useState<Set<string>>(new Set());
+  const [showPokedexView, setShowPokedexView] = useState(false);
 
   const scrollTimeoutRef = useRef<number | undefined>(undefined);
   const walkIntervalRef = useRef<number | undefined>(undefined);
@@ -29,7 +33,7 @@ function App() {
     { id: 'pachirisu', name: 'Work Experience', sprite: '/sprites/pachirisu.png', data: workData },
     { id: 'pengdori', name: 'Projects', sprite: '/sprites/pengdori.png', data: projectsData },
     { id: 'snorlax', name: 'Education', sprite: '/sprites/snorlax.png', data: educationData },
-    { id: 'npc', name: 'Contact', sprite: '/sprites/NPC.png', data: contactData },
+    { id: 'psyduck', name: 'Contact', sprite: '/sprites/psyduck.png', data: contactData },
   ];
 
   useEffect(() => {
@@ -61,6 +65,7 @@ function App() {
 
         if (distance < 50) {
           setActiveEncounter(encounter);
+          setEncounteredIds((prev) => new Set(prev).add(encounter.id));
           break;
         }
       }
@@ -119,8 +124,41 @@ function App() {
     setActiveEncounter(null);
   };
 
+  const handleSelectFromPokedex = (encounter: Encounter) => {
+    setShowPokedexView(false);
+    setActiveEncounter(encounter);
+  };
+
   return (
     <div className="app">
+      <motion.button
+        className="pokedex-button"
+        onClick={() => setShowPokedexView(true)}
+        aria-label="Open Pokédex"
+        initial={{ scale: 1 }}
+        whileHover={{
+          scale: 1.15,
+          rotate: [0, -5, 5, -5, 0],
+          transition: {
+            rotate: { duration: 0.5 },
+            scale: { duration: 0.2 }
+          }
+        }}
+        whileTap={{ scale: 0.95 }}
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          scale: {
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }
+        }}
+      >
+        <img src="/sprites/pokedex.png" alt="Pokédex" />
+      </motion.button>
+
       <img src={playerSprite} alt="Player" className="player-sprite" />
 
       <div className="content">
@@ -153,6 +191,14 @@ function App() {
           sprite={activeEncounter.sprite}
           data={activeEncounter.data}
           onClose={handleClosePokedex}
+        />
+      )}
+
+      {showPokedexView && (
+        <PokedexView
+          encounters={encounters}
+          onClose={() => setShowPokedexView(false)}
+          onSelect={handleSelectFromPokedex}
         />
       )}
     </div>
