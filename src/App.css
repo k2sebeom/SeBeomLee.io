@@ -1,5 +1,29 @@
 .app {
   width: 100%;
+  position: relative;
+}
+
+.content {
+  position: relative;
+  background-image: url('/sprites/map.png');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.logo-container {
   min-height: 100vh;
-  background-color: #87CEEB; /* Sky blue background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 800px;
+  width: 95%;
+  height: auto;
+  image-rendering: auto;
 }
