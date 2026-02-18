@@ -27,3 +27,19 @@
   height: auto;
   image-rendering: auto;
 }
+
+.pokemon-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 400px;
+  padding: 400px 0;
+}
+
+.pokemon-sprite {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}

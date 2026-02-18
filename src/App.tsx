@@ -8,13 +8,28 @@ function App() {
           <img src="/sprites/logo.png" alt="Logo" className="logo" />
         </div>
 
-        <div
-          style={{
-            backgroundColor: 'pink',
-            height: 1500,
-            width: 200,
-          }}
-        ></div>
+        <div className="pokemon-column">
+          <img
+            src="/sprites/pikachu.png"
+            alt="Pikachu"
+            className="pokemon-sprite"
+          />
+          <img
+            src="/sprites/pachirisu.png"
+            alt="Pachirisu"
+            className="pokemon-sprite"
+          />
+          <img
+            src="/sprites/pengdori.png"
+            alt="Pengdori"
+            className="pokemon-sprite"
+          />
+          <img
+            src="/sprites/snorlax.png"
+            alt="Snorlax"
+            className="pokemon-sprite"
+          />
+        </div>
       </div>
     </div>
   );
