@@ -82,6 +82,11 @@ function App() {
             alt="Snorlax"
             className="pokemon-sprite"
           />
+          <img
+            src="/sprites/NPC.png"
+            alt="NPC"
+            className="pokemon-sprite"
+          />
         </div>
       </div>
     </div>
