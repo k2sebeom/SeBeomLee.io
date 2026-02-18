@@ -1,0 +1,24 @@
+{
+  "contactMethods": [
+    {
+      "title": "Email",
+      "value": "slee5@oberlin.edu",
+      "link": "mailto:slee5@oberlin.edu",
+      "description": "Primary communication channel"
+    },
+    {
+      "title": "LinkedIn",
+      "link": "https://linkedin.com/in/sebeom-lee",
+      "description": "Professional networking"
+    },
+    {
+      "title": "GitHub",
+      "link": "https://github.com/k2sebeom",
+      "description": "Code repositories & projects"
+    },
+    {
+      "title": "Youtube",
+      "link": ""
+    }
+  ]
+}
