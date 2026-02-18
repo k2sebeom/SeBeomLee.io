@@ -141,6 +141,10 @@ function App() {
             />
           ))}
         </div>
+
+        <div className="footnote">
+          © 2026 SeBeom Lee. Made with Claude Code.
+        </div>
       </div>
 
       {activeEncounter && (

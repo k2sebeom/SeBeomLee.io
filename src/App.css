@@ -22,7 +22,7 @@
   background-image: url('/sprites/map.png');
   background-size: 100% auto;
   background-position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -50,6 +50,7 @@
   align-items: center;
   gap: 450px;
   padding: 400px 0;
+  margin-bottom: 50vh;
 }
 
 .pokemon-sprite {
@@ -60,4 +61,14 @@
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+}
+
+.footnote {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: relative;
+  z-index: 20;
 }
