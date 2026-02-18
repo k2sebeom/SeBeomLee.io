@@ -8,8 +8,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
+  width: 6.74vw;
+  height: 6.74vw;
   z-index: 15;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
@@ -53,8 +53,8 @@
 }
 
 .pokemon-sprite {
-  width: 48px;
-  height: 48px;
+  width: 5.05vw;
+  height: 5.05vw;
   z-index: 5;
   position: relative;
   image-rendering: pixelated;
