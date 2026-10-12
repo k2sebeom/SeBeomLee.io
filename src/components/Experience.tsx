@@ -1,70 +1,78 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { workList } from '../data/workData';
-import { journeyHighlights } from '../data/experienceData';
-import ScrollReveal from './ScrollReveal';
+import { spotlightHandler } from '../lib/spotlight';
+import Reveal from './Reveal';
 import './Experience.css';
 
 const Experience: React.FC = () => {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ['start 70%', 'end 60%'],
+  });
+  const lineScale = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
+  const jobs = [...workList].reverse();
+
   return (
     <section id="experience" className="section experience">
-      <ScrollReveal>
-        <div className="section-header">
-          <span className="section-number">// 02</span>
-          <h2 className="section-title">
-            <span className="gradient-text">Experience</span>
-          </h2>
-          <p className="section-subtitle">
-            From intern to architect &mdash; designing cloud solutions at scale.
-          </p>
-        </div>
-      </ScrollReveal>
+      <Reveal className="section-header">
+        <span className="section-eyebrow">02 · Experience</span>
+        <h2 className="section-title">
+          From startup backend to{' '}
+          <span className="gradient-text">cloud architecture</span>.
+        </h2>
+      </Reveal>
 
-      <div className="exp__timeline">
-        {[...workList].reverse().map((work, i) => (
-          <ScrollReveal key={i} delay={i * 120}>
-            <div className="exp__entry">
-              <div className="exp__dot-wrap">
-                <div className="exp__dot" />
-                {i < workList.length - 1 && <div className="exp__line" />}
-              </div>
-              <div className="exp__card glass-elevated">
-                <div className="exp__top">
-                  <div>
-                    <h3 className="exp__company">{work.company}</h3>
-                    <h4 className="exp__role">{work.position}</h4>
-                  </div>
-                  <span className="exp__date">{work.date}</span>
+      <div className="exp__timeline" ref={timelineRef}>
+        <div className="exp__rail">
+          <motion.div
+            className="exp__rail-fill"
+            style={{ scaleY: lineScale }}
+          />
+        </div>
+
+        {jobs.map((work, i) => (
+          <Reveal
+            key={`${work.company}-${work.position}`}
+            className="exp__entry"
+          >
+            <div
+              className={`exp__node ${i === 0 ? 'exp__node--current' : ''}`}
+            />
+            <article
+              className={`exp__card glass spotlight ${i === 0 ? 'exp__card--current' : ''}`}
+              onMouseMove={spotlightHandler}
+            >
+              <header className="exp__top">
+                <div className="exp__logo" style={{ background: work.color }}>
+                  {work.icon ? (
+                    <img src={work.icon} alt="" />
+                  ) : (
+                    work.company.charAt(0)
+                  )}
                 </div>
-                <p className="exp__desc">{work.description}</p>
-                <div className="exp__tech">
-                  {work.technologies.map((t, ti) => (
-                    <span key={ti} className="tag-aurora">
-                      {t}
-                    </span>
-                  ))}
+                <div className="exp__titles">
+                  <h3 className="exp__role">{work.position}</h3>
+                  <span className="exp__company">{work.company}</span>
                 </div>
+                <span className="exp__date">
+                  {i === 0 && <span className="exp__now">Now</span>}
+                  {work.date}
+                </span>
+              </header>
+              <p className="exp__desc">{work.description}</p>
+              <div className="exp__tech">
+                {work.technologies.map(t => (
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
+                ))}
               </div>
-            </div>
-          </ScrollReveal>
+            </article>
+          </Reveal>
         ))}
       </div>
-
-      <ScrollReveal delay={200}>
-        <div className="exp__highlights glass">
-          <h3 className="exp__hl-title">Key Highlights</h3>
-          <div className="exp__hl-grid">
-            {journeyHighlights.map((h, i) => (
-              <div key={i} className="exp__hl-item">
-                <span className="exp__hl-icon">{h.icon}</span>
-                <div>
-                  <h4 className="exp__hl-name">{h.title}</h4>
-                  <p className="exp__hl-desc">{h.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </ScrollReveal>
     </section>
   );
 };

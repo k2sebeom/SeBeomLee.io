@@ -1,34 +1,37 @@
+import { Suspense, lazy, useEffect } from 'react';
 import './App.css';
+import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import Navigation from './components/Navigation';
-import StarField from './components/StarField';
+import { initSmoothScroll } from './lib/smoothScroll';
+
+// three.js is large, so the scene loads after the page content
+const GlassScene = lazy(() => import('./three/GlassScene'));
 
 function App() {
-  return (
-    <div className="App">
-      {/* Aurora gradient orbs */}
-      <div className="aurora-bg">
-        <div className="orb orb-1"></div>
-        <div className="orb orb-2"></div>
-        <div className="orb orb-3"></div>
-        <div className="orb orb-4"></div>
-      </div>
+  useEffect(() => initSmoothScroll(), []);
 
-      {/* Mouse-reactive glow canvas */}
-      <StarField />
+  return (
+    <div className="app">
+      <Suspense fallback={null}>
+        <GlassScene />
+      </Suspense>
+      <div className="scene__vignette" />
+      <div className="grain" />
 
       <Navigation />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Education />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+      </main>
     </div>
   );
 }

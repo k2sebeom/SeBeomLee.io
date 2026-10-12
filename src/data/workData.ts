@@ -10,34 +10,36 @@ export interface WorkInfo {
 
 export const workList: WorkInfo[] = [
   {
-    company: 'LUXROBO Co., Ltd.',
-    position: 'Python Development Intern',
-    icon: './work/lux.png',
-    date: 'May 2020 - Aug 2020',
-    color: '#FFF',
-    description:
-      'Developed Python applications for robotics and automation systems. Worked on computer vision algorithms and machine learning models for intelligent robotic behaviors.',
-    technologies: ['Python', 'OpenCV', 'Machine Learning', 'Robotics'],
-  },
-  {
     company: 'Amazon Web Services',
     position: 'Solutions Architect Intern',
     icon: './work/aws.png',
-    date: 'May 2021 - Feb 2022',
+    date: 'May 2020 - Mar 2021',
     color: '#262E3B',
     description:
-      'Designed and implemented cloud architectures for enterprise clients. Developed proof-of-concepts for AI/ML workloads and contributed to customer success through technical guidance and best practices.',
-    technologies: ['AWS', 'Cloud Architecture', 'AI/ML', 'Serverless'],
+      'Built a data platform with a national public-safety agency to analyze ambulance arrival times, and contributed to a content management demo for VOD and live-streaming workflows.',
+    technologies: [
+      'Amazon Athena',
+      'Amazon QuickSight',
+      'AWS Elemental MediaConvert',
+    ],
   },
   {
-    company: 'Pumpkin Inc.',
-    position: 'Software Developer',
-    icon: './work/pumpkin.png',
-    date: 'Mar 2022 - Aug 2022',
-    color: '#FECA00',
+    company: 'Curv Company Inc. (acquired by GC Holdings)',
+    position: 'Lead Backend Developer',
+    icon: '',
+    date: 'Mar 2021 - Dec 2024',
+    color: '#FFF',
     description:
-      "Developed full-stack applications using modern web technologies. Built scalable backend services and responsive frontend interfaces, contributing to the company's digital transformation initiatives.",
-    technologies: ['React', 'Node.js', 'TypeScript', 'MongoDB'],
+      'Led the backend for an IMU-powered smart dog collar, building a streaming lakehouse sized for 60K devices sending telemetry every second and turning sensor streams into hourly, daily, and monthly behavior reports. Redesigned motion classification with a university research lab, using gravity-vector calibration and Fourier analysis to raise throughput more than 12x.',
+    technologies: [
+      'Kubernetes',
+      'Kafka',
+      'Flink',
+      'Iceberg',
+      'Trino',
+      'Argo CD',
+      'MQTT',
+    ],
   },
   {
     company: 'Amazon Web Services',
@@ -46,14 +48,15 @@ export const workList: WorkInfo[] = [
     date: 'Jan 2025 - Present',
     color: '#262E3B',
     description:
-      'Currently architecting cloud solutions for enterprise clients across Korea and the Asia-Pacific region. Specializing in AI/ML workloads, serverless architectures, and helping organizations leverage the latest wave of artificial intelligence technologies to transform their businesses.',
+      'Architect and build AI and infrastructure solutions for Korean public-sector and enterprise customers: agentic investment research for 500+ investment managers, sovereign cloud architecture for regulated government workloads, serving feasibility for a 236B-parameter LLM on GPU instances, and federated ML across 20+ regulated data providers.',
     technologies: [
-      'AWS',
-      'AI/ML',
-      'Cloud Architecture',
-      'Serverless',
+      'Amazon Bedrock',
+      'Agentic AI',
+      'Amazon EKS',
+      'Amazon ECS',
+      'GPU Inference',
+      'NVIDIA FLARE',
       'SageMaker',
-      'Bedrock',
     ],
   },
 ];

@@ -1,164 +1,256 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { featuredProjects, projectsList } from '../data/projectsData';
+import React, { useEffect, useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import {
+  featuredProjects,
+  projectsList,
+  type ProjectInfo,
+} from '../data/projectsData';
 import {
   projectCategories,
-  projectStats,
   galleryConfig,
   projectsConfig,
 } from '../data/projectsConfig';
-import ScrollReveal from './ScrollReveal';
+import { spotlightHandler } from '../lib/spotlight';
+import Reveal from './Reveal';
 import './Projects.css';
 
-const ProjectCard: React.FC<{
-  project: (typeof projectsList)[0];
+const FALLBACK_THUMB =
+  'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200"><rect width="100%" height="100%" fill="%230b1114"/></svg>';
+
+const tilt = (e: React.MouseEvent<HTMLElement>) => {
+  spotlightHandler(e);
+  const el = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width - 0.5;
+  const y = (e.clientY - rect.top) / rect.height - 0.5;
+  el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+};
+const untilt = (e: React.MouseEvent<HTMLElement>) => {
+  e.currentTarget.style.transform = '';
+};
+
+const FeaturedCard: React.FC<{
+  project: ProjectInfo;
   index: number;
-}> = ({ project, index }) => (
-  <ScrollReveal delay={index * 60} direction="scale">
-    <a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="proj__card glass-elevated"
-    >
-      <div className="proj__img">
-        <img
-          src={project.thumbnail}
-          alt={project.title}
-          loading="lazy"
-          onError={e => {
-            (e.target as HTMLImageElement).src =
-              'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmNGYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM5Q0EzQUYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBQcmV2aWV3PC90ZXh0Pjwvc3ZnPgo=';
-          }}
-        />
-        <div className="proj__overlay">
-          <span className="proj__overlay-cta">View Project &rarr;</span>
-        </div>
-      </div>
-      <div className="proj__body">
-        <h3 className="proj__title">{project.title}</h3>
-        <p className="proj__desc">{project.description}</p>
-      </div>
-    </a>
-  </ScrollReveal>
+  onOpen: () => void;
+}> = ({ project, index, onOpen }) => (
+  <motion.button
+    layoutId={`project-${project.title}`}
+    className={`feat__card spotlight ${index === 0 ? 'feat__card--hero' : ''}`}
+    onClick={onOpen}
+    onMouseMove={tilt}
+    onMouseLeave={untilt}
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+    transition={{
+      duration: 0.9,
+      delay: index * 0.08,
+      ease: [0.22, 1, 0.36, 1],
+    }}
+  >
+    <img
+      className="feat__img"
+      src={project.thumbnail}
+      alt=""
+      loading="lazy"
+      onError={e => {
+        e.currentTarget.src = FALLBACK_THUMB;
+      }}
+    />
+    <div className="feat__shade" />
+    <div className="feat__body">
+      <span className="feat__index">0{index + 1}</span>
+      <h3 className="feat__title">{project.title}</h3>
+      <p className="feat__desc">{project.description}</p>
+    </div>
+    <span className="feat__open" aria-hidden>
+      ↗
+    </span>
+  </motion.button>
 );
 
+const ProjectModal: React.FC<{
+  project: ProjectInfo;
+  onClose: () => void;
+}> = ({ project, onClose }) => {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="modal"
+      onClick={onClose}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      data-lenis-prevent
+    >
+      <motion.div
+        layoutId={`project-${project.title}`}
+        className="modal__card"
+        onClick={e => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={project.title}
+      >
+        <div className="modal__media">
+          <img src={project.thumbnail} alt="" />
+        </div>
+        <motion.div
+          className="modal__body"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <h3 className="modal__title">{project.title}</h3>
+          <p className="modal__desc">{project.description}</p>
+          <div className="modal__actions">
+            <a
+              className="btn btn--primary"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open project <span aria-hidden>↗</span>
+            </a>
+            <button className="btn btn--ghost" onClick={onClose}>
+              Close
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const Projects: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selected, setSelected] = useState<ProjectInfo | null>(null);
+  const [category, setCategory] = useState('all');
   const [visibleCount, setVisibleCount] = useState(
     projectsConfig.pagination.initialCount
   );
-  const [filteredProjects, setFilteredProjects] = useState(projectsList);
 
-  const filterProjects = useCallback(
-    (projects: typeof projectsList) => {
-      if (selectedCategory === 'all') return projects;
-      const cat = projectCategories.find(c => c.id === selectedCategory);
-      if (!cat) return projects;
-      return projects.filter(p => {
-        const t = p.title.toLowerCase();
-        const d = p.description.toLowerCase();
-        return cat.keywords.some(kw => t.includes(kw) || d.includes(kw));
-      });
-    },
-    [selectedCategory]
-  );
+  const filtered = useMemo(() => {
+    const cat = projectCategories.find(c => c.id === category);
+    if (!cat || cat.id === 'all') return projectsList;
+    return projectsList.filter(p => {
+      const text = `${p.title} ${p.description}`.toLowerCase();
+      return cat.keywords.some(kw => text.includes(kw));
+    });
+  }, [category]);
 
-  useEffect(() => {
-    setFilteredProjects(filterProjects(projectsList));
-    setVisibleCount(projectsConfig.pagination.initialCount);
-  }, [selectedCategory, filterProjects]);
-
-  const visibleProjects = filteredProjects.slice(0, visibleCount);
-  const hasMore = visibleCount < filteredProjects.length;
+  const visible = filtered.slice(0, visibleCount);
 
   return (
     <section id="projects" className="section projects">
-      <ScrollReveal>
-        <div className="section-header">
-          <span className="section-number">// 03</span>
-          <h2 className="section-title">
-            <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="section-subtitle">{galleryConfig.description}</p>
-        </div>
-      </ScrollReveal>
+      <Reveal className="section-header">
+        <span className="section-eyebrow">03 · Projects</span>
+        <h2 className="section-title">
+          Things I've <span className="gradient-text">built</span>.
+        </h2>
+        <p className="section-subtitle">{galleryConfig.description}</p>
+      </Reveal>
 
-      {/* Featured */}
-      <ScrollReveal>
-        <h3 className="proj__label">{galleryConfig.title}</h3>
-      </ScrollReveal>
-      <div className="proj__featured">
+      <div className="feat__grid">
         {featuredProjects.map((p, i) => (
-          <ProjectCard key={i} project={p} index={i} />
+          <FeaturedCard
+            key={p.title}
+            project={p}
+            index={i}
+            onOpen={() => setSelected(p)}
+          />
         ))}
       </div>
 
-      {/* All */}
-      <ScrollReveal>
-        <h3 className="proj__label">{projectsConfig.categoryTitle}</h3>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="proj__filters">
+      <Reveal className="archive__head">
+        <h3 className="archive__title">{projectsConfig.categoryTitle}</h3>
+        <div className="archive__filters">
           {projectCategories.map(cat => (
             <button
               key={cat.id}
-              className={`proj__filter ${selectedCategory === cat.id ? 'proj__filter--active' : ''}`}
-              onClick={() => setSelectedCategory(cat.id)}
+              className={`archive__filter ${category === cat.id ? 'archive__filter--active' : ''}`}
+              onClick={() => {
+                setCategory(cat.id);
+                setVisibleCount(projectsConfig.pagination.initialCount);
+              }}
             >
-              {cat.label}
+              {category === cat.id && (
+                <motion.span
+                  layoutId="filter-pill"
+                  className="archive__filter-pill"
+                  transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                />
+              )}
+              <span className="archive__filter-label">{cat.label}</span>
             </button>
           ))}
         </div>
-      </ScrollReveal>
+      </Reveal>
 
-      <div className="proj__grid">
-        {visibleProjects.map((p, i) => (
-          <ProjectCard key={`${selectedCategory}-${i}`} project={p} index={i} />
-        ))}
-      </div>
+      <motion.div layout className="archive__grid">
+        <AnimatePresence mode="popLayout">
+          {visible.map(p => (
+            <motion.button
+              layout
+              key={p.title}
+              className="archive__card glass spotlight"
+              onMouseMove={spotlightHandler}
+              onClick={() => setSelected(p)}
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.94 }}
+              transition={{ duration: 0.35 }}
+            >
+              <div className="archive__thumb">
+                <img
+                  src={p.thumbnail}
+                  alt=""
+                  loading="lazy"
+                  onError={e => {
+                    e.currentTarget.src = FALLBACK_THUMB;
+                  }}
+                />
+              </div>
+              <div className="archive__body">
+                <h4>{p.title}</h4>
+                <p>{p.description}</p>
+              </div>
+            </motion.button>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
-      {filteredProjects.length === 0 && (
-        <div className="proj__empty glass">
-          <p>{projectsConfig.noProjectsFound.title}</p>
-          <span>{projectsConfig.noProjectsFound.description}</span>
-        </div>
+      {filtered.length === 0 && (
+        <p className="archive__empty">{projectsConfig.noProjectsFound.title}</p>
       )}
 
-      {hasMore && (
-        <div className="proj__more">
+      {visibleCount < filtered.length && (
+        <div className="archive__more">
           <button
-            className="btn-glass"
+            className="btn btn--ghost"
             onClick={() =>
-              setVisibleCount(
-                prev => prev + projectsConfig.pagination.loadMoreCount
-              )
+              setVisibleCount(c => c + projectsConfig.pagination.loadMoreCount)
             }
           >
             {projectsConfig.pagination.loadMoreText}
+            <span className="archive__remaining">
+              {filtered.length - visibleCount}
+            </span>
           </button>
-          <span className="proj__remaining">
-            {filteredProjects.length - visibleCount} more
-          </span>
         </div>
       )}
 
-      <ScrollReveal>
-        <div className="proj__stats glass">
-          <div className="proj__stat">
-            <span className="proj__stat-num">{projectsList.length}+</span>
-            <span className="proj__stat-lbl">Projects</span>
-          </div>
-          <div className="proj__stat">
-            <span className="proj__stat-num">{projectStats.categories}</span>
-            <span className="proj__stat-lbl">Categories</span>
-          </div>
-          <div className="proj__stat">
-            <span className="proj__stat-num">{projectStats.ideasBrewing}</span>
-            <span className="proj__stat-lbl">{projectStats.brewingLabel}</span>
-          </div>
-        </div>
-      </ScrollReveal>
+      <AnimatePresence>
+        {selected && (
+          <ProjectModal project={selected} onClose={() => setSelected(null)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 };

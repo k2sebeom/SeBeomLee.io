@@ -1,3 +1,5 @@
+import { contactEmail } from './contactData';
+
 export const portfolioIdentities = [
   'Solutions Architect',
   'AI/ML Enthusiast',
@@ -24,13 +26,13 @@ export const heroContent: HeroContent = {
   greeting: "Hello, I'm",
   name: 'SeBeom Lee',
   description:
-    'Solutions Architect at AWS with a passion for Physics, AI, and Game Development. I build innovative solutions that bridge the gap between cutting-edge technology and real-world applications.',
+    'Solutions Architect at AWS with a passion for AI, container orchestration, and accelerated computing. I love getting hands-on, building everything from PoCs and agentic systems to personal projects.',
   buttons: {
     primary: 'View My Work',
     secondary: 'Get in Touch',
   },
   contact: {
-    email: 'slee5@oberlin.edu',
+    email: contactEmail,
   },
   floatingElements: [],
   scrollText: 'scroll',

@@ -1,50 +1,107 @@
-import React from 'react';
-import { aboutMeData } from '../data/aboutData';
+import React, { useRef } from 'react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from 'motion/react';
+import { aboutMeData, aboutStats } from '../data/aboutData';
 import { skillGroups } from '../data/skillsData';
-import ScrollReveal from './ScrollReveal';
+import { spotlightHandler } from '../lib/spotlight';
+import Reveal from './Reveal';
+import CountUp from './CountUp';
+import SkillSphere from './SkillSphere';
 import './About.css';
 
+const Word: React.FC<{
+  word: string;
+  progress: MotionValue<number>;
+  range: [number, number];
+}> = ({ word, progress, range }) => {
+  const opacity = useTransform(progress, range, [0.15, 1]);
+  return (
+    <motion.span className="about__word" style={{ opacity }}>
+      {word}{' '}
+    </motion.span>
+  );
+};
+
 const About: React.FC = () => {
+  const statementRef = useRef<HTMLParagraphElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: statementRef,
+    offset: ['start 85%', 'end 45%'],
+  });
+  const words = aboutMeData.statement.split(' ');
+  const allSkills = skillGroups
+    .filter(g => g.category !== 'Languages' && g.category !== 'Certifications')
+    .flatMap(g => g.items);
+
   return (
     <section id="about" className="section about">
-      <ScrollReveal>
-        <div className="section-header">
-          <span className="section-number">// 01</span>
-          <h2 className="section-title">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <p className="section-subtitle">
-            Building bridges between cloud innovation and real-world impact.
-          </p>
+      <Reveal className="section-header">
+        <span className="section-eyebrow">01 · About</span>
+      </Reveal>
+
+      <p className="about__statement" ref={statementRef}>
+        {words.map((w, i) => (
+          <Word
+            key={i}
+            word={w}
+            progress={scrollYProgress}
+            range={[i / words.length, (i + 1) / words.length]}
+          />
+        ))}
+      </p>
+
+      <div className="about__grid">
+        <Reveal className="about__bio">
+          <p>{aboutMeData.bio}</p>
+        </Reveal>
+
+        <div className="about__stats">
+          {aboutStats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.08}>
+              <div
+                className="about__stat glass spotlight"
+                onMouseMove={spotlightHandler}
+              >
+                <span className="about__stat-num gradient-text">
+                  <CountUp value={s.value} suffix={s.suffix} />
+                </span>
+                <span className="about__stat-label">{s.label}</span>
+              </div>
+            </Reveal>
+          ))}
         </div>
-      </ScrollReveal>
+      </div>
 
-      <div className="about__bento">
-        <ScrollReveal direction="left" className="about__bio glass">
-          <div className="about__bio-inner">
-            <h3 className="about__bio-label">Who I Am</h3>
-            <p className="about__bio-text">{aboutMeData.statement}</p>
-            <div className="about__divider" />
-            <h3 className="about__bio-label">My Journey</h3>
-            <p className="about__bio-text">{aboutMeData.bio}</p>
-          </div>
-        </ScrollReveal>
+      <div className="about__skills">
+        <Reveal className="about__sphere-wrap">
+          <SkillSphere tags={allSkills} />
+          <span className="about__sphere-hint">drag to spin</span>
+        </Reveal>
 
-        <div className="about__skills">
+        <div className="about__groups">
           {skillGroups.map((group, i) => (
-            <ScrollReveal key={i} delay={i * 80} direction="scale">
-              <div className="about__skill glass-elevated">
-                <span className="about__skill-icon">{group.icon}</span>
-                <h4 className="about__skill-name">{group.category}</h4>
-                <div className="about__skill-tags">
-                  {group.items.map((s, si) => (
-                    <span key={si} className="tag-glass">
-                      {s}
+            <Reveal key={group.category} delay={i * 0.06}>
+              <div
+                className="about__group glass spotlight"
+                onMouseMove={spotlightHandler}
+              >
+                <div className="about__group-head">
+                  <span className="about__group-icon">{group.icon}</span>
+                  <h3>{group.category}</h3>
+                </div>
+                <div className="about__group-items">
+                  {group.items.map(item => (
+                    <span key={item} className="tag">
+                      {item}
                     </span>
                   ))}
                 </div>
               </div>
-            </ScrollReveal>
+            </Reveal>
           ))}
         </div>
       </div>

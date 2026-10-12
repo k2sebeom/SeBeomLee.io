@@ -19,12 +19,14 @@ interface FooterInfo {
   responseTime: string;
 }
 
+export const contactEmail = 'k2sebeom@gmail.com';
+
 export const contactMethods: ContactMethod[] = [
   {
     icon: '\u2709\uFE0F',
     title: 'Email',
-    value: 'slee5@oberlin.edu',
-    link: 'mailto:slee5@oberlin.edu',
+    value: contactEmail,
+    link: `mailto:${contactEmail}`,
     description: 'Primary communication channel',
   },
   {
@@ -57,21 +59,21 @@ export const serviceHighlights: ServiceHighlight[] = [
   },
   {
     icon: '\uD83E\uDD16',
-    text: 'AI/ML Implementation & Strategy',
+    text: 'Agentic AI & LLM Systems',
   },
   {
-    icon: '\u269B\uFE0F',
-    text: 'Physics-Based Computational Solutions',
+    icon: '\uD83D\uDC33',
+    text: 'Container Orchestration on Kubernetes',
   },
   {
-    icon: '\uD83C\uDFAE',
-    text: 'Game Development & Interactive Experiences',
+    icon: '\u26A1',
+    text: 'Accelerated Computing & GPU Inference',
   },
 ];
 
 export const contactIntro = {
   title: 'Let\u2019s Work Together',
-  text: "Whether you're looking to build the next breakthrough AI application, architect scalable cloud solutions, or explore the intersection of physics and technology, I'm here to help turn your vision into reality.",
+  text: "Whether you're building agentic AI applications, scaling containerized platforms, or serving large models on GPUs, I'd love to get hands-on and build it with you.",
 };
 
 export const footerInfo: FooterInfo = {
