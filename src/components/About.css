@@ -8,11 +8,8 @@
   margin-bottom: 80px;
 }
 
-.about__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 48px;
-  align-items: start;
+.about__bio {
+  max-width: 860px;
   margin-bottom: 120px;
 }
 
@@ -20,35 +17,6 @@
   font-size: 1.12rem;
   line-height: 1.8;
   color: var(--text-secondary);
-}
-
-.about__stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.about__stat {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 26px;
-  border-radius: var(--radius-md);
-  height: 100%;
-}
-
-.about__stat-num {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.about__stat-label {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
 }
 
 .about__skills {
@@ -146,14 +114,12 @@
 }
 
 @media (max-width: 960px) {
-  .about__grid,
   .about__skills {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 560px) {
-  .about__stats,
   .about__groups {
     grid-template-columns: 1fr;
   }
@@ -162,7 +128,7 @@
     margin-bottom: 56px;
   }
 
-  .about__grid {
+  .about__bio {
     margin-bottom: 80px;
   }
 }

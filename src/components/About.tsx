@@ -5,11 +5,10 @@ import {
   useTransform,
   type MotionValue,
 } from 'motion/react';
-import { aboutMeData, aboutStats } from '../data/aboutData';
+import { aboutMeData } from '../data/aboutData';
 import { skillGroups } from '../data/skillsData';
 import { spotlightHandler } from '../lib/spotlight';
 import Reveal from './Reveal';
-import CountUp from './CountUp';
 import SkillSphere from './SkillSphere';
 import './About.css';
 
@@ -54,27 +53,9 @@ const About: React.FC = () => {
         ))}
       </p>
 
-      <div className="about__grid">
-        <Reveal className="about__bio">
-          <p>{aboutMeData.bio}</p>
-        </Reveal>
-
-        <div className="about__stats">
-          {aboutStats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.08}>
-              <div
-                className="about__stat glass spotlight"
-                onMouseMove={spotlightHandler}
-              >
-                <span className="about__stat-num gradient-text">
-                  <CountUp value={s.value} suffix={s.suffix} />
-                </span>
-                <span className="about__stat-label">{s.label}</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
+      <Reveal className="about__bio">
+        <p>{aboutMeData.bio}</p>
+      </Reveal>
 
       <div className="about__skills">
         <Reveal className="about__sphere-wrap">
