@@ -59,6 +59,10 @@
 .hero__char {
   display: inline-block;
   will-change: transform;
+  /* Negative letter-spacing makes glyphs overhang their box, and
+     background-clip: text won't paint past it; pad then pull back. */
+  padding-right: 0.08em;
+  margin-right: -0.08em;
 }
 
 .hero__identity {
