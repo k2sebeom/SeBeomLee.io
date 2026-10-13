@@ -26,7 +26,7 @@ export const workList: WorkInfo[] = [
   {
     company: 'Curv Company Inc. (acquired by GC Holdings)',
     position: 'Lead Backend Developer',
-    icon: '',
+    icon: './work/curv.jpeg',
     date: 'Mar 2021 - Dec 2024',
     color: '#FFF',
     description:
