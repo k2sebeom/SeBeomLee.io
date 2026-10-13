@@ -1,5 +1,13 @@
+import type { ComponentType } from 'react';
+import { Bot, Cloud, Container, Globe, Mail, Zap } from 'lucide-react';
+import {
+  GithubIcon,
+  LinkedinIcon,
+  type IconProps,
+} from '../components/BrandIcons';
+
 interface ContactMethod {
-  icon: string;
+  icon: ComponentType<IconProps>;
   title: string;
   value: string;
   link: string;
@@ -7,7 +15,7 @@ interface ContactMethod {
 }
 
 interface ServiceHighlight {
-  icon: string;
+  icon: ComponentType<IconProps>;
   text: string;
 }
 
@@ -23,28 +31,28 @@ export const contactEmail = 'k2sebeom@gmail.com';
 
 export const contactMethods: ContactMethod[] = [
   {
-    icon: '\u2709\uFE0F',
+    icon: Mail,
     title: 'Email',
     value: contactEmail,
     link: `mailto:${contactEmail}`,
     description: 'Primary communication channel',
   },
   {
-    icon: '\uD83D\uDCBC',
+    icon: LinkedinIcon,
     title: 'LinkedIn',
     value: 'Connect with me',
     link: 'https://linkedin.com/in/sebeom-lee',
     description: 'Professional networking',
   },
   {
-    icon: '\uD83D\uDC19',
+    icon: GithubIcon,
     title: 'GitHub',
     value: 'k2sebeom',
     link: 'https://github.com/k2sebeom',
     description: 'Code repositories & projects',
   },
   {
-    icon: '\uD83C\uDF10',
+    icon: Globe,
     title: 'Portfolio',
     value: 'sebeomlee.com',
     link: 'https://sebeomlee.com',
@@ -54,19 +62,19 @@ export const contactMethods: ContactMethod[] = [
 
 export const serviceHighlights: ServiceHighlight[] = [
   {
-    icon: '\u2601\uFE0F',
+    icon: Cloud,
     text: 'Cloud Architecture & AWS Solutions',
   },
   {
-    icon: '\uD83E\uDD16',
+    icon: Bot,
     text: 'Agentic AI & LLM Systems',
   },
   {
-    icon: '\uD83D\uDC33',
+    icon: Container,
     text: 'Container Orchestration on Kubernetes',
   },
   {
-    icon: '\u26A1',
+    icon: Zap,
     text: 'Accelerated Computing & GPU Inference',
   },
 ];

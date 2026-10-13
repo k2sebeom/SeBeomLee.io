@@ -71,7 +71,9 @@ const About: React.FC = () => {
                 onMouseMove={spotlightHandler}
               >
                 <div className="about__group-head">
-                  <span className="about__group-icon">{group.icon}</span>
+                  <span className="about__group-icon">
+                    <group.icon size={18} />
+                  </span>
                   <h3>{group.category}</h3>
                 </div>
                 <div className="about__group-items">

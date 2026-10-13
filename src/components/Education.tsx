@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trophy } from 'lucide-react';
 import { educationList, getDegreeIcon } from '../data/educationData';
 import { spotlightHandler } from '../lib/spotlight';
 import Reveal from './Reveal';
@@ -40,19 +41,22 @@ const Education: React.FC = () => (
             </header>
 
             <ul className="edu__degrees">
-              {edu.degrees.map(deg => (
-                <li key={deg} className="edu__degree">
-                  <span aria-hidden>{getDegreeIcon(deg)}</span>
-                  {deg}
-                </li>
-              ))}
+              {edu.degrees.map(deg => {
+                const DegreeIcon = getDegreeIcon(deg);
+                return (
+                  <li key={deg} className="edu__degree">
+                    <DegreeIcon size={18} className="edu__icon" />
+                    {deg}
+                  </li>
+                );
+              })}
             </ul>
 
             {edu.honors && (
               <ul className="edu__honors">
                 {edu.honors.map(honor => (
                   <li key={honor} className="edu__honor">
-                    <span aria-hidden>🏆</span>
+                    <Trophy size={16} className="edu__icon" />
                     {honor}
                   </li>
                 ))}

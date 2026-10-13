@@ -1,7 +1,17 @@
+import {
+  Award,
+  BrainCircuit,
+  Cloud,
+  CodeXml,
+  Languages,
+  Waves,
+  type LucideIcon,
+} from 'lucide-react';
+
 interface SkillGroup {
   category: string;
   items: string[];
-  icon: string;
+  icon: LucideIcon;
 }
 
 export const skillGroups: SkillGroup[] = [
@@ -16,7 +26,7 @@ export const skillGroups: SkillGroup[] = [
       'LLM Serving',
       'Federated Learning',
     ],
-    icon: '🤖',
+    icon: BrainCircuit,
   },
   {
     category: 'Cloud & Infrastructure',
@@ -29,26 +39,26 @@ export const skillGroups: SkillGroup[] = [
       'Terraform',
       'Argo CD',
     ],
-    icon: '☁️',
+    icon: Cloud,
   },
   {
     category: 'Data & Streaming',
     items: ['Kafka', 'Flink', 'Iceberg', 'Trino', 'Amazon S3', 'MQTT'],
-    icon: '🌊',
+    icon: Waves,
   },
   {
     category: 'Programming',
     items: ['Python', 'Java', 'TypeScript/Node.js', 'Go', 'C++', 'C#'],
-    icon: '💻',
+    icon: CodeXml,
   },
   {
     category: 'Certifications',
     items: ['AWS Certified Solutions Architect - Professional'],
-    icon: '🏅',
+    icon: Award,
   },
   {
     category: 'Languages',
     items: ['Korean (Native)', 'English (Professional)'],
-    icon: '🌐',
+    icon: Languages,
   },
 ];

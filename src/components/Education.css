@@ -96,6 +96,16 @@
   font-weight: 500;
 }
 
+.edu__icon {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.edu__honor .edu__icon {
+  margin-top: 3px;
+  color: inherit;
+}
+
 .edu__honors {
   margin-top: 20px;
 }

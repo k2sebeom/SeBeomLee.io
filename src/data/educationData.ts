@@ -1,3 +1,11 @@
+import {
+  Atom,
+  CodeXml,
+  GraduationCap,
+  Sigma,
+  type LucideIcon,
+} from 'lucide-react';
+
 export interface EducationInfo {
   title: string;
   date?: string;
@@ -31,16 +39,9 @@ export const educationList: EducationInfo[] = [
   },
 ];
 
-const degreeIcons = {
-  computerScience: '💻',
-  physics: '⚛️',
-  mathematics: '📐',
-  default: '🎓',
-};
-
-export const getDegreeIcon = (degree: string): string => {
-  if (degree.includes('Computer Science')) return degreeIcons.computerScience;
-  if (degree.includes('Physics')) return degreeIcons.physics;
-  if (degree.includes('Mathematics')) return degreeIcons.mathematics;
-  return degreeIcons.default;
+export const getDegreeIcon = (degree: string): LucideIcon => {
+  if (degree.includes('Computer Science')) return CodeXml;
+  if (degree.includes('Physics')) return Atom;
+  if (degree.includes('Mathematics')) return Sigma;
+  return GraduationCap;
 };

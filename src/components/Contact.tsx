@@ -35,7 +35,7 @@ const Contact: React.FC = () => (
     <Reveal className="contact__highlights" delay={0.1}>
       {serviceHighlights.map(h => (
         <span key={h.text} className="contact__highlight">
-          <span aria-hidden>{h.icon}</span>
+          <h.icon size={16} className="contact__highlight-icon" />
           {h.text}
         </span>
       ))}
@@ -50,7 +50,7 @@ const Contact: React.FC = () => (
           rel="noopener noreferrer"
           className="contact__method glass"
         >
-          <span className="contact__method-icon">{method.icon}</span>
+          <method.icon size={22} className="contact__method-icon" />
           <span className="contact__method-info">
             <span className="contact__method-title">{method.title}</span>
             <span className="contact__method-value">{method.value}</span>

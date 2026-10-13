@@ -117,8 +117,10 @@
   transform: translateY(-4px);
 }
 
+.contact__highlight-icon,
 .contact__method-icon {
-  font-size: 1.4rem;
+  flex-shrink: 0;
+  color: var(--accent);
 }
 
 .contact__method-info {

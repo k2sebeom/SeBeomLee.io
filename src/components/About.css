@@ -103,6 +103,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
+  color: var(--accent);
   background: rgba(74, 222, 128, 0.1);
   border: 1px solid rgba(74, 222, 128, 0.2);
 }
