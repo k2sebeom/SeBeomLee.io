@@ -53,20 +53,15 @@ The development server will be available at `http://localhost:5173`
 ## 🏗️ Project Structure
 
 ```
+public/                 # Static assets (images, PDFs, icons)
 src/
-├── components/         # Reusable React components
-│   ├── Header/        # Navigation and header components
-│   ├── About/         # About section components
-│   ├── Projects/      # Project showcase components
-│   └── ...           # Other feature components
-├── data/              # Content data files
-│   ├── projects.ts    # Project information
-│   ├── experience.ts  # Work experience data
-│   ├── skills.ts      # Skills and technologies
-│   └── ...           # Other content data
-├── App.tsx            # Main application component
-├── main.tsx           # Application entry point
-└── *.css             # Styling files
+├── components/         # Page sections (Hero, About, Experience, ...) and shared UI
+├── data/               # Portfolio content (projects, work, skills, education, contact)
+├── lib/                # Smooth scrolling and spotlight hover helpers
+├── three/              # three.js background scene
+├── App.tsx             # Main application component
+├── main.tsx            # Application entry point
+└── *.css               # Global styles
 ```
 
 ## 🎨 Design Philosophy
@@ -90,6 +85,8 @@ This portfolio follows a **data-driven approach** where:
 
 - **Frontend**: React 19, TypeScript
 - **Build Tool**: Vite 7.0
+- **Animation & 3D**: Motion, three.js with React Three Fiber, Lenis smooth scrolling
+- **Icons**: Lucide, Font Awesome (brand logos)
 - **Styling**: CSS3 with modern features
 - **Code Quality**: ESLint, Prettier, TypeScript strict mode
 - **Deployment**: GitHub Pages with custom domain
@@ -97,10 +94,10 @@ This portfolio follows a **data-driven approach** where:
 
 ## 🚀 Deployment
 
-The site is automatically deployed to GitHub Pages:
+The site is deployed to GitHub Pages:
 
 - **Production URL**: [sebeomlee.com](https://sebeomlee.com)
-- **Deployment**: Automated via `yarn deploy` command
+- **Deployment**: `yarn deploy` builds the site and publishes `dist/` to the `gh-pages` branch
 - **Custom Domain**: Configured with CNAME for sebeomlee.com
 - **Build Output**: Static files generated in `dist/` directory
 

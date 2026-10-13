@@ -102,8 +102,10 @@ yarn preview
 
 ```
 src/
-├── components/     # Reusable React components
-├── data/          # Static data files
+├── components/     # Page sections and shared UI
+├── data/          # Portfolio content data files
+├── lib/           # Smooth scrolling and spotlight hover helpers
+├── three/         # three.js background scene
 ├── App.tsx        # Main application component
 ├── main.tsx       # Application entry point
 ├── App.css        # Main application styles
