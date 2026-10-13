@@ -8,32 +8,27 @@ export interface ProjectInfo {
 
 export const featuredProjects: ProjectInfo[] = [
   {
-    title: 'museLIVE',
+    title: 'LeTable - Learning to Clean Table',
     description:
-      'Developed an iOS application for virtual musical concerts and voice chatting using SwiftUI.',
-    thumbnail: './portfolio/muselive.png',
-    link: 'https://apps.apple.com/ca/app/muselive-virtual-concerts/id1564042040',
+      'A MuJoCo simulation of the SO-101 robot arm that generates LeRobot demonstration data to finetune NVIDIA Isaac GR00T, a VLA model for robot AI. The finetuned policy picks objects into a tray from wrist camera input, succeeding in 99/100 held-out tasks.',
+    thumbnail: './portfolio/letable.gif',
+    link: 'https://huggingface.co/1006labs/so101-table-clean-gr00t',
   },
   {
-    title: 'Geyser.AI',
+    title: 'balpyo',
     description:
-      'Geyser is a GPT powered assistant that recommends video games based on user preference synced from Steam account. Developed a web page using Next.js and a server using FastAPI.',
-    thumbnail: './portfolio/geyser.png',
-    link: 'https://youtu.be/8jqpWXnwXPs',
+      'balpyo renders slides written in SOML (Slide Oriented Markup Language) into both a self-contained web presentation and a native, editable PPTX. Layout is declared with flex and grid, and themes compile to both web CSS and PowerPoint themes. Built with Go.',
+    thumbnail:
+      'https://github.com/k2sebeom/balpyo/raw/main/examples/showcase/images/themes/balpyo-intro-01-aurora.png',
+    link: 'https://github.com/k2sebeom/balpyo',
   },
   {
-    title: 'Splux - Multiplayer Game',
+    title: 'Federated Learning with NVIDIA FLARE on Amazon EKS',
     description:
-      'Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.',
-    thumbnail: './portfolio/Splux.JPG',
-    link: 'https://www.crazygames.com/game/splux',
-  },
-  {
-    title: 'LEGO Combat Field',
-    description:
-      'A third person shooter game made with LEGO models. Has most of the feature available in any TPS games. Won the "Best Creator" award from Unity LEGO Microgame competition.',
-    thumbnail: './portfolio/LEGO.png',
-    link: 'https://play.unity.com/mg/lego/lego-combat-field',
+      'An AWS Tech Blog post on running federated learning with NVIDIA FLARE on Amazon EKS. Federated learning trains machine learning models across organizations without moving sensitive data out of each site.',
+    thumbnail:
+      'https://d2908q01vomqb2.cloudfront.net/2a459380709e2fe4ac2dae5733c73225ff6cfee1/2026/09/17/architecture-1.png',
+    link: 'https://aws.amazon.com/ko/blogs/tech/federated-learning-in-action-with-nvidia-flare-on-amazon-eks/',
   },
   {
     title: '2D Motion Capture',
@@ -49,9 +44,52 @@ export const featuredProjects: ProjectInfo[] = [
     thumbnail: './portfolio/AutoBin.jpg',
     link: 'https://www.youtube.com/watch?v=9VwjptOWMng&t',
   },
+  {
+    title: 'Splux - Multiplayer Game',
+    description:
+      'Splux is a multiplayer game in which four players battle with each other using blocks of different shapes.',
+    thumbnail: './portfolio/Splux.JPG',
+    link: 'https://www.crazygames.com/game/splux',
+  },
 ];
 
 export const projectsList: ProjectInfo[] = [
+  {
+    title: 'PixaaC - Pixel Art as a Code',
+    description:
+      'PixaaC is a Python library for defining pixel art as code. Compose reusable parts, generate palette variants, animate layers, and export PNGs, GIFs, and sprite sheets for your game or app.',
+    thumbnail:
+      'https://github.com/k2sebeom/pixaac/raw/main/assets/moonlit_market/showcase/shop.gif',
+    link: 'https://github.com/k2sebeom/pixaac',
+  },
+  {
+    title: 'Tech Agora',
+    description:
+      'Tech Agora is a Korean YouTube channel on computer science and software engineering, covering topics such as React internals, distributed databases, shortest path algorithms, OS kernels in Rust, and large language models.',
+    thumbnail: './portfolio/agora.png',
+    link: 'https://www.youtube.com/@TechAgora2025',
+  },
+  {
+    title: 'museLIVE',
+    description:
+      'Developed an iOS application for virtual musical concerts and voice chatting using SwiftUI.',
+    thumbnail: './portfolio/muselive.png',
+    link: 'https://apps.apple.com/ca/app/muselive-virtual-concerts/id1564042040',
+  },
+  {
+    title: 'Geyser.AI',
+    description:
+      'Geyser is a GPT powered assistant that recommends video games based on user preference synced from Steam account. Developed a web page using Next.js and a server using FastAPI.',
+    thumbnail: './portfolio/geyser.png',
+    link: 'https://youtu.be/8jqpWXnwXPs',
+  },
+  {
+    title: 'LEGO Combat Field',
+    description:
+      'A third person shooter game made with LEGO models. Has most of the feature available in any TPS games. Won the "Best Creator" award from Unity LEGO Microgame competition.',
+    thumbnail: './portfolio/LEGO.png',
+    link: 'https://play.unity.com/mg/lego/lego-combat-field',
+  },
   {
     title: 'Desktop Idle Tree',
     description:
