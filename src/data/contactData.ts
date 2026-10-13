@@ -11,7 +11,6 @@ interface ContactMethod {
   title: string;
   value: string;
   link: string;
-  description: string;
 }
 
 interface ServiceHighlight {
@@ -24,7 +23,6 @@ interface FooterInfo {
   author: string;
   location: string;
   availability: string;
-  responseTime: string;
 }
 
 export const contactEmail = 'k2sebeom@gmail.com';
@@ -35,28 +33,24 @@ export const contactMethods: ContactMethod[] = [
     title: 'Email',
     value: contactEmail,
     link: `mailto:${contactEmail}`,
-    description: 'Primary communication channel',
   },
   {
     icon: LinkedinIcon,
     title: 'LinkedIn',
     value: 'Connect with me',
     link: 'https://linkedin.com/in/sebeom-lee',
-    description: 'Professional networking',
   },
   {
     icon: GithubIcon,
     title: 'GitHub',
     value: 'k2sebeom',
     link: 'https://github.com/k2sebeom',
-    description: 'Code repositories & projects',
   },
   {
     icon: Globe,
     title: 'Portfolio',
     value: 'sebeomlee.com',
     link: 'https://sebeomlee.com',
-    description: 'Personal website',
   },
 ];
 
@@ -90,5 +84,4 @@ export const footerInfo: FooterInfo = {
   author: 'Werner Heisenberg',
   location: 'Based in Seoul, South Korea',
   availability: 'Available for collaboration across Asia-Pacific and beyond',
-  responseTime: 'Response time: Usually within 24 hours',
 };
